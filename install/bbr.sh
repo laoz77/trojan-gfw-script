@@ -89,6 +89,8 @@ vm.overcommit_memory = 1
 kernel.pid_max=64000
 net.netfilter.nf_conntrack_max = 1000000
 net.nf_conntrack_max = 1000000
+net.netfilter.nf_conntrack_tcp_timeout_fin_wait = 60
+net.netfilter.nf_conntrack_tcp_timeout_time_wait = 60
 ## Enable bbr
 net.core.default_qdisc = fq
 net.ipv4.tcp_congestion_control = bbr

@@ -87,8 +87,8 @@ net.ipv4.tcp_retries2 = 5
 vm.swappiness = 1
 vm.overcommit_memory = 1
 kernel.pid_max=64000
-net.netfilter.nf_conntrack_max = 262144
-net.nf_conntrack_max = 262144
+net.netfilter.nf_conntrack_max = 1000000
+net.nf_conntrack_max = 1000000
 ## Enable bbr
 net.core.default_qdisc = fq
 net.ipv4.tcp_congestion_control = bbr

@@ -87,6 +87,7 @@ net.ipv4.tcp_retries2 = 5
 vm.swappiness = 1
 vm.overcommit_memory = 1
 kernel.pid_max=64000
+net.netfilter.nf_conntrack_buckets = 262144
 net.netfilter.nf_conntrack_max = 1000000
 net.nf_conntrack_max = 1000000
 net.netfilter.nf_conntrack_tcp_timeout_fin_wait = 60

@@ -79,7 +79,6 @@ echo "        return 200 '$file_content';" >> /etc/nginx/conf.d/verify.conf
 echo "    }" >> /etc/nginx/conf.d/verify.conf
 echo "}" >> /etc/nginx/conf.d/verify.conf
 
-nginx -t
 nginx -s reload
 EOF
 

@@ -96,6 +96,15 @@ chmod +x /var/local/zerossl/post-hook.sh
 
 /var/local/zerossl/zerossl-ip-cert-linux-amd64/zerossl-ip-cert -config /var/local/zerossl/zerossl-ip-cert-linux-amd64/config.yml
 
+  if [[ -f /etc/certs/${domain}_ecc/fullchain.cer ]] && [[ -f /etc/certs/${domain}_ecc/${domain}.key ]]; then
+    :
+    else
+    colorEcho ${ERROR} "请访问 https://app.zerossl.com/developer 检查api是否正确"
+    exit 1
+  fi
+  chmod +r /etc/certs/${domain}_ecc/fullchain.cer
+  chmod +r /etc/certs/${domain}_ecc/${domain}.key
+
 crontab -l > mycron
 echo "0 0 * * * /var/local/zerossl/zerossl-ip-cert-linux-amd64/zerossl-ip-cert -renew -config /var/local/zerossl/zerossl-ip-cert-linux-amd64/config.yml" >> mycron
 crontab mycron

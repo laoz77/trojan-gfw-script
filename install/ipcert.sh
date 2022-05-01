@@ -91,6 +91,7 @@ EOF
 systemctl restart trojan postfix dovecot nginx || true
 EOF
 
+chmod +x /var/local/zerossl/zerossl-ip-cert-linux-amd64/zerossl-ip-cert
 chmod +x /var/local/zerossl/verify-hook.sh
 chmod +x /var/local/zerossl/post-hook.sh
 

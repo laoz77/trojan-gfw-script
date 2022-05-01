@@ -18,7 +18,7 @@ if [[ -f /etc/certs/${domain}_ecc/fullchain.cer ]] && [[ -f /etc/certs/${domain}
         if [[ $? != 0 ]]; then
         colorEcho ${INFO} "CRON(证书续签模块)缺失,添加中..."
         crontab -l > mycron
-        echo "0 0 * * 0 /root/.acme.sh/acme.sh --cron --cert-home /etc/certs --reloadcmd 'systemctl reload trojan postfix dovecot nginx || true' &> /root/.trojan/letcron.log 2>&1" >> mycron
+        echo "0 0 * * 0 /root/.acme.sh/acme.sh --server letsencrypt --cron --cert-home /etc/certs --reloadcmd 'systemctl reload trojan postfix dovecot nginx || true' &> /root/.trojan/letcron.log 2>&1" >> mycron
         crontab mycron
         rm mycron        
     fi

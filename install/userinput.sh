@@ -46,6 +46,7 @@ userinput_standard() {
   "grpc" "Vless+gRPC(支持CDN)" on \
   "alist" "alist网盘管理器" on \
   "speed" "Speedtest(测试本地网络到VPS的延迟及带宽)" ${check_speed} \
+  "ip" "免费ip证书" on \
   "port" "自定义Trojan-GFW/Vless(grpc)端口" off \
   "hexo" "Hexo Blog" off \
   "ss" "shadowsocks-rust(不支持CDN)" ${check_ss} \
@@ -67,6 +68,10 @@ userinput_standard() {
     alist)
       install_hexo=0
       install_alist=1
+      ;;
+    ip)
+      ipissue=1
+      domain=${myip}
       ;;
     hexo)
       install_hexo=1
@@ -113,6 +118,12 @@ userinput_standard() {
 
   rm results
 
+  if [[ ${ipissue} == 1 ]]; then
+    while [[ -z ${zerossl_api} ]]; do
+      zerossl_api=$(whiptail --inputbox --nocancel "请输入你的zerossl api https://app.zerossl.com/developer" 8 68 --title "Domain input" 3>&1 1>&2 2>&3)
+    done
+  fi
+
   if [[ ${install_hexo} == 1 ]] && [[ ${install_alist} == 1 ]]; then
     install_hexo=0
     install_alist=1
@@ -137,7 +148,7 @@ userinput_standard() {
   #echo "$(jq -r '.ip' "/root/.trojan/ip.json") ${domain}" >> /etc/hosts
   if [[ ${install_trojan} = 1 ]]; then
     while [[ -z ${password1} ]]; do
-      password1=$(whiptail --passwordbox --nocancel "VPSToolBox系统主密码 (***请勿添加特殊符号***)" 8 68 --title "password1 input" 3>&1 1>&2 2>&3)
+      password1=$(whiptail --inputbox --nocancel "VPSToolBox系统主密码 (***请勿添加特殊符号***)" 8 68 --title "password1 input" 3>&1 1>&2 2>&3)
       if [[ -z ${password1} ]]; then
         password1=$(
           head /dev/urandom | tr -dc a-z0-9 | head -c 6

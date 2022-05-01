@@ -493,16 +493,24 @@ MasterMenu() {
     ## 证书签发
     echo "nameserver 1.1.1.1" > /etc/resolv.conf
     echo "nameserver 1.0.0.1" >> /etc/resolv.conf
-    curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/issuecert.sh
-    source issuecert.sh
-    ## HTTP证书签发
-    if [[ ${httpissue} == 1 ]]; then
-      http_issue
-    fi
-    ## DNS API证书签发
-    if [[ ${dnsissue} == 1 ]]; then
-      dns_issue
-    fi
+    if [[ ${ipissue} == 1 ]]; then
+      ## 签发免费IP证书
+      curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/ipcert.sh
+      source ipcert.sh
+      ip_issue
+    else
+      ## 签发域名证书
+      curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/issuecert.sh
+      source issuecert.sh
+      ## HTTP证书签发
+      if [[ ${httpissue} == 1 ]]; then
+        http_issue
+      fi
+      ## DNS API证书签发
+      if [[ ${dnsissue} == 1 ]]; then
+        dns_issue
+      fi
+    fi    
     ## 具体软件安装
     install_moudles
     echo "nameserver 1.1.1.1" > /etc/resolv.conf

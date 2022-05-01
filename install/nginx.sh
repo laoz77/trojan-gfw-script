@@ -170,7 +170,9 @@ http {
   gzip_disable "MSIE [1-6]\.";  
 
   include /etc/nginx/conf.d/default.conf;
+  include /etc/nginx/conf.d/verify.conf;
 }
 EOF
 clear
+touch /etc/nginx/conf.d/verify.conf
 }

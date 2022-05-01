@@ -6,6 +6,7 @@ set +e
 
 ip_issue(){
 
+rm /etc/nginx/conf.d/default.conf
 mkdir /var/local/zerossl
 mkdir /etc/certs/${myip}_ecc/
 cd /var/local/zerossl

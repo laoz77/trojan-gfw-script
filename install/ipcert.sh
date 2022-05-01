@@ -86,8 +86,6 @@ EOF
   cat > '/var/local/zerossl/post-hook.sh' << "EOF"
 #!/usr/bin/env bash
 
-nginx -t
-nginx -s reload
 systemctl restart trojan postfix dovecot nginx || true
 EOF
 

@@ -72,8 +72,8 @@ file_content=$(echo "$ZEROSSL_HTTP_FV_CONTENT" | tr -d '\r' | awk '{printf "%s\\
 echo "file_content: $file_content"
 
 echo "server {" > /etc/nginx/conf.d/verify.conf
-echo "    listen 80 fastopen=20 reuseport;" >> /etc/nginx/conf.d/verify.conf
-echo "    listen [::]:80 fastopen=20 reuseport;" >> /etc/nginx/conf.d/verify.conf
+echo "    listen 80 fastopen=20 reuseport default_server;" >> /etc/nginx/conf.d/verify.conf
+echo "    listen [::]:80 fastopen=20 reuseport default_server;" >> /etc/nginx/conf.d/verify.conf
 echo "    location $ZEROSSL_HTTP_FV_PATH {" >> /etc/nginx/conf.d/verify.conf
 echo "        return 200 '$file_content';" >> /etc/nginx/conf.d/verify.conf
 echo "    }" >> /etc/nginx/conf.d/verify.conf

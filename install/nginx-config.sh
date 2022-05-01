@@ -491,11 +491,16 @@ echo "        }" >> /etc/nginx/conf.d/default.conf
 fi
 echo "}" >> /etc/nginx/conf.d/default.conf
 echo "" >> /etc/nginx/conf.d/default.conf
+
+if [[ ${ipissue} == 1 ]]; then
+echo good
+else
 echo "server {" >> /etc/nginx/conf.d/default.conf
-echo "    listen 80 fastopen=20 reuseport;" >> /etc/nginx/conf.d/default.conf
-echo "    listen [::]:80 fastopen=20 reuseport;" >> /etc/nginx/conf.d/default.conf
+echo "    listen 80 fastopen=20 reuseport default_server;" >> /etc/nginx/conf.d/default.conf
+echo "    listen [::]:80 fastopen=20 reuseport default_server;" >> /etc/nginx/conf.d/default.conf
 echo "    return 301 https://\$host\$request_uri;" >> /etc/nginx/conf.d/default.conf
 echo "}" >> /etc/nginx/conf.d/default.conf
+fi
 echo "" >> /etc/nginx/conf.d/default.conf
 if [[ $install_netdata == 1 ]]; then
 echo "server { #For Netdata only !" >> /etc/nginx/conf.d/default.conf

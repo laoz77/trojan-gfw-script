@@ -18,7 +18,6 @@ TERM=ansi whiptail --title "安装中" --infobox "配置NGINX中..." 7 68
   colorEcho ${INFO} "配置(configing) nginx"
 rm -rf /etc/nginx/sites-available/*
 rm -rf /etc/nginx/sites-enabled/*
-rm -rf /etc/nginx/conf.d/*
 touch /etc/nginx/conf.d/verify.conf
 touch /etc/nginx/conf.d/default.conf
   cat > '/etc/nginx/conf.d/default.conf' << EOF
@@ -494,16 +493,7 @@ echo "}" >> /etc/nginx/conf.d/default.conf
 echo "" >> /etc/nginx/conf.d/default.conf
 
 if [[ ${ipissue} == 1 ]]; then
-echo "server {" > /etc/nginx/conf.d/verify.conf
-echo "    listen 80 fastopen=20 reuseport default_server;" >> /etc/nginx/conf.d/verify.conf
-echo "    listen [::]:80 fastopen=20 reuseport default_server;" >> /etc/nginx/conf.d/verify.conf
-echo "    location $ZEROSSL_HTTP_FV_PATH {" >> /etc/nginx/conf.d/verify.conf
-echo "        return 200 '$file_content';" >> /etc/nginx/conf.d/verify.conf
-echo "    }" >> /etc/nginx/conf.d/verify.conf
-echo "    location / {" >> /etc/nginx/conf.d/verify.conf
-echo "    return 301 https://\$host\$request_uri;" >> /etc/nginx/conf.d/verify.conf
-echo "    }" >> /etc/nginx/conf.d/verify.conf
-echo "}" >> /etc/nginx/conf.d/verify.conf
+echo good
 else
 echo "server {" >> /etc/nginx/conf.d/default.conf
 echo "    listen 80 fastopen=20 reuseport default_server;" >> /etc/nginx/conf.d/default.conf

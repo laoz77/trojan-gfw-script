@@ -75,7 +75,7 @@ systemctl enable trojan
         "session_ticket": false,
         "session_timeout": 600,
         "plain_http_response": "",
-        "curves": "",
+        "curves": "x25519",
         "dhparam": ""
     },
     "tcp": {
@@ -150,7 +150,7 @@ systemctl enable trojan
         "session_ticket": false,
         "session_timeout": 600,
         "plain_http_response": "",
-        "curves": "",
+        "curves": "x25519",
         "dhparam": ""
     },
     "tcp": {

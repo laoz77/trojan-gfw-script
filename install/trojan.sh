@@ -84,7 +84,7 @@ systemctl enable trojan
         "keep_alive": true,
         "reuse_port": true,
         "fast_open": true,
-        "fast_open_qlen": 20
+        "fast_open_qlen": 512
     },
     "mysql": {
         "enabled": false,
@@ -159,7 +159,7 @@ systemctl enable trojan
         "keep_alive": true,
         "reuse_port": true,
         "fast_open": true,
-        "fast_open_qlen": 20
+        "fast_open_qlen": 512
     },
     "mysql": {
         "enabled": false,

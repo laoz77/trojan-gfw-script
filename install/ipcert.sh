@@ -78,7 +78,7 @@ echo "    location $ZEROSSL_HTTP_FV_PATH {" >> /etc/nginx/conf.d/verify.conf
 echo "        return 200 '$file_content';" >> /etc/nginx/conf.d/verify.conf
 echo "    }" >> /etc/nginx/conf.d/verify.conf
 echo "    location / {" >> /etc/nginx/conf.d/verify.conf
-echo "    return 301 https://\$host\$request_uri;" >> /etc/nginx/conf.d/default.conf
+echo "    return 301 https://\$host\$request_uri;" >> /etc/nginx/conf.d/verify.conf
 echo "    }" >> /etc/nginx/conf.d/verify.conf
 echo "}" >> /etc/nginx/conf.d/verify.conf
 

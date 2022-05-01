@@ -431,7 +431,7 @@ install_moudles(){
   install_hexo
   curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/nodejs.sh
   source nodejs.sh
-  install_nodejs  
+  install_nodejs
   fi
   if [[ ${install_alist} == 1 ]]; then
   curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/alist.sh

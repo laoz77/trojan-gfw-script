@@ -18,7 +18,7 @@ TERM=ansi whiptail --title "安装中" --infobox "配置NGINX中..." 7 68
   colorEcho ${INFO} "配置(configing) nginx"
 rm -rf /etc/nginx/sites-available/*
 rm -rf /etc/nginx/sites-enabled/*
-rm -rf /etc/nginx/conf.d/*(verify.conf)
+rm -rf /etc/nginx/conf.d/*
 touch /etc/nginx/conf.d/default.conf
   cat > '/etc/nginx/conf.d/default.conf' << EOF
 server {

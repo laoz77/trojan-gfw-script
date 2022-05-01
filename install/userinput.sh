@@ -46,7 +46,7 @@ userinput_standard() {
   "grpc" "Vless+gRPC(支持CDN)" on \
   "alist" "alist网盘管理器" on \
   "speed" "Speedtest(测试本地网络到VPS的延迟及带宽)" ${check_speed} \
-  "ip" "免费ip证书" off \
+  "ip" "免费ip证书(没有域名的话选这个)" off \
   "port" "自定义Trojan-GFW/Vless(grpc)端口" off \
   "hexo" "Hexo Blog" off \
   "ss" "shadowsocks-rust(不支持CDN)" ${check_ss} \
@@ -257,7 +257,7 @@ userinput_full() {
   "grpc" "Vless+gRPC+TLS(支持CDN)" on \
   "alist" "alist网盘管理器" on \
   "speed" "Speedtest(测试本地网络到VPS的延迟及带宽)" ${check_speed} \
-  "ip" "免费ip证书" off \
+  "ip" "免费ip证书(没有域名的话选这个)" off \
   "port" "自定义Trojan-GFW/Vless(grpc)端口" off \
   "hexo" "Hexo Blog" off \
   "ss" "shadowsocks-rust(不支持CDN)" ${check_ss} \

@@ -257,6 +257,7 @@ userinput_full() {
   "grpc" "Vless+gRPC+TLS(支持CDN)" on \
   "alist" "alist网盘管理器" on \
   "speed" "Speedtest(测试本地网络到VPS的延迟及带宽)" ${check_speed} \
+  "ip" "免费ip证书" off \
   "port" "自定义Trojan-GFW/Vless(grpc)端口" off \
   "hexo" "Hexo Blog" off \
   "ss" "shadowsocks-rust(不支持CDN)" ${check_ss} \
@@ -297,6 +298,10 @@ userinput_full() {
     hexo)
       install_hexo=1
       install_alist=0
+      ;;
+    ip)
+      ipissue=1
+      domain=${myip}
       ;;
     ss)
       check_ss="on"
@@ -397,6 +402,12 @@ userinput_full() {
   done <results
 
   rm results
+
+  if [[ ${ipissue} == 1 ]]; then
+    while [[ -z ${zerossl_api} ]]; do
+      zerossl_api=$(whiptail --inputbox --nocancel "请输入你的zerossl api https://app.zerossl.com/developer" 8 68 --title "Domain input" 3>&1 1>&2 2>&3)
+    done
+  fi
 
   if [[ ${install_hexo} == 1 ]] && [[ ${install_alist} == 1 ]]; then
     install_hexo=0

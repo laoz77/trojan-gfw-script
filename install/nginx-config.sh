@@ -501,7 +501,12 @@ else
 echo "server {" >> /etc/nginx/conf.d/default.conf
 echo "    listen 80 fastopen=20 reuseport default_server;" >> /etc/nginx/conf.d/default.conf
 echo "    listen [::]:80 fastopen=20 reuseport default_server;" >> /etc/nginx/conf.d/default.conf
+echo "    location /.well-known/acme-challenge/ {" >> /etc/nginx/conf.d/default.conf
+echo "      root /usr/share/nginx/;" >> /etc/nginx/conf.d/default.conf
+echo "    }" >> /etc/nginx/conf.d/default.conf
+echo "    location / {" >> /etc/nginx/conf.d/default.conf
 echo "    return 301 https://\$host\$request_uri;" >> /etc/nginx/conf.d/default.conf
+echo "    }" >> /etc/nginx/conf.d/default.conf
 echo "}" >> /etc/nginx/conf.d/default.conf
 fi
 echo "" >> /etc/nginx/conf.d/default.conf

@@ -18,10 +18,10 @@ route_test(){
 
 TERM=ansi whiptail --title "路由测试" --infobox "路由测试，请耐心等待。" 7 68
 
-traceroute ${inet_ip} -n -T -m 30 -w 2 | tail -n +2 &> route_all.txt
-traceroute ${ct_ip} -n -T -m 30 -w 2 | tail -n +2 &> route_all.txt
-traceroute ${cu_ip} -n -T -m 30 -w 2 | tail -n +2 &>> route_all.txt
-traceroute ${cm_ip} -n -T -m 30 -w 2 | tail -n +2 &>> route_all.txt
+traceroute ${inet_ip} -n -T -m 25 -w 3 | tail -n +2 &> route_all.txt
+traceroute ${ct_ip} -n -T -m 25 -w 3 | tail -n +2 &> route_all.txt
+traceroute ${cu_ip} -n -T -m 25 -w 3 | tail -n +2 &>> route_all.txt
+traceroute ${cm_ip} -n -T -m 25 -w 3 | tail -n +2 &>> route_all.txt
 
 ips=()
 asns=()

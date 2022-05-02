@@ -33,17 +33,16 @@ route_test
 
 ## 前提条件及使用要点 Usage instruction
 
-1. **Trojan-GFW 不支援 Cloudflare CDN ！！！** ( ![请勿开启CDN](images/cf1.png) )
-2. 请以 **root(sudo -i)** 运行(**可覆盖安装**)。
+1. 请以 **root(sudo -i)** 运行(**可覆盖安装**)。
 
 ![root](images/root.png)
 
-4. 请自行[购买](https://www.namesilo.com/?rid=685fb47qi)/[白嫖](https://www.freenom.com)/使用现有的**域名** 并 **[完成 DNS A 解析](https://dnschecker.org/)**，即将域名指向你的 VPS IP,(Namesilo 最慢需要 15+min 生效)。![dns](images/dns.png)
-5. 请在 服务器/VPS/其他各种 控制面板中 **完全关闭或禁用 VPS 防火墙(即开放所有 TCP + UDP 端口)。![防火墙](images/firewall.png)**
+2. 请自行[购买](https://www.namesilo.com/?rid=685fb47qi)/[白嫖](https://www.freenom.com)/使用现有的**域名** 并 **[完成 DNS A 解析](https://dnschecker.org/)**，即将域名指向你的 VPS IP,(Namesilo 最慢需要 15+min 生效)。![dns](images/dns.png)
+3. 请在 服务器/VPS/其他各种 控制面板中 **完全关闭或禁用 VPS 防火墙(即开放所有 TCP + UDP 端口)。![防火墙](images/firewall.png)**
 > _Trojan-gfw 以及 Shadowsocks-rust 皆支援 **Fullcone-nat** 但需服务器开启所有端口才能生效。
-6. [HTTP 申请](https://github.com/acmesh-official/acme.sh/wiki/Blogs-and-tutorials) TLS 证书需 **域名 A 解析生效**，[API 申请](https://github.com/acmesh-official/acme.sh/wiki/dnsapi)则需要输入正确的信息。![issuecert](images/cert.png)
-7. 安装完成后，**BBR 已默认启用**，无需手动配置。
-8. 如果需要通过Cloudflare CDN转发Vless(gRPC)流量,请在Cloudflare控制面板的**网络,SSL/TLS,防火墙**中按照下图进行设置。![grpc](images/grpc.png) ![ssl](images/ssl2.png) ![cf_firewall](images/cf_firewall.png) ![0_rtt](images/rtt.png)
+4. [HTTP 申请](https://github.com/acmesh-official/acme.sh/wiki/Blogs-and-tutorials) TLS 证书需 **域名 A 解析生效**，[API 申请](https://github.com/acmesh-official/acme.sh/wiki/dnsapi)则需要输入正确的信息。![issuecert](images/cert.png)
+5. 安装完成后，**BBR 已默认启用**，无需手动配置。
+6. 如果需要通过Cloudflare CDN转发Vless(gRPC)流量,请在Cloudflare控制面板的**网络,SSL/TLS,防火墙**中按照下图进行设置。![grpc](images/grpc.png) ![ssl](images/ssl2.png) ![cf_firewall](images/cf_firewall.png) ![0_rtt](images/rtt.png)
 
 ## 隐私声明
 

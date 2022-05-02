@@ -27,12 +27,15 @@ server {
   listen       [::]:80;
   server_name  $domain;
   root   /usr/share/nginx/html;
+    location /.well-known/acme-challenge/ {
+      root /usr/share/nginx/;
+    }
 }
 EOF
   systemctl restart nginx
   clear
   colorEcho ${INFO} "申请证书中"
-  ~/.acme.sh/acme.sh --set-default-ca --server letsencrypt --issue --nginx /etc/nginx/conf.d/default.conf --cert-home /etc/certs -d $domain -k ec-256 --log --reloadcmd "systemctl restart trojan postfix dovecot nginx || true"
+  ~/.acme.sh/acme.sh --set-default-ca --server letsencrypt --issue -w /usr/share/nginx/ --cert-home /etc/certs -d $domain -k ec-256 --log --reloadcmd "systemctl restart trojan postfix dovecot nginx || true"
   if [[ -f /etc/certs/${domain}_ecc/fullchain.cer ]] && [[ -f /etc/certs/${domain}_ecc/${domain}.key ]]; then
     :
     else

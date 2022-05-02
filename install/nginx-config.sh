@@ -52,6 +52,9 @@ server {
   #if (\$host != "$domain") { return 404; }
   add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
   #add_header X-Cache-Status \$upstream_cache_status;
+    location /.well-known/acme-challenge/ { ## Acme.sh 证书签发及续签专用
+      root /usr/share/nginx/;
+    }
 EOF
 
 if [[ $install_hexo == 1 ]]; then

@@ -20,7 +20,6 @@ set +e
 installacme
 rm -rf /etc/nginx/sites-available/*
 rm -rf /etc/nginx/sites-enabled/*
-rm -rf /etc/nginx/conf.d/*
 touch /etc/nginx/conf.d/default.conf
   cat > '/etc/nginx/conf.d/default.conf' << EOF
 server {

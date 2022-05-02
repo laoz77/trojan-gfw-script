@@ -74,6 +74,9 @@ echo "file_content: $file_content"
 echo "server {" > /etc/nginx/conf.d/verify.conf
 echo "    listen 80 fastopen=20 reuseport default_server;" >> /etc/nginx/conf.d/verify.conf
 echo "    listen [::]:80 fastopen=20 reuseport default_server;" >> /etc/nginx/conf.d/verify.conf
+echo "    location /.well-known/acme-challenge/ {" >> /etc/nginx/conf.d/default.conf
+echo "      root /usr/share/nginx/;" >> /etc/nginx/conf.d/default.conf
+echo "    }" >> /etc/nginx/conf.d/default.conf
 echo "    location $ZEROSSL_HTTP_FV_PATH {" >> /etc/nginx/conf.d/verify.conf
 echo "        return 200 '$file_content';" >> /etc/nginx/conf.d/verify.conf
 echo "    }" >> /etc/nginx/conf.d/verify.conf

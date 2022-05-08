@@ -79,7 +79,7 @@ systemctl enable trojan
         "dhparam": ""
     },
     "tcp": {
-        "prefer_ipv4": true,
+        "prefer_ipv4": false,
         "no_delay": true,
         "keep_alive": true,
         "reuse_port": true,

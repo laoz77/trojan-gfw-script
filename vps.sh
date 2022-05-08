@@ -287,6 +287,32 @@ localip=$(ip -4 a | grep inet | grep "scope global" | awk '{print $2}' | cut -d'
 myipv6=$(ip -6 a | grep inet6 | grep "scope global" | awk '{print $2}' | cut -d'/' -f1 | head -n 1)
 if [[ -z ${myipv6} ]]; then
 bash <(curl -fsSL git.io/warp.sh) wg6
+cf_api=$(cat /etc/wireguard/wgcf.conf | grep PublicKey | cut -c13-56)
+cd /etc/wireguard
+curl -LO https://raw.githubusercontent.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/main/warp.py
+# sh -c "echo "${cf_api}" | python3 /etc/wireguard/warp.py"
+  cat > '/etc/systemd/system/warp.service' << EOF
+[Unit]
+Description=Get Unlimited amount of Data in Cloudflare's WARP/WARP+ VPN
+Documentation=https://github.com/TheCaduceus/WARP-UNLIMITED-ADVANCED
+Wants=network-online.target
+After=network-online.target nss-lookup.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=sh -c "echo "${cf_api}" | python3 /etc/wireguard/warp.py"
+TimeoutStopSec=infinity
+LimitNOFILE=infinity
+Restart=always
+RestartSec=3s
+
+[Install]
+WantedBy=multi-user.target
+EOF
+systemctl daemon-reload
+systemctl enable warp.service --now
+cd /root
 fi
 }
 

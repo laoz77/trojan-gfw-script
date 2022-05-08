@@ -286,7 +286,7 @@ mycity="$( jq -r '.city' "/root/.trojan/ip.json" )"
 localip=$(ip -4 a | grep inet | grep "scope global" | awk '{print $2}' | cut -d'/' -f1)
 myipv6=$(ip -6 a | grep inet6 | grep "scope global" | awk '{print $2}' | cut -d'/' -f1 | head -n 1)
 if [[ -z ${myipv6} ]]; then
-bash <(curl -fsSL git.io/warp.sh) wg
+bash <(curl -fsSL git.io/warp.sh) wg6
 fi
 }
 

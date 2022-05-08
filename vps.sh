@@ -285,7 +285,7 @@ mycountry="$( jq -r '.country' "/root/.trojan/ip.json" )"
 mycity="$( jq -r '.city' "/root/.trojan/ip.json" )"
 localip=$(ip -4 a | grep inet | grep "scope global" | awk '{print $2}' | cut -d'/' -f1)
 myipv6=$(ip -6 a | grep inet6 | grep "scope global" | awk '{print $2}' | cut -d'/' -f1 | head -n 1)
-if [[ -z ${myipv6} ]]; then
+if [[ -z ${myipv6} ]] || [[ ${myipv6} =~ .*"fd01".* ]]; then
 # https://github.com/P3TERX/warp.sh
 bash <(curl -fsSL git.io/warp.sh) wg6
 cf_api=$(cat /etc/warp/wgcf-account.toml | grep device_id | cut -c14-49)

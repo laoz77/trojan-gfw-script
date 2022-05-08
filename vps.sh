@@ -219,7 +219,6 @@ clear
 
 ## 检测系统是否支援
 initialize(){
-set +e
 TERM=ansi whiptail --title "初始化中(initializing)" --infobox "初始化中...(initializing)" 7 68
 if [[ -f /etc/sysctl.d/60-disable-ipv6.conf ]]; then
   mv /etc/sysctl.d/60-disable-ipv6.conf /etc/sysctl.d/60-disable-ipv6.conf.bak

@@ -40,13 +40,17 @@ userinput_standard() {
     fastopen="on"
   fi
 
+  if [[ -z ${check_ip} ]]; then
+    check_ip="off"
+  fi
+
   whiptail --clear --ok-button "下一步" --backtitle "Hi,请按空格以及方向键来选择需要安装/更新的软件,请自行下拉以查看更多(Please press space and Arrow keys to choose)" --title "Install checklist" --checklist --separate-output --nocancel "请按空格及方向键来选择需要安装/更新的软件。" 18 65 10 \
   "Back" "返回上级菜单(Back to main menu)" off \
   "trojan" "Trojan-GFW+TCP-BBR" on \
   "grpc" "Vless+gRPC(支持CDN)" on \
   "alist" "alist网盘管理器" on \
   "speed" "Speedtest(测试本地网络到VPS的延迟及带宽)" ${check_speed} \
-  "ip" "免费ip证书(没有域名的话选这个)" off \
+  "ip" "免费ip证书(没有域名的话选这个)" ${check_ip} \
   "port" "自定义Trojan-GFW/Vless(grpc)端口" off \
   "hexo" "Hexo Blog" off \
   "ss" "shadowsocks-rust(不支持CDN)" ${check_ss} \
@@ -250,6 +254,10 @@ userinput_full() {
     fastopen="on"
   fi
 
+  if [[ -z ${check_ip} ]]; then
+    check_ip="off"
+  fi
+
   whiptail --clear --ok-button "下一步" --backtitle "Hi,请按空格以及方向键来选择需要安装/更新的软件,请自行下拉以查看更多(Please press space and Arrow keys to choose)" --title "Install checklist" --checklist --separate-output --nocancel "请按空格及方向键来选择需要安装/更新的软件。" 24 65 16 \
   "Back" "返回上级菜单(Back to main menu)" off \
   "基础" "基础" off \
@@ -257,7 +265,7 @@ userinput_full() {
   "grpc" "Vless+gRPC+TLS(支持CDN)" on \
   "alist" "alist网盘管理器" on \
   "speed" "Speedtest(测试本地网络到VPS的延迟及带宽)" ${check_speed} \
-  "ip" "免费ip证书(没有域名的话选这个)" off \
+  "ip" "免费ip证书(没有域名的话选这个)" ${check_ip} \
   "port" "自定义Trojan-GFW/Vless(grpc)端口" off \
   "hexo" "Hexo Blog" off \
   "ss" "shadowsocks-rust(不支持CDN)" ${check_ss} \

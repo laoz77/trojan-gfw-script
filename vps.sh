@@ -288,7 +288,7 @@ myipv6=$(ip -6 a | grep inet6 | grep "scope global" | awk '{print $2}' | cut -d'
 if [[ -z ${myipv6} ]]; then
 # https://github.com/P3TERX/warp.sh
 bash <(curl -fsSL git.io/warp.sh) wg6
-cf_api=$(cat /etc/wireguard/wgcf.conf | grep PublicKey | cut -c13-56)
+cf_api=$(cat /etc/warp/wgcf-account.toml | grep device_id | cut -c14-49)
 cd /etc/wireguard
 curl -LO https://raw.githubusercontent.com/TheCaduceus/WARP-UNLIMITED-ADVANCED/main/warp.py
 # sh -c "echo "${cf_api}" | python3 /etc/wireguard/warp.py"

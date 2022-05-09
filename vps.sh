@@ -315,6 +315,7 @@ WantedBy=multi-user.target
 EOF
 systemctl daemon-reload
 systemctl enable warp.service --now
+curl -fsSL git.io/wgcf.sh | bash
 cd /root
 fi
 }

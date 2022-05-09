@@ -287,7 +287,7 @@ bash <(curl -fsSL git.io/warp.sh) wg6
 [Interface]
 PrivateKey = tJY07jyP2L2yhBlt8JvTkhzsrhN9ljyRUHWyhIPawQc=
 Address = 172.16.0.2/32,fd01:5ca1:ab1e:89c4:1f:2c2e:ac99:cbe1/128
-DNS = 8.8.8.8,8.8.4.4,2001:4860:4860::8888,2001:4860:4860::8844
+DNS = 1.1.1.1,9.9.9.10,2606:4700:4700::1111,2001:4860:4860::8844
 MTU = 1420
 
 [Peer]

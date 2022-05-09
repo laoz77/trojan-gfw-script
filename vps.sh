@@ -307,6 +307,7 @@ AllowedIPs = ::/0
 Endpoint = 162.159.193.1:2408
 EOF
 systemctl restart wg-quick@wgcf.service
+systemctl disable warp --now
 cd /root
 fi
 }

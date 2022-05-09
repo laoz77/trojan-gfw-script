@@ -43,6 +43,9 @@ echo -e " --- \${BLUE}服務狀態(Service Status)\${NOCOLOR} ---"
   if [[ \$(cat /etc/sysctl.conf | grep bbr) = *bbr* ]] ; then
 echo -e "BBR网络优化:\t\t 已开启"
   fi
+  if [[ \$(systemctl is-active wg-quick@wgcf.service) == active ]]; then
+echo -e "Warp+ Teams:\t\t 正常运行中"
+  fi
   if [[ \$(systemctl is-active trojan) == active ]]; then
 echo -e "Trojan-GFW:\t\t 正常运行中"
   fi

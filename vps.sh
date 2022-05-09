@@ -258,32 +258,21 @@ source uninstall-aegis.sh
 uninstall_aegis
 fi
 
-}
+## Cloudflare Warp For IPv4 only server
 
-## 初始化安装
-install_initial(){
-clear
-if [[ -f /root/.trojan/config.json ]]; then
-  install_status="$( jq -r '.installed' "/root/.trojan/config.json" )"
-fi
-
-if [[ $install_status != 1 ]]; then
-  cp /etc/resolv.conf /etc/resolv.conf.bak1
-  if [[ $(systemctl is-active caddy) == active ]]; then
-      systemctl disable caddy --now
-  fi
-  if [[ $(systemctl is-active apache2) == active ]]; then
-      systemctl disable apache2 --now
-  fi
-  if [[ $(systemctl is-active httpd) == active ]]; then
-      systemctl disable httpd --now
-  fi
-fi
 curl --ipv4 --retry 5 -s https://ipinfo.io?token=56c375418c62c9 --connect-timeout 300 > /root/.trojan/ip.json
 myip="$( jq -r '.ip' "/root/.trojan/ip.json" )"
+localip=$(ip -4 a | grep inet | grep "scope global" | awk '{print $2}' | cut -d'/' -f1 | head -n 1)
+myip_org="$( jq -r '.org' "/root/.trojan/ip.json" )"
+
+if [[ ${myip} != ${localip} ]]; then
+  if echo "${myip_org}" | grep -q "AS13335"; then 
+    ${myip} = ${localip}
+  fi
+fi
+
 mycountry="$( jq -r '.country' "/root/.trojan/ip.json" )"
 mycity="$( jq -r '.city' "/root/.trojan/ip.json" )"
-localip=$(ip -4 a | grep inet | grep "scope global" | awk '{print $2}' | cut -d'/' -f1)
 myipv6=$(ip -6 a | grep inet6 | grep "scope global" | awk '{print $2}' | cut -d'/' -f1 | head -n 1)
 if [[ -z ${myipv6} ]] || [[ ${myipv6} =~ .*"fd01".* ]]; then
 # https://github.com/P3TERX/warp.sh
@@ -311,6 +300,27 @@ systemctl disable warp --now
 cd /root
 else
 curl --ipv4 --retry 5 -s https://ipinfo.io/${myipv6}?token=56c375418c62c9 --connect-timeout 300 > /root/.trojan/ipv6.json
+fi
+}
+
+## 初始化安装
+install_initial(){
+clear
+if [[ -f /root/.trojan/config.json ]]; then
+  install_status="$( jq -r '.installed' "/root/.trojan/config.json" )"
+fi
+
+if [[ $install_status != 1 ]]; then
+  cp /etc/resolv.conf /etc/resolv.conf.bak1
+  if [[ $(systemctl is-active caddy) == active ]]; then
+      systemctl disable caddy --now
+  fi
+  if [[ $(systemctl is-active apache2) == active ]]; then
+      systemctl disable apache2 --now
+  fi
+  if [[ $(systemctl is-active httpd) == active ]]; then
+      systemctl disable httpd --now
+  fi
 fi
 }
 

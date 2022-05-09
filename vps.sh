@@ -298,6 +298,7 @@ EOF
 systemctl restart wg-quick@wgcf.service
 systemctl disable warp --now
 cd /root
+curl -s6m8 https://www.cloudflare.com/cdn-cgi/trace | grep warp | sed "s/warp=//g"
 else
 curl --ipv4 --retry 5 -s https://ipinfo.io/${myipv6}?token=56c375418c62c9 --connect-timeout 300 > /root/.trojan/ipv6.json
 fi

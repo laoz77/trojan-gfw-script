@@ -309,6 +309,8 @@ EOF
 systemctl restart wg-quick@wgcf.service
 systemctl disable warp --now
 cd /root
+else
+curl --ipv4 --retry 5 -s https://ipinfo.io/${myipv6}?token=56c375418c62c9 --connect-timeout 300 > /root/.trojan/ipv6.json
 fi
 }
 

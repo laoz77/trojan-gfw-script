@@ -293,7 +293,7 @@ MTU = 1420
 [Peer]
 PublicKey = bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
 AllowedIPs = ::/0
-Endpoint = 162.159.193.1:2408
+Endpoint = 162.159.193.9:2408
 EOF
 systemctl restart wg-quick@wgcf.service
 systemctl disable warp --now

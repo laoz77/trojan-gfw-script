@@ -25,7 +25,7 @@ port_up=$( jq -r '.upload.bandwidth' "/root/.trojan/speed.json" )
 
 apt install bc -y
 
-if (( $(echo "$port_up < 100" |bc -l) )); then
+if (( $(echo "$port_up < 10000000" |bc -l) )); then
 target_speed_down="100"
 target_speed_up="100"
 else

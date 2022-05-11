@@ -18,4 +18,5 @@ pip install speedtest-cli
 TERM=ansi whiptail --title "带宽测试" --infobox "带宽测试，请耐心等待。" 7 68
 speedtest-cli --list
 speedtest-cli --secure | tee /root/.trojan/speed.txt
+speedtest-cli --secure --json | tee /root/.trojan/speed.json
 }

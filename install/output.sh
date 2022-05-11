@@ -128,7 +128,7 @@ echo -e "    \${YELLOW}ss://aes-128-gcm:${password1}@${myip}:8388#SS(${route_fin
 echo -e "    \${YELLOW}ss://$(echo "aes-128-gcm:${password1}@${myip}:8388" | base64)#SS(${route_final}${mycountry} ${mycity} ${myip})\${NOCOLOR}"
 fi
 if [[ -f /usr/bin/hysteria ]]; then
-echo -e " --- \${BLUE}hysteria链接\${NOCOLOR} ---"
+echo -e " --- \${BLUE}Hysteria链接\${NOCOLOR} ---"
 echo -e "    \${YELLOW}hysteria://${myip}:${hyport}?protocol=udp&peer=${domain}&upmbps=${target_speed_down}&downmbps=${target_speed_up}&alpn=h3&obfsParam=${password1}#HY(${route_final}${mycountry} ${mycity} ${myip} ${myipv6})\${NOCOLOR}"
 fi
 echo -e " --- \${BLUE}推荐的Trojan/Vless客户端(安卓,苹果,Windows)\${NOCOLOR} ---"

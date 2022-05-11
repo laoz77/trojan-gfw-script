@@ -100,8 +100,8 @@ echo -e "Postfix:\t\t 正常运行中"
 echo -e "Fail2ban:\t\t 正常运行中"
   fi
 echo -e " --- \${BLUE}端口速率(Port speed)\${NOCOLOR} ---"
-echo -e "下载(Download): ${target_speed_down}"
-echo -e "上传( Upload ): ${target_speed_up}"
+echo -e "下载(Download): ${target_speed_down} Mbps"
+echo -e "上传( Upload ): ${target_speed_up} Mbps"
 echo -e " --- \${BLUE}带宽使用(Bandwith Usage)\${NOCOLOR} ---"
 echo -e "         接收(Receive)    发送(Transmit)"
 tail -n +3 /proc/net/dev | grep -e eth -e enp -e eno -e ens | awk '{print \$1 " " \$2 " " \$10}' | numfmt --to=iec --field=2,3

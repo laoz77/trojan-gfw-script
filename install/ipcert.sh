@@ -91,7 +91,7 @@ EOF
   cat > '/var/local/zerossl/post-hook.sh' << "EOF"
 #!/usr/bin/env bash
 
-systemctl restart trojan postfix dovecot nginx || true
+systemctl restart trojan postfix dovecot nginx hysteria || true
 EOF
 
 chmod +x /var/local/zerossl/zerossl-ip-cert-linux-amd64/zerossl-ip-cert

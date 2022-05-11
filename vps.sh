@@ -299,7 +299,7 @@ myip_org="$( jq -r '.org' "/root/.trojan/ip.json" )"
 
 if [[ ${myip} != ${localip} ]]; then
   if echo "${myip_org}" | grep -q "AS13335"; then 
-    ${myip} = ${localip}
+    warp_v4=1
   fi
 fi
 

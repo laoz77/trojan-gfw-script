@@ -101,7 +101,7 @@ echo -e "Fail2ban:\t\t 正常运行中"
   fi
 echo -e " --- \${BLUE}端口速率(Port speed)\${NOCOLOR} ---"
 echo -e "下载(Download): \$(cat /root/.trojan/speed.txt | grep Download | sed "s/Download: //g" | cut -c1-17 )"
-echo -e "上传( Upload ): \$(cat /root/.trojan/speed.txt | grep Upload | sed "s/Upload: //g" | cut -c1-17)"
+echo -e "上传( Upload ): \$(cat /root/.trojan/speed.txt | grep Upload | sed "s/Upload: //g" | cut -c1-19)"
 echo -e " --- \${BLUE}带宽使用(Bandwith Usage)\${NOCOLOR} ---"
 echo -e "         接收(Receive)    发送(Transmit)"
 tail -n +3 /proc/net/dev | grep -e eth -e enp -e eno -e ens | awk '{print \$1 " " \$2 " " \$10}' | numfmt --to=iec --field=2,3

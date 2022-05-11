@@ -26,8 +26,10 @@ if (( $(echo "$ping_result < 10" |bc -l) )); then
 speedtest-cli --secure | tee /root/.trojan/speed.txt
 speedtest-cli --secure --json | tee /root/.trojan/speed.json
 elif [[ ${mycountry} == "JP" ]]
-speedtest-cli --secure --server 15047 | tee /root/.trojan/speed.txt
-speedtest-cli --secure --server 15047 --json | tee /root/.trojan/speed.json
+# speedtest-cli --secure --server 48296 | tee /root/.trojan/speed.txt
+# speedtest-cli --secure --server 48296 --json | tee /root/.trojan/speed.json
+speedtest-cli --secure | tee /root/.trojan/speed.txt
+speedtest-cli --secure --json | tee /root/.trojan/speed.json
 else
 speedtest-cli --secure | tee /root/.trojan/speed.txt
 speedtest-cli --secure --json | tee /root/.trojan/speed.json

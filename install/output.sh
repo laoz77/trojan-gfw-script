@@ -52,6 +52,9 @@ echo -e "Trojan-GFW:\t\t 正常运行中"
   if [[ \$(systemctl is-active grpc) == active ]]; then
 echo -e "Vless(Grpc):\t\t 正常运行中"
   fi
+  if [[ \$(systemctl is-active hysteria) == active ]]; then
+echo -e "Hysteria:\t\t 正常运行中"
+  fi
   if [[ \$(systemctl is-active ssserver) == active ]]; then
 echo -e "SS-rust:\t\t 正常运行中"
   fi
@@ -127,6 +130,10 @@ if [[ -f /usr/sbin/ssserver ]]; then
 echo -e " --- \${BLUE}SS-rust链接\${NOCOLOR} ---"
 echo -e "    \${YELLOW}ss://aes-128-gcm:${password1}@${myip}:8388#SS(${route_final}${mycountry} ${mycity} ${myip})\${NOCOLOR}"
 echo -e "    \${YELLOW}ss://$(echo "aes-128-gcm:${password1}@${myip}:8388" | base64)#SS(${route_final}${mycountry} ${mycity} ${myip})\${NOCOLOR}"
+fi
+if [[ -f /usr/bin/hysteria ]]; then
+echo -e " --- \${BLUE}hysteria链接\${NOCOLOR} ---"
+echo -e "    \${YELLOW}hysteria://${myip}:${hyport}?protocol=udp&peer=${domain}&upmbps=${target_speed_up}&downmbps=${target_speed_down}&alpn=h3&obfsParam=${password1}#HY(${route_final}${mycountry} ${mycity} ${myip} ${myipv6})\${NOCOLOR}"
 fi
 if [[ -d /usr/share/nginx/nextcloud/ ]]; then
 echo -e " --- \${BLUE}Nextcloud链接\${NOCOLOR}(Nextcloud links) ---"

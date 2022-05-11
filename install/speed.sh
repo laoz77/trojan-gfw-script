@@ -19,4 +19,17 @@ TERM=ansi whiptail --title "带宽测试" --infobox "带宽测试，请耐心等
 speedtest-cli --list
 speedtest-cli --secure | tee /root/.trojan/speed.txt
 speedtest-cli --secure --json | tee /root/.trojan/speed.json
+
+apt install bc -y
+
+port_down=$( jq -r '.download' "/root/.trojan/speed.json" )
+port_up=$( jq -r '.upload' "/root/.trojan/speed.json" )
+
+if (( $(echo "$port_up < 100000000" |bc -l) )); then
+target_speed_down="100"
+target_speed_up="100"
+else
+target_speed_down=$( jq -r '.download' "/root/.trojan/speed.json" | cut -c1-3)
+target_speed_up=$( jq -r '.upload' "/root/.trojan/speed.json" | cut -c1-3)
+fi
 }

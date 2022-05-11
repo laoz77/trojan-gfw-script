@@ -50,6 +50,7 @@ userinput_standard() {
   "grpc" "Vless+gRPC(支持CDN)" on \
   "alist" "alist网盘管理器" on \
   "speed" "Speedtest(测试本地网络到VPS的延迟及带宽)" ${check_speed} \
+  "hy" "hysteria" off \
   "ip" "免费ip证书(没有域名的话选这个)" ${check_ip} \
   "port" "自定义Trojan-GFW/Vless(grpc)端口" off \
   "hexo" "Hexo Blog" off \
@@ -72,6 +73,9 @@ userinput_standard() {
     alist)
       install_hexo=0
       install_alist=1
+      ;;
+    hy)
+      install_hy=1
       ;;
     ip)
       ipissue=1
@@ -265,6 +269,7 @@ userinput_full() {
   "grpc" "Vless+gRPC+TLS(支持CDN)" on \
   "alist" "alist网盘管理器" on \
   "speed" "Speedtest(测试本地网络到VPS的延迟及带宽)" ${check_speed} \
+  "hy" "hysteria" off \
   "ip" "免费ip证书(没有域名的话选这个)" ${check_ip} \
   "port" "自定义Trojan-GFW/Vless(grpc)端口" off \
   "hexo" "Hexo Blog" off \
@@ -306,6 +311,9 @@ userinput_full() {
     hexo)
       install_hexo=1
       install_alist=0
+      ;;
+    hy)
+      install_hy=1
       ;;
     ip)
       ipissue=1

@@ -563,6 +563,10 @@ MasterMenu() {
     clean_env
     echo "nameserver 1.1.1.1" > /etc/resolv.conf
     echo "nameserver 1.0.0.1" >> /etc/resolv.conf
+    ## 带宽测试
+    curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/speed.sh
+    source speed.sh
+    install_speed
     ## 输出结果
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/output.sh
     source output.sh

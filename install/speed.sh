@@ -17,6 +17,17 @@ install_speed(){
 # https://github.com/sivel/speedtest-cli
 curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash
 apt-get install speedtest -y
+mkdir /root/.config/
+mkdir /root/.config/ookla/
+
+  cat > '/root/.config/ookla/speedtest-cli.json' << EOF
+{
+    "Settings": {
+        "LicenseAccepted": "604ec27f828456331ebf441826292c49276bd3c1bee1a2f65a6452f505c4061c"
+    }
+}
+EOF
+
 TERM=ansi whiptail --title "带宽测试" --infobox "带宽测试，请耐心等待。" 7 68
 echo "YES" | /usr/bin/speedtest
 /usr/bin/speedtest -f json | tee /root/.trojan/speed.json

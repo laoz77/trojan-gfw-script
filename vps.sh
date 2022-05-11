@@ -332,7 +332,6 @@ AllowedIPs = ::/0
 Endpoint = 162.159.193.9:2408
 EOF
 systemctl restart wg-quick@wgcf.service
-systemctl disable warp --now
 cd /root
 curl -s6m8 https://www.cloudflare.com/cdn-cgi/trace | grep warp | sed "s/warp=//g"
 else

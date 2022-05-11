@@ -13,6 +13,7 @@ ct_ip="116.228.111.118"
 cu_ip="210.22.70.3"
 cm_ip="211.136.112.50"
 inet_ip="1.1.1.1"
+sship=$(w -hi | grep -o '[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}')
 
 route_test(){
 
@@ -22,6 +23,7 @@ traceroute ${inet_ip} -n -T -m 25 -w 3 | tail -n +2 &> route_all.txt
 traceroute ${ct_ip} -n -T -m 25 -w 3 | tail -n +2 &> route_all.txt
 traceroute ${cu_ip} -n -T -m 25 -w 3 | tail -n +2 &>> route_all.txt
 traceroute ${cm_ip} -n -T -m 25 -w 3 | tail -n +2 &>> route_all.txt
+traceroute ${ssh_ip} -n -T -m 25 -w 3 | tail -n +2 &>> route_all.txt
 
 ips=()
 asns=()

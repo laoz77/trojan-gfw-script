@@ -266,8 +266,7 @@ localip=$(ip -4 a | grep inet | grep "scope global" | awk '{print $2}' | cut -d'
 ## Cloudflare Warp For IPv6 only server
 
 if [[ -z ${myip} ]] || [[ -z ${localip} ]]; then
-myip=""
-localip=""
+warp_v6=1
 # https://github.com/P3TERX/warp.sh
 apt install wireguard -y
 modprobe wireguard

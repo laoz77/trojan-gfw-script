@@ -7,6 +7,11 @@ set +e
 apt-get install qrencode -y
 
 prase_output(){
+
+if [[ ${warp_v6} ==1 ]]; then
+${myip} = {domain}
+fi
+
 clear
 apt-get install neofetch -y
 	cat > '/etc/profile.d/mymotd.sh' << EOF

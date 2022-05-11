@@ -687,6 +687,16 @@ MasterMenu() {
     echo "  ]," >> /usr/share/nginx/nextcloud/config/config.php
     echo ");" >> /usr/share/nginx/nextcloud/config/config.php
     fi
+    ## 带宽测试
+    curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/speed.sh
+    source speed.sh
+    install_speed
+    ## 安装 Hysteria
+    if [[ ${install_hy} == 1 ]]; then
+    curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/hysteria.sh
+    source hysteria.sh
+    install_hysteria
+    fi
     ## 输出结果
     echo "nameserver 1.1.1.1" > /etc/resolv.conf
     echo "nameserver 1.0.0.1" >> /etc/resolv.conf

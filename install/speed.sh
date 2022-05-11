@@ -11,14 +11,27 @@ github_url="https://github.com/johnrosen1/vpstoolbox"
 
 set +e
 
+mycountry="$( jq -r '.country' "/root/.trojan/ip.json" )"
+
 install_speed(){
 # https://github.com/sivel/speedtest-cli
 apt install pip -y
 pip install speedtest-cli
 TERM=ansi whiptail --title "带宽测试" --infobox "带宽测试，请耐心等待。" 7 68
 speedtest-cli --list
+speedtest-cli --secure --no-upload --json | tee /root/.trojan/speed_ping.json
+ping_result=$( jq -r '.ping' "/root/.trojan/speed_ping.json" )
+
+if (( $(echo "$ping_result < 10" |bc -l) )); then
 speedtest-cli --secure | tee /root/.trojan/speed.txt
 speedtest-cli --secure --json | tee /root/.trojan/speed.json
+elif [[ ${mycountry} == "JP" ]]
+speedtest-cli --secure --server 15047 | tee /root/.trojan/speed.txt
+speedtest-cli --secure --server 15047 --json | tee /root/.trojan/speed.json
+else
+speedtest-cli --secure | tee /root/.trojan/speed.txt
+speedtest-cli --secure --json | tee /root/.trojan/speed.json
+fi
 
 apt install bc -y
 

@@ -122,10 +122,6 @@ echo -e "    \${YELLOW}trojan://${password1}@${myip}:${trojanport}?security=tls&
 echo -e " --- \${BLUE}Trojan-GFW二维码\${NOCOLOR} ---"
   qrencode -t UTF8 -m 2 "trojan://${password1}@${domain}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan(${route_final}${mycountry} ${mycity} ${myip} ${myipv6})"
 fi
-echo -e " --- \${BLUE}推荐的Trojan/Vless客户端(安卓,苹果,Windows)\${NOCOLOR} ---"
-echo -e "    \${YELLOW}https://github.com/2dust/v2rayNG/releases/latest\${NOCOLOR}"
-echo -e "    \${YELLOW}https://apps.apple.com/us/app/shadowrocket/id932747118\${NOCOLOR}"
-echo -e "    \${YELLOW}https://github.com/2dust/v2rayN/releases/latest\${NOCOLOR}"
 if [[ -f /usr/sbin/ssserver ]]; then
 echo -e " --- \${BLUE}SS-rust链接\${NOCOLOR} ---"
 echo -e "    \${YELLOW}ss://aes-128-gcm:${password1}@${myip}:8388#SS(${route_final}${mycountry} ${mycity} ${myip})\${NOCOLOR}"
@@ -135,6 +131,10 @@ if [[ -f /usr/bin/hysteria ]]; then
 echo -e " --- \${BLUE}hysteria链接\${NOCOLOR} ---"
 echo -e "    \${YELLOW}hysteria://${myip}:${hyport}?protocol=udp&peer=${domain}&upmbps=${target_speed_down}&downmbps=${target_speed_up}&alpn=h3&obfsParam=${password1}#HY(${route_final}${mycountry} ${mycity} ${myip} ${myipv6})\${NOCOLOR}"
 fi
+echo -e " --- \${BLUE}推荐的Trojan/Vless客户端(安卓,苹果,Windows)\${NOCOLOR} ---"
+echo -e "    \${YELLOW}https://github.com/2dust/v2rayNG/releases/latest\${NOCOLOR}"
+echo -e "    \${YELLOW}https://apps.apple.com/us/app/shadowrocket/id932747118\${NOCOLOR}"
+echo -e "    \${YELLOW}https://github.com/2dust/v2rayN/releases/latest\${NOCOLOR}"
 if [[ -d /usr/share/nginx/nextcloud/ ]]; then
 echo -e " --- \${BLUE}Nextcloud链接\${NOCOLOR}(Nextcloud links) ---"
 echo -e "    \${YELLOW}https://${domain}:${trojanport}/nextcloud/\${NOCOLOR}"

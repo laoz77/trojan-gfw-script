@@ -129,8 +129,8 @@ echo -e " --- \${BLUE}Trojan-GFW二维码\${NOCOLOR} ---"
 fi
 if [[ -f /usr/sbin/ssserver ]]; then
 echo -e " --- \${BLUE}SS-rust链接\${NOCOLOR} ---"
-echo -e "    \${YELLOW}ss://aes-128-gcm:${password1}@${myip}:8388#SS(${route_final}${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
-echo -e "    \${YELLOW}ss://$(echo "aes-128-gcm:${password1}@${myip}:8388" | base64)#SS(${route_final}${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
+echo -e "    \${YELLOW}ss://2022-blake3-aes-128-gcm:${password1}@${myip}:8388#SS(${route_final}${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
+echo -e "    \${YELLOW}ss://$(echo "2022-blake3-aes-128-gcm:${password1}@${myip}:8388" | base64)#SS(${route_final}${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
 echo -e " --- \${BLUE}SS-rust二维码\${NOCOLOR} ---"
   qrencode -t UTF8 -m 2 "ss://aes-128-gcm:${password1}@${myip}:8388#SS(${route_final}${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)"
 fi

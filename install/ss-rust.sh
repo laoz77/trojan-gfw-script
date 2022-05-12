@@ -27,7 +27,7 @@ install_ss_rust(){
     "server_port": 8388,
     "password": "${password1}",
     "timeout": 300,
-    "method": "aes-128-gcm"
+    "method": "2022-blake3-aes-128-gcm"
 }
 EOF
   cat > '/etc/systemd/system/ssserver.service' << EOF

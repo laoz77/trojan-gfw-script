@@ -40,7 +40,11 @@ if (( $(echo "$port_up < 3000000" |bc -l) )); then
 target_speed_down="30"
 target_speed_up="30"
 else
-target_speed_down=$( jq -r '.download.bandwidth' "/root/.trojan/speed.json" | cut -c1-3)
-target_speed_up=$( jq -r '.upload.bandwidth' "/root/.trojan/speed.json" | cut -c1-3)
+target_speed_down_bytes=$( jq -r '.download.bandwidth' "/root/.trojan/speed.json")
+target_speed_up_bytes=$( jq -r '.upload.bandwidth' "/root/.trojan/speed.json")
+target_speed_down=$(( target_speed_down_bytes*76294/10000000000 ))
+target_speed_up=$(( target_speed_up_bytes*76294/10000000000 ))
+echo $target_speed_down
+echo $target_speed_up
 fi
 }

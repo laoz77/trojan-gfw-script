@@ -50,9 +50,9 @@ userinput_standard() {
   "grpc" "Vless+gRPC(支持CDN)" on \
   "alist" "alist网盘管理器" on \
   "speed" "Speedtest(测试本地网络到VPS的延迟及带宽)" ${check_speed} \
-  "hy" "hysteria" off \
-  "ip" "免费ip证书(没有域名的话选这个)" ${check_ip} \
   "port" "自定义Trojan-GFW/Vless(grpc)端口" off \
+  "hy" "hysteria(仅推荐用于垃圾线路)" off \
+  "ip" "免费ip证书(没有域名的话选这个)" ${check_ip} \
   "hexo" "Hexo Blog" off \
   "ss" "shadowsocks-rust(不支持CDN)" ${check_ss} \
   "nextcloud" "Nextcloud(私人网盘)" ${check_cloud} \
@@ -269,9 +269,9 @@ userinput_full() {
   "grpc" "Vless+gRPC+TLS(支持CDN)" on \
   "alist" "alist网盘管理器" on \
   "speed" "Speedtest(测试本地网络到VPS的延迟及带宽)" ${check_speed} \
-  "hy" "hysteria" off \
-  "ip" "免费ip证书(没有域名的话选这个)" ${check_ip} \
   "port" "自定义Trojan-GFW/Vless(grpc)端口" off \
+  "hy" "Hysteria(仅推荐用于垃圾线路)" off \
+  "ip" "免费ip证书(没有域名的话选这个)" ${check_ip} \
   "hexo" "Hexo Blog" off \
   "ss" "shadowsocks-rust(不支持CDN)" ${check_ss} \
   "影音" "影音" off \

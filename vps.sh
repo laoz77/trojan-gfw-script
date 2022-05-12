@@ -258,9 +258,12 @@ source uninstall-aegis.sh
 uninstall_aegis
 fi
 
-curl --ipv4 --retry 3 -s https://ipinfo.io?token=56c375418c62c9 --connect-timeout 300 > /root/.trojan/ip.json
-myip="$( jq -r '.ip' "/root/.trojan/ip.json" )"
 localip=$(ip -4 a | grep inet | grep "scope global" | awk '{print $2}' | cut -d'/' -f1 | head -n 1)
+myipv6=$(ip -6 a | grep inet6 | grep "scope global" | awk '{print $2}' | cut -d'/' -f1 | head -n 1)
+curl --ipv4 --retry 10 -s https://ipinfo.io?token=56c375418c62c9 --connect-timeout 300 > /root/.trojan/ip.json
+myip="$( jq -r '.ip' "/root/.trojan/ip.json" )"
+mycountry="$( jq -r '.country' "/root/.trojan/ip.json" )"
+mycity="$( jq -r '.city' "/root/.trojan/ip.json" )"
 
 ## Cloudflare Warp For IPv6 only server
 
@@ -302,9 +305,6 @@ if [[ ${myip} != ${localip} ]]; then
   fi
 fi
 
-mycountry="$( jq -r '.country' "/root/.trojan/ip.json" )"
-mycity="$( jq -r '.city' "/root/.trojan/ip.json" )"
-myipv6=$(ip -6 a | grep inet6 | grep "scope global" | awk '{print $2}' | cut -d'/' -f1 | head -n 1)
 
 ## Cloudflare Warp For IPv4 only server
 

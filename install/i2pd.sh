@@ -132,7 +132,7 @@ enabled = false
 
 [upnp]
 ## Enable or disable UPnP: automatic port forwarding (enabled by default in WINDOWS, ANDROID)
-enabled = true
+enabled = false
 ## Name i2pd appears in UPnP forwardings list (default = I2Pd)
 # name = I2Pd
 

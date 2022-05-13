@@ -17,7 +17,7 @@ EOF
 curl https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --import
 gpg --export A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89 | apt-key add -
 apt-get update
-apt-get install tor tor-geoipdb -y
+apt-get install tor tor-geoipdb obfs4proxy -y
   cat > '/etc/tor/torrc' << EOF
 ClientUseIPv6 1
 ClientPreferIPv6ORPort 1

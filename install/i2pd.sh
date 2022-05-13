@@ -110,7 +110,7 @@ enabled = false
 
 [bob]
 ## Uncomment and set to 'true' to enable BOB command channel
-# enabled = true
+enabled = false
 
 [i2cp]
 ## Uncomment and set to 'true' to enable I2CP protocol
@@ -186,10 +186,10 @@ ntcphard = 0
 
 [exploratory]
 ## Exploratory tunnels settings with default values
-# inbound.length = 3
-# inbound.quantity = 16
-# outbound.length = 3
-# outbound.quantity = 16
+inbound.length = 1
+inbound.quantity = 1
+outbound.length = 1
+outbound.quantity = 1
 
 [ntcp2]
 
@@ -208,17 +208,20 @@ profiles = true
 ## DO NOT TOUCH that option if you really don't know what are you doing!
 # force = false
 EOF
-    cat > '/etc/i2pd/tunnels.conf.d/mywebsite.conf' << EOF
-[my-website]
-type = http
-host = 127.0.0.1
-port = 80
-inbound.length = 1
-outbound.length = 1
-#inbound.quantity = 16
-#outbound.quantity = 16
-keys = my-website.dat
-EOF
+
+echo "" > /etc/i2pd/tunnels.conf
+
+#     cat > '/etc/i2pd/tunnels.conf.d/mywebsite.conf' << EOF
+# [my-website]
+# type = http
+# host = 127.0.0.1
+# port = 80
+# inbound.length = 1
+# outbound.length = 1
+# #inbound.quantity = 16
+# #outbound.quantity = 16
+# keys = my-website.dat
+# EOF
 cd
     cat > '/lib/systemd/system/i2pd.service' << EOF
 [Unit]

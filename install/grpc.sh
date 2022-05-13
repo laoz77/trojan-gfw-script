@@ -55,6 +55,42 @@ cd /etc/grpc
       "tag": "blocked",
       "protocol": "blackhole",
       "settings": {}
+    },
+    {
+      "tag": "tor",
+      "protocol": "socks",
+      "settings": {
+        "servers": [
+          {
+            "address": "127.0.0.1",
+            "port": 9050
+          }
+        ]
+      },
+      "streamSettings": {
+        "sockopt": {
+          "mark": 128,
+          "tcpFastOpen": false
+        }
+      }
+    },
+    {
+      "tag": "i2p",
+      "protocol": "http",
+      "settings": {
+        "servers": [
+          {
+            "address": "127.0.0.1",
+            "port": 4444
+          }
+        ]
+      },
+      "streamSettings": {
+        "sockopt": {
+          "mark": 128,
+          "tcpFastOpen": false
+        }
+      }
     }
   ],
   "routing": {

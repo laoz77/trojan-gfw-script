@@ -99,6 +99,20 @@ cd /etc/grpc
     "rules": [
       {
         "type": "field",
+        "outboundTag": "tor",
+        "domain": [
+          "regexp:\\w*.onion"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "i2p",
+        "domain": [
+          "regexp:\\w*.i2p"
+        ]
+      },
+      {
+        "type": "field",
         "ip": [
           "geoip:private"
         ],

@@ -46,7 +46,7 @@ HardwareAccel 1
 #ContactInfo xxx@example.com
 #BridgeRelay 1
 EOF
-torhostname=$(cat /var/lib/tor/hidden_service/hostname)
+#torhostname=$(cat /var/lib/tor/hidden_service/hostname)
 systemctl restart tor@default
 
 # cd /etc/tor/

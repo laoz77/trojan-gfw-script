@@ -44,6 +44,10 @@ userinput_standard() {
     check_ip="off"
   fi
 
+  if [[ -z ${check_hy} ]]; then
+    check_hy="off"
+  fi
+
   whiptail --clear --ok-button "下一步" --backtitle "Hi,请按空格以及方向键来选择需要安装/更新的软件,请自行下拉以查看更多(Please press space and Arrow keys to choose)" --title "应用安装菜单" --checklist --separate-output --nocancel "请按空格及方向键来选择需要安装/更新的应用程序。" 18 65 10 \
   "Back" "返回上级菜单(Back to main menu)" off \
   "trojan" "Trojan-GFW+TCP-BBR" on \
@@ -51,7 +55,7 @@ userinput_standard() {
   "alist" "alist网盘管理器" on \
   "speed" "Speedtest(测试本地网络到VPS的延迟及带宽)" ${check_speed} \
   "port" "自定义Trojan-GFW/Vless(grpc)端口" off \
-  "hy" "hysteria(仅推荐用于垃圾线路)" off \
+  "hy" "hysteria(仅推荐用于垃圾线路)" ${check_hy} \
   "ip" "免费ip证书(没有域名的话选这个)" ${check_ip} \
   "hexo" "Hexo Blog" off \
   "ss" "shadowsocks-rust(不支持CDN)" ${check_ss} \
@@ -262,6 +266,10 @@ userinput_full() {
     check_ip="off"
   fi
 
+  if [[ -z ${check_hy} ]]; then
+    check_hy="off"
+  fi
+
   whiptail --clear --ok-button "下一步" --backtitle "Hi,请按空格以及方向键来选择需要安装/更新的软件,请自行下拉以查看更多(Please press space and Arrow keys to choose)" --title "应用安装菜单" --checklist --separate-output --nocancel "请按空格及方向键来选择需要安装/更新的应用程序。" 24 65 16 \
   "Back" "返回上级菜单(Back to main menu)" off \
   "基础" "基础" off \
@@ -270,7 +278,7 @@ userinput_full() {
   "alist" "alist网盘管理器" on \
   "speed" "Speedtest(测试本地网络到VPS的延迟及带宽)" ${check_speed} \
   "port" "自定义Trojan-GFW/Vless(grpc)端口" off \
-  "hy" "Hysteria(仅推荐用于垃圾线路)" off \
+  "hy" "Hysteria(仅推荐用于垃圾线路)" ${check_hy} \
   "ip" "免费ip证书(没有域名的话选这个)" ${check_ip} \
   "hexo" "Hexo Blog" off \
   "ss" "shadowsocks-rust(不支持CDN)" ${check_ss} \

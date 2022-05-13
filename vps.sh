@@ -142,6 +142,7 @@ prasejson(){
   "check_echo": "$check_echo",
   "check_rclone": "$check_rclone",
   "check_ip": "$check_ip",
+  "check_hy": "$check_hy",
   "zerossl_api": "$zerossl_api",
   "fastopen": "${fastopen}"
 }
@@ -179,6 +180,7 @@ readconfig(){
   check_echo="$( jq -r '.check_echo' "/root/.trojan/config.json" )"
   check_rclone="$( jq -r '.check_rclone' "/root/.trojan/config.json" )"
   check_ip="$( jq -r '.check_ip' "/root/.trojan/config.json" )"
+  check_hy="$( jq -r '.check_hy' "/root/.trojan/config.json" )"
   zerossl_api="$( jq -r '.zerossl_api' "/root/.trojan/config.json" )"
   fastopen="$( jq -r '.fastopen' "/root/.trojan/config.json" )"
 }

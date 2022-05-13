@@ -20,7 +20,7 @@ apt-get update
 apt-get install tor tor-geoipdb -y
   cat > '/etc/tor/torrc' << EOF
 ClientUseIPv6 1
-ClientPreferIPv6ORPort 0
+ClientPreferIPv6ORPort 1
 SocksListenAddress 127.0.0.1:9050
 SocksPort 9050
 SOCKSPolicy accept 127.0.0.1

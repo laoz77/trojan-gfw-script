@@ -62,7 +62,7 @@ address = 127.0.0.1
 port = 7070
 strictheaders = false
 ## Path to web console, default "/"
-webroot = /i2p/
+webroot = /
 ## Uncomment following lines to enable Web Console authentication 
 # auth = true
 # user = i2pd

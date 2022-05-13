@@ -153,20 +153,20 @@ echo -e "    \${YELLOW}用户名: admin\${NOCOLOR}"
 echo -e "    \${YELLOW}密码: ${password1}\${NOCOLOR}"
 fi
 if [[ -d /usr/share/nginx/miniflux/ ]]; then
-echo -e " --- \${BLUE}Miniflux+RSSHUB链接\${NOCOLOR} ---"
+echo -e " --- \${BLUE}Miniflux+RSSHUB 链接\${NOCOLOR} ---"
 echo -e "    \${YELLOW}https://$domain:${trojanport}/miniflux/\${NOCOLOR}"
 echo -e "    \${YELLOW}用户名: admin\${NOCOLOR}"
 echo -e "    \${YELLOW}密码: ${password1}\${NOCOLOR}"
 echo -e "    \${YELLOW}https://$domain:${trojanport}/rsshub/\${NOCOLOR}"
 fi
 if [[ -d /etc/filebrowser/ ]]; then
-echo -e " --- \${BLUE}Filebrowser链接\${NOCOLOR} ---"
+echo -e " --- \${BLUE}Filebrowser 链接\${NOCOLOR} ---"
 echo -e "    \${YELLOW}https://$domain:${trojanport}/file/\${NOCOLOR}"
 echo -e "    \${YELLOW}用户名: admin\${NOCOLOR}"
 echo -e "    \${YELLOW}密码: admin\${NOCOLOR}"
 fi
 if [[ -d /usr/share/nginx/speedtest/ ]]; then
-echo -e " --- \${BLUE}Speedtest链接\${NOCOLOR} ---"
+echo -e " --- \${BLUE}Speedtest 链接\${NOCOLOR} ---"
 echo -e "    \${YELLOW}https://$domain:${trojanport}/${password1}_speedtest/\${NOCOLOR}"
 fi
 if [[ -d /usr/share/nginx/nzbget ]]; then
@@ -183,27 +183,27 @@ echo -e "    \${YELLOW}https://$domain:${trojanport}/prowlarr/\${NOCOLOR}"
 echo -e "    \${YELLOW}https://$domain:${trojanport}/nzbget/\${NOCOLOR}"
 fi
 if [[ -d /etc/aria2/ ]]; then
-echo -e " --- \${BLUE}AriaNG+Aria2链接\${NOCOLOR} ---"
+echo -e " --- \${BLUE}AriaNG+Aria2 链接\${NOCOLOR} ---"
 echo -e "    \${YELLOW}https://$domain:${trojanport}/ariang/\${NOCOLOR}"
 echo -e "    \${YELLOW}密码: ${ariapasswd}\${NOCOLOR}"
 echo -e "    \${YELLOW}https://$domain:${trojanport}${ariapath}\${NOCOLOR}"
 fi
 if [[ -d /usr/share/nginx/qBittorrent/ ]]; then
-echo -e " --- \${BLUE}Qbittorrent链接\${NOCOLOR} ---"
+echo -e " --- \${BLUE}Qbittorrent 链接\${NOCOLOR} ---"
 echo -e "    \${YELLOW}https://$domain:${trojanport}/qbt/\${NOCOLOR}"
 echo -e "    \${YELLOW}用户名: admin\${NOCOLOR}"
 echo -e "    \${YELLOW}密码: ${password1}\${NOCOLOR}"
 fi
 if [[ -d /opt/netdata/ ]]; then
-echo -e " --- \${BLUE}Netdata链接\${NOCOLOR} ---"
+echo -e " --- \${BLUE}Netdata 链接\${NOCOLOR} ---"
 echo -e "    \${YELLOW}https://$domain:${trojanport}/${password1}_netdata/\${NOCOLOR}"
 fi
 if [[ -d /usr/share/nginx/rocketchat ]]; then
-echo -e " --- \${BLUE}Rocketchat链接\${NOCOLOR} ---"
+echo -e " --- \${BLUE}Rocketchat 链接\${NOCOLOR} ---"
 echo -e "    \${YELLOW}https://$domain:${trojanport}/chat/\${NOCOLOR}"
 fi
 if [[ -d /opt/alist ]]; then
-echo -e " --- \${BLUE}Alist链接\${NOCOLOR} ---"
+echo -e " --- \${BLUE}Alist 链接\${NOCOLOR} ---"
 cd /opt/alist
 alist_password=\$(./alist -password | awk -F'your password: ' '{print \$2}' 2>&1)
 cd

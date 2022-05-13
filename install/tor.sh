@@ -44,6 +44,7 @@ HardwareAccel 1
 #IPv6Exit 1
 #ExitRelay 1
 #ContactInfo xxx@example.com
+#BridgeRelay 1
 EOF
 torhostname=$(cat /var/lib/tor/hidden_service/hostname)
 systemctl restart tor@default

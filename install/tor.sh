@@ -45,6 +45,9 @@ HardwareAccel 1
 #ExitRelay 1
 #ContactInfo xxx@example.com
 #BridgeRelay 1
+#ServerTransportPlugin obfs4 exec /usr/bin/obfs4proxy
+#ServerTransportListenAddr obfs4 auto
+#ExtORPort auto
 EOF
 #torhostname=$(cat /var/lib/tor/hidden_service/hostname)
 systemctl restart tor@default

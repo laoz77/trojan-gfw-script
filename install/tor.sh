@@ -8,7 +8,7 @@ set +e
 
 install_tor(){
 clear
-TERM=ansi whiptail --title "安装中" --infobox "安装Tor proxy中..." 7 68
+TERM=ansi whiptail --title "安装中" --infobox "安装Tor proxy for Vless中..." 7 68
 colorEcho ${INFO} "Install Tor proxy ing"
 touch /etc/apt/sources.list.d/tor.list
   cat > '/etc/apt/sources.list.d/tor.list' << EOF

@@ -164,7 +164,7 @@ verify = true
 
 [limits]
 ## Maximum active transit sessions (default:2500)
-transittunnels = 65535
+transittunnels = 1
 ## Limit number of open file descriptors (0 - use system limit)  
 openfiles = 0
 ## Maximum size of corefile in Kb (0 - use system limit) 

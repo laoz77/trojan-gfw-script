@@ -20,16 +20,16 @@ apt-get update
 apt-get install tor tor-geoipdb obfs4proxy -y
 torport=$(shuf -i 23000-50000 -n 1)
   cat > '/etc/tor/torrc' << EOF
+HardwareAccel 1
 ClientUseIPv6 1
 ClientPreferIPv6ORPort 1
-SocksListenAddress 127.0.0.1:9050
-SocksPort 9050
-SOCKSPolicy accept 127.0.0.1
+#SocksListenAddress 127.0.0.1:9050
+#SocksPort 9050
+#SOCKSPolicy accept 127.0.0.1
 #SOCKSPolicy accept6 FC00::/7
-SOCKSPolicy reject *
+#SOCKSPolicy reject *
 #ControlPort 127.0.0.1:9051
 #CookieAuthentication 0
-HardwareAccel 1
 #HiddenServiceDir /var/lib/tor/hidden_service/
 #HiddenServiceVersion 3
 #HiddenServicePort 22 127.0.0.1:22

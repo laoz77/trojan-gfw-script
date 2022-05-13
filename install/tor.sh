@@ -41,7 +41,7 @@ HardwareAccel 1
 #ORPort [${myipv6}]:9001
 #SafeLogging 0
 #Log info
-#IPv6Exit ${ipv4_prefer_1}
+#IPv6Exit 1
 #ExitRelay 1
 #ContactInfo xxx@example.com
 EOF

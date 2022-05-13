@@ -140,6 +140,8 @@ echo -e "    \${YELLOW}hysteria://${myip}:${hyport}?protocol=udp&peer=${domain}&
 echo -e " --- \${BLUE}Hysteria二维码\${NOCOLOR} ---"
   qrencode -t UTF8 -m 2 "hysteria://${myip}:${hyport}?protocol=udp&peer=${domain}&upmbps=${target_speed_down}&downmbps=${target_speed_up}&alpn=h3&obfsParam=${password1}#HY(${route_final}${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)"
 fi
+echo -e " --- \${BLUE}Trojan-GFW可用性检测链接(被墙检测链接)\${NOCOLOR} ---"
+echo -e "    \${YELLOW}https://tcp.ping.pe/${myip}:${trojanport}\${NOCOLOR}"
 echo -e " --- \${BLUE}推荐的Trojan/Vless客户端(安卓,苹果,Windows)\${NOCOLOR} ---"
 echo -e "    \${YELLOW}https://github.com/2dust/v2rayNG/releases/latest\${NOCOLOR}"
 echo -e "    \${YELLOW}https://apps.apple.com/us/app/shadowrocket/id932747118\${NOCOLOR}"

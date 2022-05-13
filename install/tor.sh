@@ -21,19 +21,19 @@ apt-get install tor tor-geoipdb -y
   cat > '/etc/tor/torrc' << EOF
 ClientUseIPv6 1
 ClientPreferIPv6ORPort 0
-SocksListenAddress 127.0.0.1:9200
-SocksPort 9200
+SocksListenAddress 127.0.0.1:9050
+SocksPort 9050
 SOCKSPolicy accept 127.0.0.1
 #SOCKSPolicy accept6 FC00::/7
 SOCKSPolicy reject *
 #ControlPort 127.0.0.1:9051
 #CookieAuthentication 0
 HardwareAccel 1
-HiddenServiceDir /var/lib/tor/hidden_service/
-HiddenServiceVersion 3
+#HiddenServiceDir /var/lib/tor/hidden_service/
+#HiddenServiceVersion 3
 #HiddenServicePort 22 127.0.0.1:22
-HiddenServicePort 80 127.0.0.1:81
-HiddenServicePort 443 127.0.0.1:443
+#HiddenServicePort 80 127.0.0.1:81
+#HiddenServicePort 443 127.0.0.1:443
 #Socks5Proxy 127.0.0.1:1080
 #Nickname name
 #DirPort auto
@@ -48,20 +48,20 @@ EOF
 torhostname=$(cat /var/lib/tor/hidden_service/hostname)
 systemctl restart tor@default
 
-cd /etc/tor/
-mkdir snowflake
-cd /etc/tor/snowflake
-  cat > 'docker-compose.yml' << EOF
- version: "3.8"
+# cd /etc/tor/
+# mkdir snowflake
+# cd /etc/tor/snowflake
+#   cat > 'docker-compose.yml' << EOF
+#  version: "3.8"
 
- services:
-    snowflake-proxy:
-        network_mode: host
-        image: thetorproject/snowflake-proxy:latest
-        container_name: snowflake-proxy
-        restart: unless-stopped
-EOF
+#  services:
+#     snowflake-proxy:
+#         network_mode: host
+#         image: thetorproject/snowflake-proxy:latest
+#         container_name: snowflake-proxy
+#         restart: unless-stopped
+# EOF
 
-docker-compose up -d
+# docker-compose up -d
 cd
 }

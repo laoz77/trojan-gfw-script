@@ -593,7 +593,6 @@ MasterMenu() {
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/nginx-config.sh
     source nginx-config.sh
     nginx_config
-    clean_env
     ## 带宽测试
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/speed.sh
     source speed.sh
@@ -605,6 +604,7 @@ MasterMenu() {
     install_hysteria
     fi
     ## 输出结果
+    clean_env
     echo "nameserver 1.1.1.1" > /etc/resolv.conf
     echo "nameserver 9.9.9.10" >> /etc/resolv.conf
     echo "nameserver 2606:4700:4700::1111" >> /etc/resolv.conf
@@ -668,7 +668,6 @@ MasterMenu() {
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/nginx-config.sh
     source nginx-config.sh
     nginx_config
-    clean_env
     ## 初始化Nextcloud
     if [[ ${install_nextcloud} == 1 ]] && [[ ${nextcloud_installed} != 1 ]]; then
     curl https://${domain}:${trojanport}/nextcloud/
@@ -697,6 +696,7 @@ MasterMenu() {
     install_hysteria
     fi
     ## 输出结果
+    clean_env
     echo "nameserver 1.1.1.1" > /etc/resolv.conf
     echo "nameserver 9.9.9.10" >> /etc/resolv.conf
     echo "nameserver 2606:4700:4700::1111" >> /etc/resolv.conf

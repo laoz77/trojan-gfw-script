@@ -18,6 +18,7 @@ curl https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E8
 gpg --export A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89 | apt-key add -
 apt-get update
 apt-get install tor tor-geoipdb obfs4proxy -y
+torport=$(shuf -i 23000-50000 -n 1)
   cat > '/etc/tor/torrc' << EOF
 ClientUseIPv6 1
 ClientPreferIPv6ORPort 1
@@ -46,7 +47,7 @@ HardwareAccel 1
 #ContactInfo xxx@example.com
 #BridgeRelay 1
 #ServerTransportPlugin obfs4 exec /usr/bin/obfs4proxy
-#ServerTransportListenAddr obfs4 auto
+#ServerTransportListenAddr obfs4 0.0.0.0:${torport}
 #ExtORPort auto
 EOF
 #torhostname=$(cat /var/lib/tor/hidden_service/hostname)

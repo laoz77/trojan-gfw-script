@@ -12,7 +12,7 @@ if [[ ${warp_v6} == 1 ]] || [[ ${warp_v4} == 1 ]]; then
 myip=${domain}
 fi
 
-if [[ ${warp_v6} == 1 ]]; then
+if [[ ${warp_plus} == 1 ]]; then
 myipv6="Warp+v6"
 fi
 

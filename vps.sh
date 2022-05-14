@@ -311,6 +311,7 @@ fi
 ## Cloudflare Warp For IPv4 only server
 
 if [[ -z ${myipv6} ]] || [[ ${myipv6} =~ .*"fd01".* ]]; then
+warp_plus=1
 myipv6=""
 # https://github.com/P3TERX/warp.sh
 apt install wireguard -y

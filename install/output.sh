@@ -12,6 +12,10 @@ if [[ ${warp_v6} == 1 ]] || [[ ${warp_v4} == 1 ]]; then
 myip=${domain}
 fi
 
+if [[ ${warp_v6} == 1 ]]; then
+myipv6="Warp+v6"
+fi
+
 clear
 apt-get install neofetch -y
 	cat > '/etc/profile.d/mymotd.sh' << EOF

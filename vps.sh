@@ -607,7 +607,6 @@ MasterMenu() {
     install_hysteria
     fi
     ## 输出结果
-    clean_env
     echo "nameserver 1.1.1.1" > /etc/resolv.conf
     echo "nameserver 9.9.9.10" >> /etc/resolv.conf
     echo "nameserver 2606:4700:4700::1111" >> /etc/resolv.conf
@@ -615,6 +614,7 @@ MasterMenu() {
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/output.sh
     source output.sh
     prase_output
+    clean_env
     rm output.sh
     exit 0
     ;;
@@ -699,7 +699,6 @@ MasterMenu() {
     install_hysteria
     fi
     ## 输出结果
-    clean_env
     echo "nameserver 1.1.1.1" > /etc/resolv.conf
     echo "nameserver 9.9.9.10" >> /etc/resolv.conf
     echo "nameserver 2606:4700:4700::1111" >> /etc/resolv.conf
@@ -707,6 +706,7 @@ MasterMenu() {
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/output.sh
     source output.sh
     prase_output
+    clean_env
     rm output.sh
     exit 0
     ;;

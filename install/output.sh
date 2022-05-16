@@ -6,6 +6,10 @@ set +e
 
 apt-get install qrencode -y
 
+apt-get install pip python3 -y
+
+pip install pystun3
+
 prase_output(){
 
 if [[ ${warp_v6} == 1 ]] || [[ ${warp_v4} == 1 ]]; then
@@ -103,6 +107,8 @@ echo -e "Postfix:\t\t 正常运行中"
   if [[ \$(systemctl is-active fail2ban) == active ]]; then
 echo -e "Fail2ban:\t\t 正常运行中"
   fi
+echo -e " --- \${BLUE}防火墙状态(NAT Type)\${NOCOLOR} ---"
+echo '\n' | pystun3 | grep -i "NAT Type"
 echo -e " --- \${BLUE}端口速率(Port speed)\${NOCOLOR} ---"
 echo -e "下载(Download): ${target_speed_down} Mbps"
 echo -e "上传( Upload ): ${target_speed_up} Mbps"

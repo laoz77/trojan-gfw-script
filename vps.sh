@@ -618,7 +618,6 @@ MasterMenu() {
     source output.sh
     prase_output
     clean_env
-    rm output.sh
     exit 0
     ;;
     ## 扩展安装
@@ -713,7 +712,6 @@ MasterMenu() {
     source output.sh
     prase_output
     clean_env
-    rm output.sh
     exit 0
     ;;
     Benchmark)

@@ -98,6 +98,7 @@ chmod +x /var/local/zerossl/zerossl-ip-cert-linux-amd64/zerossl-ip-cert
 chmod +x /var/local/zerossl/verify-hook.sh
 chmod +x /var/local/zerossl/post-hook.sh
 
+echo "" > /etc/nginx/conf.d/default.conf
 /var/local/zerossl/zerossl-ip-cert-linux-amd64/zerossl-ip-cert -config /var/local/zerossl/zerossl-ip-cert-linux-amd64/config.yml
 
   if [[ -f /etc/certs/${domain}_ecc/fullchain.cer ]] && [[ -f /etc/certs/${domain}_ecc/${domain}.key ]]; then

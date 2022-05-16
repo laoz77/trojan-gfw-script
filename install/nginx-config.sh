@@ -509,7 +509,6 @@ echo "    return 301 https://\$host\$request_uri;" >> /etc/nginx/conf.d/default.
 echo "    }" >> /etc/nginx/conf.d/default.conf
 echo "}" >> /etc/nginx/conf.d/default.conf
 fi
-echo "" >> /etc/nginx/conf.d/default.conf
 if [[ $install_netdata == 1 ]]; then
 echo "server { #For Netdata only !" >> /etc/nginx/conf.d/default.conf
 echo "    listen 127.0.0.1:83 fastopen=20 reuseport;" >> /etc/nginx/conf.d/default.conf

@@ -4,12 +4,6 @@
 
 set +e
 
-apt-get install qrencode -y
-
-apt-get install pip python3 -y
-
-pip install pystun3
-
 prase_output(){
 
 if [[ ${warp_v6} == 1 ]] || [[ ${warp_v4} == 1 ]]; then

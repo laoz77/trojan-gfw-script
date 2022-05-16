@@ -611,6 +611,9 @@ MasterMenu() {
     echo "nameserver 9.9.9.10" >> /etc/resolv.conf
     echo "nameserver 2606:4700:4700::1111" >> /etc/resolv.conf
     echo "nameserver 2001:4860:4860::8844" >> /etc/resolv.conf
+    apt-get install qrencode -y
+    apt-get install pip python3 -y
+    pip install pystun3
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/output.sh
     source output.sh
     prase_output
@@ -703,6 +706,9 @@ MasterMenu() {
     echo "nameserver 9.9.9.10" >> /etc/resolv.conf
     echo "nameserver 2606:4700:4700::1111" >> /etc/resolv.conf
     echo "nameserver 2001:4860:4860::8844" >> /etc/resolv.conf
+    apt-get install qrencode -y
+    apt-get install pip python3 -y
+    pip install pystun3
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/output.sh
     source output.sh
     prase_output

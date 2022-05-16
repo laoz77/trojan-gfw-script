@@ -499,8 +499,8 @@ if [[ ${ipissue} == 1 ]]; then
 echo good
 else
 echo "server {" >> /etc/nginx/conf.d/default.conf
-echo "    listen 80 fastopen=20 reuseport default_server;" >> /etc/nginx/conf.d/default.conf
-echo "    listen [::]:80 fastopen=20 reuseport default_server;" >> /etc/nginx/conf.d/default.conf
+echo "    listen 80 fastopen=20 reuseport;" >> /etc/nginx/conf.d/default.conf
+echo "    listen [::]:80 fastopen=20 reuseport;" >> /etc/nginx/conf.d/default.conf
 echo "    location /.well-known/acme-challenge/ {" >> /etc/nginx/conf.d/default.conf
 echo "      root /usr/share/nginx/;" >> /etc/nginx/conf.d/default.conf
 echo "    }" >> /etc/nginx/conf.d/default.conf

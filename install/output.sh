@@ -15,7 +15,6 @@ myipv6="Warp+v6"
 fi
 
 clear
-apt-get install neofetch -y
 	cat > '/etc/profile.d/mymotd.sh' << EOF
 #!/usr/bin/env bash
 bold=\$(tput bold)

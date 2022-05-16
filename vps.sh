@@ -614,6 +614,7 @@ MasterMenu() {
     apt-get install qrencode -y
     apt-get install pip python3 -y
     pip install pystun3
+    apt-get install neofetch -y
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/output.sh
     source output.sh
     prase_output
@@ -708,6 +709,7 @@ MasterMenu() {
     apt-get install qrencode -y
     apt-get install pip python3 -y
     pip install pystun3
+    apt-get install neofetch -y
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/output.sh
     source output.sh
     prase_output

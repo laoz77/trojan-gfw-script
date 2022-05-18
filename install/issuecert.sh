@@ -25,6 +25,8 @@ touch /etc/nginx/conf.d/default.conf
 server {
   listen       80;
   listen       [::]:80;
+  listen       443;
+  listen       [::]:443;
   server_name  $domain;
   root   /usr/share/nginx/html;
     location /.well-known/acme-challenge/ {

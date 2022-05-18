@@ -47,4 +47,19 @@ target_speed_up=$(( target_speed_up_bytes*8/1000000 ))
 echo $target_speed_down
 echo $target_speed_up
 fi
+
+## CT China Telecom - Shanghai (id = 3633)
+speedtest --server-id=3633 -f json | tee /root/.trojan/ct.json
+## CU China Unicom 5G - ShangHai (id = 24447)
+speedtest --server-id=24447 -f json | tee /root/.trojan/cu.json
+## CM 中国移动江苏5G（中国镇江）
+speedtest --server-id=17320 -f json | tee /root/.trojan/cm.json
+
+ct_up_bytes=$( jq -r '.upload.bandwidth' "/root/.trojan/ct.json")
+ct_up=$(( ct_up_bytes*8/1000000 ))
+cu_up_bytes=$( jq -r '.upload.bandwidth' "/root/.trojan/cu.json")
+cu_up=$(( cu_up_bytes*8/1000000 ))
+cm_up_bytes=$( jq -r '.upload.bandwidth' "/root/.trojan/cm.json")
+cm_up=$(( cm_up_bytes*8/1000000 ))
+
 }

@@ -44,7 +44,7 @@ trojanport="${trojanport}"
 password1="${password1}"
 password2="${password2}"
 neofetch
-echo -e " --- 欢迎使用VPSToolBox --- "
+echo -e " --- 欢迎使用VPSToolBox 😀😀😀 --- "
 echo -e " --- \${BLUE}服務狀態(Service Status)\${NOCOLOR} ---"
   if [[ \$(cat /etc/sysctl.conf | grep bbr) = *bbr* ]] ; then
 echo -e "BBR网络优化:\t\t 已开启"

@@ -21,13 +21,17 @@ installacme
 rm -rf /etc/nginx/sites-available/*
 rm -rf /etc/nginx/sites-enabled/*
 touch /etc/nginx/conf.d/default.conf
+openssl genrsa -out server.key 2048
+openssl req -new -x509 -days 3650 -key server.key -out server.crt -subj "/C=CN/ST=mykey/L=mykey/O=mykey/OU=mykey/CN=domain1"
   cat > '/etc/nginx/conf.d/default.conf' << EOF
 server {
   listen       80;
   listen       [::]:80;
-  listen       443;
-  listen       [::]:443;
-  server_name  $domain;
+  listen 443 ssl http2;
+  listen [::]:443 ssl http2;
+  ssl_certificate     /root/server.crt;
+  ssl_certificate_key /root/server.key;
+  server_name  _;
   root   /usr/share/nginx/html;
     location /.well-known/acme-challenge/ {
       root /usr/share/nginx/;

@@ -625,8 +625,8 @@ MasterMenu() {
     apt-get install neofetch -y
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/output.sh
     source output.sh
-    prase_output
     clean_env
+    prase_output
     exit 0
     ;;
     ## 扩展安装
@@ -720,8 +720,8 @@ MasterMenu() {
     apt-get install neofetch -y
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/output.sh
     source output.sh
-    prase_output
     clean_env
+    prase_output
     exit 0
     ;;
     Benchmark)

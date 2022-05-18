@@ -243,6 +243,13 @@ if cat /etc/*release | grep ^NAME | grep -q Ubuntu; then
   exit 1;
 fi
 
+## SSH 连接保活
+
+sed -i "s/#ClientAliveInterval 0/ClientAliveInterval 60/g" /etc/ssh/sshd_config
+sed -i "s/#ClientAliveCountMax 3/ClientAliveCountMax 3/g" /etc/ssh/sshd_config
+
+systemctl reload sshd
+
 ## 卸载腾讯云云盾
 
 rm -rf /usr/local/sa

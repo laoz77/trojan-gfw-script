@@ -749,7 +749,7 @@ MasterMenu() {
 }
 cd /root
 clear
-curl --ipv4 --retry 10 -s https://ipinfo.io?token=56c375418c62c9 --connect-timeout 300 > /root/.trojan/ip.json
+curl --ipv4 --retry 3 -s https://ipinfo.io?token=56c375418c62c9 --connect-timeout 300 > /root/.trojan/ip.json
 initialize
 setlanguage
 clear

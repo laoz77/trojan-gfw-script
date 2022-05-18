@@ -64,4 +64,13 @@ cm_up=$(( cm_up_bytes*8/1000000 ))
 echo $ct_up
 echo $cu_up
 echo $cm_up
+ct_down_bytes=$( jq -r '.download.bandwidth' "/root/.trojan/ct.json")
+ct_down=$(( ct_up_bytes*8/1000000 ))
+cu_down_bytes=$( jq -r '.download.bandwidth' "/root/.trojan/cu.json")
+cu_down=$(( cu_up_bytes*8/1000000 ))
+cm_down_bytes=$( jq -r '.download.bandwidth' "/root/.trojan/cm.json")
+cm_down=$(( cm_up_bytes*8/1000000 ))
+echo $ct_down
+echo $cu_down
+echo $cm_down
 }

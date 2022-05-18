@@ -110,7 +110,6 @@ export LC_ALL="C.UTF-8"
 
 ## 写入配置文件
 prasejson(){
-  set +e
   cat > '/root/.trojan/config.json' << EOF
 {
   "installed": "1",
@@ -188,7 +187,6 @@ readconfig(){
 ## 清理apt以及模块化的.sh文件等
 clean_env(){
 prasejson
-apt-get autoremove -y
 cd /root
 if [[ -n ${uuid_new} ]]; then
 echo "vless://${uuid_new}@${myip}:${trojanport}?mode=multi&security=tls&type=grpc&serviceName=${path_new}&sni=${domain}#Vless(${route_final} ${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)" &> ${myip}.txt

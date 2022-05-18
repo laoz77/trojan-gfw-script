@@ -39,10 +39,10 @@ LIGHTPURPLE='\033[1;35m'
 LIGHTCYAN='\033[1;36m'
 WHITE='\033[1;37m'
 ###
-domain="$( jq -r '.domain' "/root/.trojan/config.json" )"
-trojanport="$( jq -r '.trojanport' "/root/.trojan/config.json" )"
-password1="$( jq -r '.password1' "/root/.trojan/config.json" )"
-password2="$( jq -r '.password2' "/root/.trojan/config.json" )"
+domain="${domain}"
+trojanport="${trojanport}"
+password1="${password1}"
+password2="${password2}"
 neofetch
 echo -e " --- 欢迎使用VPSToolBox --- "
 echo -e " --- \${BLUE}服務狀態(Service Status)\${NOCOLOR} ---"
@@ -221,5 +221,6 @@ chmod +x /etc/profile.d/mymotd.sh
 echo "" > /etc/motd
 echo "Install complete!"
 whiptail --title "Success" --msgbox "安装成功(Install Success),欢迎使用VPSTOOLBOX !" 8 68
+clear
 bash /etc/profile.d/mymotd.sh
 }

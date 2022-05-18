@@ -61,5 +61,7 @@ cu_up_bytes=$( jq -r '.upload.bandwidth' "/root/.trojan/cu.json")
 cu_up=$(( cu_up_bytes*8/1000000 ))
 cm_up_bytes=$( jq -r '.upload.bandwidth' "/root/.trojan/cm.json")
 cm_up=$(( cm_up_bytes*8/1000000 ))
-
+echo $ct_up
+echo $cu_up
+echo $cm_up
 }

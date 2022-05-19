@@ -70,6 +70,9 @@ echo -e "Nginx:\t\t\t 正常运行中"
   if [[ \$(systemctl is-active hexo) == active ]]; then
 echo -e "Hexo:\t\t\t 正常运行中"
   fi
+  if [[ \$(systemctl is-active alist) == active ]]; then
+echo -e "Alist:\t\t\t 正常运行中"
+  fi
   if [[ \$(systemctl is-active qbittorrent) == active ]]; then
 echo -e "Qbittorrent:\t\t 正常运行中"
   fi

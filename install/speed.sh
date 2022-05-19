@@ -73,4 +73,10 @@ cm_down=$(( cm_down_bytes*8/1000000 ))
 echo $ct_down
 echo $cu_down
 echo $cm_down
+ct_latency=$( jq -r '.ping.latency' "/root/.trojan/ct.json")
+cu_latency=$( jq -r '.ping.latency' "/root/.trojan/cu.json")
+cm_latency=$( jq -r '.ping.latency' "/root/.trojan/cm.json")
+echo $ct_latency
+echo $cu_latency
+echo $cm_latency
 }

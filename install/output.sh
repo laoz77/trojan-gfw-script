@@ -227,4 +227,12 @@ echo "Install complete!"
 whiptail --title "Success" --msgbox "安装成功(Install Success),欢迎使用VPSTOOLBOX !" 8 68
 clear
 bash /etc/profile.d/mymotd.sh
+## AFF 信息
+echo -e " --- \${BLUE}如果觉得好用，欢迎打钱帮助开发或者尝试以下服务，😃❤️🤣\${NOCOLOR} ---"
+echo -e "    \${YELLOW}搬瓦工: https://bandwagonhost.com/aff.php?aff=68197\${NOCOLOR}"
+echo -e "    \${YELLOW}Namesilo: https://www.namesilo.com/?rid=685fb47qi\${NOCOLOR}"
+echo -e "    \${YELLOW}阿里云: https://www.aliyun.com/daily-act/ecs/activity_selection?userCode=fgdncdz2\${NOCOLOR}"
+echo -e "    \${YELLOW}Hostyun: https://my.hostyun.com/page.aspx?c=referral&u=27710\${NOCOLOR}"
+echo -e "    \${YELLOW}ETH: 0x9DB5737AB34E1F5d1303E9eD726776eebba3BF16\${NOCOLOR}"
+echo -e "*********************"
 }

@@ -277,10 +277,8 @@ mycity="$( jq -r '.city' "/root/.trojan/ip.json" )"
 
 myip_org="$( jq -r '.org' "/root/.trojan/ip.json" )"
 
-if [[ ${myip} != ${localip} ]]; then
-  if echo "${myip_org}" | grep -q "AS13335"; then 
-    warp_v4=1
-  fi
+if echo "${myip_org}" | grep -q "AS13335"; then 
+  warp_v4=1
 fi
 
 ## Cloudflare Warp For IPv4 only server

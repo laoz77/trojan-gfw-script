@@ -177,5 +177,5 @@ rm -rf opentracker
 # Announce tracker to https://newtrackon.com/
 curl -X POST "https://newtrackon.com/api/add" \
  -H "Content-Type: application/x-www-form-urlencoded" \
- -d new_trackers=udp%3A%2F%2F${myip}%3A6969%2Fannounce \
+ -d new_trackers=https%3A%2F%2F${domain}%3A443%2Fannounce \
 }

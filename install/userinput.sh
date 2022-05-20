@@ -48,6 +48,10 @@ userinput_standard() {
     check_hy="off"
   fi
 
+  if [[ -z ${check_aria} ]]; then
+    check_aria="off"
+  fi
+
   whiptail --clear --ok-button "下一步" --backtitle "Hi,请按空格以及方向键来选择需要安装/更新的软件,请自行下拉以查看更多(Please press space and Arrow keys to choose)" --title "应用安装菜单" --checklist --separate-output --nocancel "请按空格及方向键来选择需要安装/更新的应用程序。" 18 65 10 \
   "Back" "返回上级菜单(Back to main menu)" off \
   "trojan" "Trojan-GFW+TCP-BBR" on \
@@ -58,8 +62,8 @@ userinput_standard() {
   "hy" "hysteria(仅推荐用于垃圾线路)" ${check_hy} \
   "ip" "免费ip证书(没有域名的话选这个)" ${check_ip} \
   "hexo" "Hexo Blog" off \
+  "aria" "Aria2+AriaNG+Filebrowser" ${check_aria} \
   "ss" "shadowsocks-rust(不支持CDN)" ${check_ss} \
-  "nextcloud" "Nextcloud(私人网盘)" ${check_cloud} \
   "rss" "RSSHUB + Miniflux(RSS生成器+RSS阅读器)" ${check_rss} \
   "fail2ban" "Fail2ban(防SSH爆破用)" ${check_fail2ban} \
   "net" "Netdata(监测伺服器运行状态)" off 2>results
@@ -85,6 +89,13 @@ userinput_standard() {
       ipissue=1
       domain=${myip}
       ;;
+    aria)
+      check_aria="on"
+      install_aria=1
+      check_file="on"
+      install_filebrowser=1
+      install_tracker=1
+      ;;
     hexo)
       install_hexo=1
       install_alist=0
@@ -103,12 +114,6 @@ userinput_standard() {
       check_speed="on"
       install_speedtest=1
       install_php=1
-      ;;
-    nextcloud)
-      install_nextcloud=1
-      install_php=1
-      install_mariadb=1
-      install_redis=1
       ;;
     rss)
       check_rss="on"
@@ -192,6 +197,15 @@ userinput_standard() {
       head /dev/urandom | tr -dc a-z0-9 | head -c 6
       echo ''
     )
+  fi
+  if [[ ${install_aria} == 1 ]]; then
+    ariaport=$(shuf -i 13000-19000 -n 1)
+    while [[ -z ${ariapath} ]]; do
+      ariapath="/jsonrpc"
+    done
+    while [[ -z $ariapasswd ]]; do
+      ariapasswd=${password1}
+    done
   fi
 }
 
@@ -285,7 +299,6 @@ userinput_full() {
   "影音" "影音" off \
   "media" "Emby Sonarr Radarr Lidarr Prowlarr Qbt" off \
   "网盘" "网盘" off \
-  "nextcloud" "Nextcloud(私人网盘)" ${check_cloud} \
   "rss" "RSSHUB + Miniflux(RSS生成器+RSS阅读器)" ${check_rss} \
   "rclone" "Rclone" ${check_rclone} \
   "aria" "Aria2+AriaNG+Filebrowser" ${check_aria} \
@@ -299,6 +312,7 @@ userinput_full() {
   "fail2ban" "Fail2ban(防SSH爆破用)" ${check_fail2ban} \
   "其他" "其他软件及选项" off \
   "net" "Netdata(监测伺服器运行状态)" off \
+  "nextcloud" "Nextcloud(私人网盘)" ${check_cloud} \
   "typecho" "Typecho" ${check_echo} \
   "13" "Qbt原版+高性能Tracker+Filebrowser" off 2>results
 
@@ -385,6 +399,7 @@ userinput_full() {
       install_aria=1
       check_file="on"
       install_filebrowser=1
+      install_tracker=1
       ;;
     rclone)
       check_rclone="on"

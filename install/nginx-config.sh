@@ -449,12 +449,6 @@ echo "        proxy_pass http://127.0.0.1:8081/;" >> /etc/nginx/conf.d/default.c
 echo "        client_max_body_size 0;" >> /etc/nginx/conf.d/default.conf
 echo "        }" >> /etc/nginx/conf.d/default.conf
 fi
-if [[ $install_i2pd == 1 ]]; then
-echo "    location /i2p/ {" >> /etc/nginx/conf.d/default.conf
-echo "        #access_log off;" >> /etc/nginx/conf.d/default.conf
-echo "        proxy_pass http://127.0.0.1:7070/;" >> /etc/nginx/conf.d/default.conf
-echo "        }" >> /etc/nginx/conf.d/default.conf
-fi
 echo "    location ~ ^/announce$ {" >> /etc/nginx/conf.d/default.conf
 echo "        #access_log off;" >> /etc/nginx/conf.d/default.conf
 echo "        proxy_pass http://127.0.0.1:6969;" >> /etc/nginx/conf.d/default.conf

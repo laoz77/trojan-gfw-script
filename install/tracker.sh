@@ -9,7 +9,7 @@ install_tracker(){
 colorEcho ${INFO} "Install Bittorrent-tracker ing"
 apt-get install libowfat-dev make git build-essential zlib1g-dev libowfat-dev make git -y
 useradd -r opentracker --shell=/usr/sbin/nologin
-git clone https://erdgeist.org/gitweb/opentracker opentracker
+git clone git://erdgeist.org/opentracker opentracker
 cd opentracker
 #sed -i 's/#FEATURES+=-DWANT_V6/FEATURES+=-DWANT_V6/' Makefile
 sed -i 's/#FEATURES+=-DWANT_IP_FROM_QUERY_STRING/FEATURES+=-DWANT_IP_FROM_QUERY_STRING/' Makefile

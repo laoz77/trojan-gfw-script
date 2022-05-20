@@ -479,11 +479,6 @@ echo "        gzip_comp_level 6;" >> /etc/nginx/conf.d/default.conf
 echo "        }" >> /etc/nginx/conf.d/default.conf
 echo "}" >> /etc/nginx/conf.d/default.conf
 echo "" >> /etc/nginx/conf.d/default.conf
-
-curl -X POST "https://newtrackon.com/api/add" \
- -H "Content-Type: application/x-www-form-urlencoded" \
- -d new_trackers=https%3A%2F%2F${domain}%3A443%2Fannounce
-
 if [[ ${ipissue} == 1 ]]; then
 echo good
 else

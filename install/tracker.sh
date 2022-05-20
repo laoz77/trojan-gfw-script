@@ -174,8 +174,4 @@ EOF
 wget https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css
 cd
 rm -rf opentracker
-# Announce tracker to https://newtrackon.com/
-curl -X POST "https://newtrackon.com/api/add" \
- -H "Content-Type: application/x-www-form-urlencoded" \
- -d new_trackers=https%3A%2F%2F${domain}%3A443%2Fannounce \
 }

@@ -455,7 +455,6 @@ echo "        #access_log off;" >> /etc/nginx/conf.d/default.conf
 echo "        proxy_pass http://127.0.0.1:7070/;" >> /etc/nginx/conf.d/default.conf
 echo "        }" >> /etc/nginx/conf.d/default.conf
 fi
-if [[ $install_tracker == 1 ]]; then
 echo "    location ~ ^/announce$ {" >> /etc/nginx/conf.d/default.conf
 echo "        #access_log off;" >> /etc/nginx/conf.d/default.conf
 echo "        proxy_pass http://127.0.0.1:6969;" >> /etc/nginx/conf.d/default.conf
@@ -466,7 +465,9 @@ echo "        #access_log off;" >> /etc/nginx/conf.d/default.conf
 echo "        proxy_pass http://127.0.0.1:6969;" >> /etc/nginx/conf.d/default.conf
 echo "        gzip_comp_level 6;" >> /etc/nginx/conf.d/default.conf
 echo "        }" >> /etc/nginx/conf.d/default.conf
-fi
+curl -X POST "https://newtrackon.com/api/add" \
+ -H "Content-Type: application/x-www-form-urlencoded" \
+ -d new_trackers=https%3A%2F%2F${domain}%3A443%2Fannounce \
 if [[ $install_netdata == 1 ]]; then
 echo "    location ~ /${password1}_netdata/(?<ndpath>.*) {" >> /etc/nginx/conf.d/default.conf
 echo "        #access_log off;" >> /etc/nginx/conf.d/default.conf

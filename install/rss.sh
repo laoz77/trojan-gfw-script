@@ -36,13 +36,6 @@ services:
     restart: unless-stopped
     ports:
       - 127.0.0.1:3000:3000
-  redis: # 6379
-    image: "redis:latest"
-    container_name: redis
-    ports:
-      - "6379:6379"
-    volumes:
-      - "/data/redis:/data"
   miniflux: # 8280
     image: miniflux/miniflux:latest
     restart: unless-stopped

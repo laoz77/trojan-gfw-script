@@ -31,6 +31,10 @@ source route.sh
 route_test
 ```
 
+## Demo
+
+![demo](https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/images/demo.png)
+
 ## 前提条件及使用要点 Usage instruction
 
 1. 请以 **root(sudo -i)** 运行(**可覆盖安装**)。

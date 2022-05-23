@@ -4,10 +4,6 @@
 
 厌倦了总是需要手动输入命令安装博客，网盘，RSS，邮箱，影音，代理了吗？VPSToolBox 提供了一整套全自动化的解决方案，解放双手，从今天开始！
 
-## 流程图
-
-![流程图](https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/images/flow.svg)
-
 ## 给纯新手小白看的教程
 
 [纯新手教程点这里！！！](README_bai.md)
@@ -19,6 +15,10 @@ apt-get update --fix-missing && apt-get install sudo curl -y && curl -Ss https:/
 ```
 
 > 仅支援 **Debian/Ubuntu** 系统。
+
+## 流程图
+
+![流程图](https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/images/flow.svg)
 
 ## 路由测试
 

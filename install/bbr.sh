@@ -103,7 +103,7 @@ fs.inotify.max_user_watches=524288
 EOF
   sysctl -p
   sysctl --system
-  echo madvise > /sys/kernel/mm/transparent_hugepage/enabled
+  echo always > /sys/kernel/mm/transparent_hugepage/enabled
   cat > '/etc/systemd/system.conf' << EOF
 [Manager]
 #DefaultTimeoutStartSec=90s

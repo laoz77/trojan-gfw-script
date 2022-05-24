@@ -553,11 +553,11 @@ MasterMenu() {
     source detectcert.sh
     detectcert
     ## 开始安装
+    TERM=ansi whiptail --title "开始安装" --infobox "安装开始,请不要按任何按键直到安装完成(Please do not press any button until the installation is completed)!" 7 68
+    colorEcho ${INFO} "安装开始,请不要按任何按键直到安装完成(Please do not press any button until the installation is completed)!"
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/bbr.sh
     source bbr.sh
     install_bbr
-    TERM=ansi whiptail --title "开始安装" --infobox "安装开始,请不要按任何按键直到安装完成(Please do not press any button until the installation is completed)!" 7 68
-    colorEcho ${INFO} "安装开始,请不要按任何按键直到安装完成(Please do not press any button until the installation is completed)!"
     curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/system-upgrade.sh
     source system-upgrade.sh
     upgrade_system

@@ -261,6 +261,8 @@ cp -f tmp /etc/logrotate.d/rsyslog
 
 cat /etc/logrotate.d/rsyslog
 
+rm tmp
+
 fi
 
 ## 卸载腾讯云云盾

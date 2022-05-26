@@ -65,7 +65,7 @@ userinput_standard() {
   "aria" "Aria2+AriaNG+Filebrowser" ${check_aria} \
   "ss" "shadowsocks-rust(不支持CDN)" ${check_ss} \
   "rss" "RSSHUB + Miniflux(RSS生成器+RSS阅读器)" ${check_rss} \
-  "fail2ban" "Fail2ban(防SSH爆破用)" ${check_fail2ban} \
+  "fail2ban" "Fail2ban(防SSH爆破用)" on \
   "net" "Netdata(监测伺服器运行状态)" off 2>results
 
   while read choice; do
@@ -309,7 +309,7 @@ userinput_full() {
   "chat" "Rocket Chat" ${check_chat} \
   "mail" "Mail service(邮箱服务)" ${check_mail} \
   "安全" "安全" off \
-  "fail2ban" "Fail2ban(防SSH爆破用)" ${check_fail2ban} \
+  "fail2ban" "Fail2ban(防SSH爆破用)" on \
   "其他" "其他软件及选项" off \
   "net" "Netdata(监测伺服器运行状态)" off \
   "nextcloud" "Nextcloud(私人网盘)" ${check_cloud} \

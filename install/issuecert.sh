@@ -55,8 +55,8 @@ crontab -l > mycron
 echo "0 0 * * * ~/.acme.sh/acme.sh --server letsencrypt --cron --cert-home /etc/certs --reloadcmd 'systemctl restart trojan postfix dovecot nginx hysteria || true' &> /root/.trojan/letcron.log 2>&1" >> mycron
 crontab mycron
 rm mycron
-rm /root/server.crt
-rm /root/server.key
+rm -rf /root/server.crt
+rm -rf /root/server.key
 }
 
 dns_issue(){

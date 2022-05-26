@@ -327,7 +327,7 @@ systemctl restart wg-quick@wgcf.service
 cd /root
 curl -s6m8 https://www.cloudflare.com/cdn-cgi/trace | grep warp | sed "s/warp=//g"
 else
-curl --ipv4 --retry 5 -s https://ipinfo.io/${myipv6}?token=56c375418c62c9 --connect-timeout 300 > /root/.trojan/ipv6.json
+curl --ipv4 --retry 5 -s https://ipinfo.io/${myipv6}?token=56c375418c62c9 --connect-timeout 5 > /root/.trojan/ipv6.json
 fi
 
 ## Cloudflare Warp For IPv6 only server
@@ -763,7 +763,7 @@ MasterMenu() {
 }
 cd /root
 clear
-curl --ipv4 --retry 3 -s https://ipinfo.io?token=56c375418c62c9 --connect-timeout 300 > /root/.trojan/ip.json
+curl --ipv4 --retry 3 -s https://ipinfo.io?token=56c375418c62c9 --connect-timeout 5 > /root/.trojan/ip.json
 initialize
 setlanguage
 clear

@@ -246,6 +246,23 @@ sed -i "s/#ClientAliveCountMax 3/ClientAliveCountMax 3/g" /etc/ssh/sshd_config
 
 systemctl reload sshd
 
+## 阻止日志文件过大占用系统空间
+
+if grep "maxsize" /etc/logrotate.d/rsyslog; then
+
+echo "日志最大大小设置已存在"
+
+else
+
+sed -e "/weekly/a\\
+	maxsize 1G" < /etc/logrotate.d/rsyslog > tmp
+
+cp -f tmp /etc/logrotate.d/rsyslog
+
+cat /etc/logrotate.d/rsyslog
+
+fi
+
 ## 卸载腾讯云云盾
 
 rm -rf /usr/local/sa

@@ -20,6 +20,7 @@ install_ss_rust(){
 	mkdir /etc/ss-rust
   rm -rf *.xz
   rm -rf ss*
+  openssl rand -base64 16
   	cat > '/etc/ss-rust/config.json' << EOF
 {
     "server": "::",

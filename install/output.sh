@@ -156,31 +156,31 @@ echo -e "\e[40;33;1m [${domain}] 证书过期日期 : [\${last_date}] 剩余 [\$
 echo -e "*******************************************************************"
 if [[ -f /usr/bin/xray ]]; then
 echo -e " --- \${BLUE}Vless 链接(低延迟 低并发 支持Cloudflare CDN)\${NOCOLOR} ---"
-echo -e "    \${YELLOW}vless://${uuid_new}@${myip}:${trojanport}?mode=gun&security=tls&type=grpc&serviceName=${path_new}&sni=${domain}#Vless(${route_final}${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
+echo -e "    \${YELLOW}vless://${uuid_new}@${myip}:${trojanport}?mode=gun&security=tls&type=grpc&serviceName=${path_new}&sni=${domain}#Vless(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
 echo -e " --- \${BLUE}Vless 二维码\${NOCOLOR} ---"
-  qrencode -t UTF8 -m 2 "vless://${uuid_new}@${myip}:${trojanport}?mode=gun&security=tls&type=grpc&serviceName=${path_new}&sni=${domain}#Vless(${route_final}${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)"
+  qrencode -t UTF8 -m 2 "vless://${uuid_new}@${myip}:${trojanport}?mode=gun&security=tls&type=grpc&serviceName=${path_new}&sni=${domain}#Vless(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)"
 echo -e " --- \${BLUE}Trojan-GFW 链接(高延迟 高并发 不支持Cloudflare CDN)"
-echo -e "    \${YELLOW}trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan(${route_final}${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
+echo -e "    \${YELLOW}trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
 echo -e " --- \${BLUE}Trojan-GFW 二维码\${NOCOLOR} ---"
-  qrencode -t UTF8 -m 2 "trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan(${route_final}${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)"
+  qrencode -t UTF8 -m 2 "trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)"
 else
 echo -e " --- \${BLUE}Trojan-GFW 链接(不支持Cloudflare CDN)\${NOCOLOR} ---"
-echo -e "    \${YELLOW}trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan(${route_final}${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
+echo -e "    \${YELLOW}trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
 echo -e " --- \${BLUE}Trojan-GFW 二维码\${NOCOLOR} ---"
-  qrencode -t UTF8 -m 2 "trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan(${route_final}${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)"
+  qrencode -t UTF8 -m 2 "trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)"
 fi
 if [[ -f /usr/sbin/ssserver ]]; then
 echo -e " --- \${BLUE}SS-rust 链接\${NOCOLOR} ---"
-echo -e "    \${YELLOW}ss://2022-blake3-aes-128-gcm:${password1}@${myip}:8388#SS(${route_final}${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
-echo -e "    \${YELLOW}ss://$(echo "2022-blake3-aes-128-gcm:${password1}@${myip}:8388" | base64)#SS(${route_final}${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
+echo -e "    \${YELLOW}ss://2022-blake3-aes-128-gcm:${password1}@${myip}:8388#SS(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
+echo -e "    \${YELLOW}ss://$(echo "2022-blake3-aes-128-gcm:${password1}@${myip}:8388" | base64)#SS(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
 echo -e " --- \${BLUE}SS-rust 二维码\${NOCOLOR} ---"
-  qrencode -t UTF8 -m 2 "ss://2022-blake3-aes-128-gcm:${password1}@${myip}:8388#SS(${route_final}${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)"
+  qrencode -t UTF8 -m 2 "ss://2022-blake3-aes-128-gcm:${password1}@${myip}:8388#SS(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)"
 fi
 if [[ -f /usr/bin/hysteria ]]; then
 echo -e " --- \${BLUE}Hysteria 链接\${NOCOLOR} ---"
-echo -e "    \${YELLOW}hysteria://${myip}:${hyport}?protocol=udp&peer=${domain}&upmbps=${target_speed_down}&downmbps=${target_speed_up}&alpn=h3&obfsParam=${password1}#HY(${route_final}${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
+echo -e "    \${YELLOW}hysteria://${myip}:${hyport}?protocol=udp&peer=${domain}&upmbps=${target_speed_down}&downmbps=${target_speed_up}&alpn=h3&obfsParam=${password1}#HY(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
 echo -e " --- \${BLUE}Hysteria 二维码\${NOCOLOR} ---"
-  qrencode -t UTF8 -m 2 "hysteria://${myip}:${hyport}?protocol=udp&peer=${domain}&upmbps=${target_speed_down}&downmbps=${target_speed_up}&alpn=h3&obfsParam=${password1}#HY(${route_final}${mycountry} ${mycity} ${myip} ${myipv6} ${target_speed_up} Mbps)"
+  qrencode -t UTF8 -m 2 "hysteria://${myip}:${hyport}?protocol=udp&peer=${domain}&upmbps=${target_speed_down}&downmbps=${target_speed_up}&alpn=h3&obfsParam=${password1}#HY(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)"
 fi
 echo -e " --- \${BLUE}Trojan-GFW 可用性检测链接(被墙检测链接)\${NOCOLOR} ---"
 echo -e "    \${YELLOW}https://tcp.ping.pe/${myip}:${trojanport}\${NOCOLOR}"

@@ -23,7 +23,7 @@ cd /etc/grpc
   cat > 'server.json' << "EOF"
 {
   "log": {
-    "loglevel": "warning"
+    "loglevel": "error"
   },
   "inbounds": [
     {

@@ -79,9 +79,9 @@ port = 4444
 ## Address of a proxy server inside I2P, which is used to visit regular Internet
 # outproxy = http://false.i2p
 ## httpproxy section also accepts I2CP parameters, like "inbound.length" etc.
-#inbound.length = 2
+inbound.length = 1
 #inbound.quantity = 16
-#outbound.length = 2
+outbound.length = 1
 #outbound.quantity = 16
 
 [socksproxy]

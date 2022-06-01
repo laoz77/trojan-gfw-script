@@ -11,6 +11,8 @@ apt-get install unattended-upgrades -y
   cat > '/etc/apt/apt.conf.d/20auto-upgrades' << EOF
 APT::Periodic::Update-Package-Lists "1";
 APT::Periodic::Unattended-Upgrade "1";
+Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";
+Unattended-Upgrade::Remove-Unused-Dependencies "true";
 EOF
 
 ## Cloudflare Warp For IPv4 only server

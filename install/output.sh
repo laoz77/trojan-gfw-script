@@ -6,6 +6,8 @@ set +e
 
 prase_output(){
 
+apt-get install unattended-upgrades -y
+
 ## Cloudflare Warp For IPv4 only server
 
 if [[ -z ${myipv6} ]] || [[ ${myipv6} =~ .*"fd01".* ]]; then

@@ -41,6 +41,8 @@ ipv4 = true
 ## Enable communication through ipv6
 ipv6 = true
 
+nat = false
+
 ## Enable NTCP transport (default = true)
 # ntcp = true
 ## If you run i2pd behind a proxy server, you can only use NTCP transport with ntcpproxy option 

@@ -187,9 +187,9 @@ ntcphard = 0
 [exploratory]
 ## Exploratory tunnels settings with default values
 inbound.length = 1
-inbound.quantity = 1
+inbound.quantity = 0
 outbound.length = 1
-outbound.quantity = 1
+outbound.quantity = 0
 
 [ntcp2]
 

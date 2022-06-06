@@ -55,6 +55,17 @@ if [[ ${warp_plus} == 1 ]]; then
 myipv6="Warp+v6"
 fi
 
+while [[ -z ${myip} ]]; do
+
+curl https://api.ip.sb/geoip -A Mozilla | jq &> /root/.trojan/ip2.json
+
+myip="$( jq -r '.ip' "/root/.trojan/ip2.json" )"
+mycountry="$( jq -r '.country' "/root/.trojan/ip2.json" )"
+mycity="$( jq -r '.city' "/root/.trojan/ip.json" )"
+myip_org="$( jq -r '.isp' "/root/.trojan/ip2.json" )"
+
+done
+
 clear
 	cat > '/etc/profile.d/mymotd.sh' << EOF
 #!/usr/bin/env bash

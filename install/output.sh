@@ -57,7 +57,7 @@ fi
 
 while [[ -z ${myip} ]]; do
 
-curl https://api.ip.sb/geoip -A Mozilla | jq &> /root/.trojan/ip2.json
+curl --retry 3 https://api.ip.sb/geoip -A Mozilla | jq &> /root/.trojan/ip2.json
 
 myip="$( jq -r '.ip' "/root/.trojan/ip2.json" )"
 mycountry="$( jq -r '.country' "/root/.trojan/ip2.json" )"

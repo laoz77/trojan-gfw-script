@@ -92,6 +92,7 @@ http {
   autoindex_exact_size off;
   http2_push_preload on;
   aio threads;
+  aio_write on;
   charset UTF-8;
   tcp_nodelay on;
   tcp_nopush on;

@@ -25,8 +25,8 @@ server {
   listen 127.0.0.1:81 fastopen=512 reuseport default_server so_keepalive=on;
   listen 127.0.0.1:82 http2 fastopen=512 reuseport default_server so_keepalive=on;
   server_name $domain _;
-  # listen 443 ssl http2 fastopen=20 reuseport default_server so_keepalive=on;
-  # listen [::]:443 ssl http2 fastopen=20 reuseport default_server so_keepalive=on;
+  # listen 443 ssl http2 fastopen=512 reuseport default_server so_keepalive=on;
+  # listen [::]:443 ssl http2 fastopen=512 reuseport default_server so_keepalive=on;
   # ssl_certificate     /etc/certs/${domain}_ecc/fullchain.cer;
   # ssl_certificate_key /etc/certs/${domain}_ecc/${domain}.key;
   # ssl_client_certificate /etc/certs/${domain}_ecc/ca.cer;
@@ -483,8 +483,8 @@ if [[ ${ipissue} == 1 ]]; then
 echo good
 else
 echo "server {" >> /etc/nginx/conf.d/default.conf
-echo "    listen 80 fastopen=20 reuseport;" >> /etc/nginx/conf.d/default.conf
-echo "    listen [::]:80 fastopen=20 reuseport;" >> /etc/nginx/conf.d/default.conf
+echo "    listen 80 fastopen=512 reuseport;" >> /etc/nginx/conf.d/default.conf
+echo "    listen [::]:80 fastopen=512 reuseport;" >> /etc/nginx/conf.d/default.conf
 echo "    location /.well-known/acme-challenge/ {" >> /etc/nginx/conf.d/default.conf
 echo "      root /usr/share/nginx/;" >> /etc/nginx/conf.d/default.conf
 echo "    }" >> /etc/nginx/conf.d/default.conf
@@ -495,7 +495,7 @@ echo "}" >> /etc/nginx/conf.d/default.conf
 fi
 if [[ $install_netdata == 1 ]]; then
 echo "server { #For Netdata only !" >> /etc/nginx/conf.d/default.conf
-echo "    listen 127.0.0.1:83 fastopen=20 reuseport;" >> /etc/nginx/conf.d/default.conf
+echo "    listen 127.0.0.1:83 fastopen=512 reuseport;" >> /etc/nginx/conf.d/default.conf
 echo "    location /stub_status {" >> /etc/nginx/conf.d/default.conf
 echo "    access_log off;" >> /etc/nginx/conf.d/default.conf
 echo "    stub_status;" >> /etc/nginx/conf.d/default.conf

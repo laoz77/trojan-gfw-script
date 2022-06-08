@@ -239,24 +239,6 @@ if cat /etc/*release | grep ^NAME | grep -q Ubuntu; then
   exit 1;
 fi
 
-## 内存大小感知
-
-memory_size=$(grep MemTotal /proc/meminfo | awk '{print $2}')
-
-echo $memory_size
-
-if [[ $memory_size < 200000 ]]; then 
-
-echo "内存不足"
-check_grpc="off"
-
-else
-
-echo "内存足够"
-check_grpc="on"
-
-fi
-
 ## SSH 连接保活
 
 sed -i "s/#ClientAliveInterval 0/ClientAliveInterval 60/g" /etc/ssh/sshd_config

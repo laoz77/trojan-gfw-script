@@ -7,6 +7,25 @@ set +e
 userinput_standard() {
   clear
 
+## 内存大小感知
+
+memory_size=$(grep MemTotal /proc/meminfo | awk '{print $2}')
+
+echo $memory_size
+
+if [[ $memory_size < 200000 ]]; then 
+
+echo "内存不足"
+check_grpc="off"
+
+else
+
+echo "内存足够"
+check_grpc="on"
+
+fi
+
+
   tcp_fastopen="true"
 
   if [[ ${install_status} == 1 ]]; then

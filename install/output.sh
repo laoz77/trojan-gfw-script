@@ -55,6 +55,7 @@ if [[ ${warp_plus} == 1 ]]; then
 myipv6="Warp+v6"
 fi
 
+## 备用 IP 数据库
 while [[ -z ${myip} ]]; do
 
 curl --retry 3 https://api.ip.sb/geoip -A Mozilla | jq &> /root/.trojan/ip2.json
@@ -66,6 +67,12 @@ myip_org="$( jq -r '.isp' "/root/.trojan/ip2.json" )"
 
 done
 
+## CPU 性能优化
+
+apt install linux-cpupower -y
+/usr/bin/cpupower frequency-set -g performance && /usr/bin/cpupower set -b 0
+
+## 输出结果
 clear
 	cat > '/etc/profile.d/mymotd.sh' << EOF
 #!/usr/bin/env bash

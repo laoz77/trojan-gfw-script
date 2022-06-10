@@ -462,9 +462,6 @@ echo "        proxy_pass_request_headers on;" >> /etc/nginx/conf.d/default.conf
 echo '        proxy_set_header Connection "keep-alive";' >> /etc/nginx/conf.d/default.conf
 echo "        proxy_store off;" >> /etc/nginx/conf.d/default.conf
 echo "        proxy_pass http://netdata/\$ndpath\$is_args\$args;" >> /etc/nginx/conf.d/default.conf
-echo "        gzip on;" >> /etc/nginx/conf.d/default.conf
-echo "        gzip_proxied any;" >> /etc/nginx/conf.d/default.conf
-echo "        gzip_types *;" >> /etc/nginx/conf.d/default.conf
 echo "        }" >> /etc/nginx/conf.d/default.conf
 fi
 echo "    location ~ ^/announce$ {" >> /etc/nginx/conf.d/default.conf

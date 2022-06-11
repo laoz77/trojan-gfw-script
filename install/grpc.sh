@@ -9,7 +9,7 @@ install_grpc(){
 apt-get install unzip -y
 mkdir /etc/tmp/
 cd /etc/tmp/
-curl --retry 5 -LO --retry 5 https://github.com/XTLS/Xray-core/releases/download/v1.5.5/Xray-linux-64.zip
+curl --retry 5 -LO --retry 5 https://github.com/XTLS/Xray-core/releases/download/v1.5.7/Xray-linux-64.zip
 unzip Xray-linux-64.zip
 rm Xray-linux-64.zip
 cp -f xray /usr/bin/xray

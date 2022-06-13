@@ -282,14 +282,6 @@ fi
 echo -e " --- \${BLUE}Telegram 群组链接\${NOCOLOR} ---"
 echo -e "    \${YELLOW}https://t.me/vpstoolbox_chat\${NOCOLOR}"
 echo -e "*********************"
-EOF
-chmod +x /etc/profile.d/mymotd.sh
-echo "" > /etc/motd
-echo "Install complete!"
-whiptail --title "Success" --msgbox "安装成功(Install Success),欢迎使用VPSTOOLBOX !" 8 68
-clear
-bash /etc/profile.d/mymotd.sh
-## AFF 信息
 echo -e " --- ${BLUE}如果觉得好用，欢迎打钱帮助开发或者尝试以下服务，😃❤️🤣${NOCOLOR} ---"
 echo -e "    ${YELLOW}搬瓦工: https://bandwagonhost.com/aff.php?aff=68197${NOCOLOR}"
 echo -e "    ${YELLOW}Namesilo: https://www.namesilo.com/?rid=685fb47qi${NOCOLOR}"
@@ -298,4 +290,11 @@ echo -e "    ${YELLOW}Hostyun: https://my.hostyun.com/page.aspx?c=referral&u=277
 echo -e "    ${YELLOW}Neko Neko Relay: https://relay.nekoneko.cloud?aff=2257${NOCOLOR}"
 echo -e "    ${YELLOW}ETH: 0x9DB5737AB34E1F5d1303E9eD726776eebba3BF16${NOCOLOR}"
 echo -e "*********************"
+EOF
+chmod +x /etc/profile.d/mymotd.sh
+echo "" > /etc/motd
+echo "Install complete!"
+whiptail --title "Success" --msgbox "安装成功(Install Success),正在重启,欢迎使用VPSTOOLBOX !" 8 68
+clear
+reboot
 }

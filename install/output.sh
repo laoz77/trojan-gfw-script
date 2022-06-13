@@ -294,7 +294,7 @@ EOF
 chmod +x /etc/profile.d/mymotd.sh
 echo "" > /etc/motd
 echo "Install complete!"
-whiptail --title "Success" --msgbox "安装成功(Install Success),正在重启,欢迎使用VPSTOOLBOX !" 8 68
+whiptail --title "Success" --infobox "安装成功(Install Success),正在重启,欢迎使用VPSTOOLBOX !" 8 68
 clear
 reboot
 }

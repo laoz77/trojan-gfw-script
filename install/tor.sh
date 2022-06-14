@@ -12,10 +12,11 @@ TERM=ansi whiptail --title "安装中" --infobox "安装Tor proxy for Vless中..
 colorEcho ${INFO} "Install Tor proxy ing"
 touch /etc/apt/sources.list.d/tor.list
   cat > '/etc/apt/sources.list.d/tor.list' << EOF
-deb https://deb.torproject.org/torproject.org $(lsb_release -cs) main
+deb [signed-by=/usr/share/keyrings/tor-archive-keyring.gpg] https://deb.torproject.org/torproject.org $(lsb_release -cs) main
 EOF
 curl https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --import
 gpg --export A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89 | apt-key add -
+wget -qO- https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --dearmor | tee /usr/share/keyrings/tor-archive-keyring.gpg >/dev/null
 apt-get update
 apt-get install tor tor-geoipdb obfs4proxy -y
 torport=$(shuf -i 23000-50000 -n 1)

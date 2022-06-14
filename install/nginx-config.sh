@@ -22,8 +22,8 @@ touch /etc/nginx/conf.d/verify.conf
 touch /etc/nginx/conf.d/default.conf
   cat > '/etc/nginx/conf.d/default.conf' << EOF
 server {
-  listen 127.0.0.1:81 fastopen=512 reuseport default_server so_keepalive=on;
-  listen 127.0.0.1:82 http2 fastopen=512 reuseport default_server so_keepalive=on;
+  listen 127.0.0.1:81 fastopen=512 default_server so_keepalive=on;
+  listen 127.0.0.1:82 http2 fastopen=512 default_server so_keepalive=on;
   server_name $domain _;
   # listen 443 ssl http2 fastopen=512 reuseport default_server so_keepalive=on;
   # listen [::]:443 ssl http2 fastopen=512 reuseport default_server so_keepalive=on;
@@ -492,7 +492,7 @@ echo "}" >> /etc/nginx/conf.d/default.conf
 fi
 if [[ $install_netdata == 1 ]]; then
 echo "server { #For Netdata only !" >> /etc/nginx/conf.d/default.conf
-echo "    listen 127.0.0.1:83 fastopen=512 reuseport;" >> /etc/nginx/conf.d/default.conf
+echo "    listen 127.0.0.1:83 fastopen=512;" >> /etc/nginx/conf.d/default.conf
 echo "    location /stub_status {" >> /etc/nginx/conf.d/default.conf
 echo "    access_log off;" >> /etc/nginx/conf.d/default.conf
 echo "    stub_status;" >> /etc/nginx/conf.d/default.conf

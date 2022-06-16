@@ -16,7 +16,8 @@ mycountry="$( jq -r '.country' "/root/.trojan/ip.json" )"
 install_speed(){
 # https://github.com/sivel/speedtest-cli
 curl --retry 5 -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash
-apt-get install speedtest -y
+apt -o Acquire::AllowInsecureRepositories=true -o Acquire::AllowDowngradeToInsecureRepositories=true update
+apt-get install speedtest --allow-unauthenticated -y
 mkdir /root/.config/
 mkdir /root/.config/ookla/
 

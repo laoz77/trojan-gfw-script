@@ -125,7 +125,7 @@ cat << EOF > /etc/nginx/conf.d/nextcloud.conf
 
             fastcgi_param modHeadersAvailable true;
             fastcgi_param front_controller_active true;
-            fastcgi_pass unix:/run/php/php8.0-fpm.sock;
+            fastcgi_pass unix:/run/php/php8.1-fpm.sock;
 
             fastcgi_intercept_errors on;
             fastcgi_request_buffering off;
@@ -183,7 +183,7 @@ echo "    #    root /usr/share/nginx/typecho/;" >> /etc/nginx/conf.d/default.con
 echo "    #    location ~ \.php\$ {" >> /etc/nginx/conf.d/default.conf
 echo "    #    fastcgi_split_path_info ^(.+\.php)(/.+)\$;" >> /etc/nginx/conf.d/default.conf
 echo "    #    include fastcgi_params;" >> /etc/nginx/conf.d/default.conf
-echo "    #    fastcgi_pass unix:/run/php/php8.0-fpm.sock;" >> /etc/nginx/conf.d/default.conf
+echo "    #    fastcgi_pass unix:/run/php/php8.1-fpm.sock;" >> /etc/nginx/conf.d/default.conf
 echo "    #    fastcgi_param HTTPS on;" >> /etc/nginx/conf.d/default.conf
 echo "    #    fastcgi_index index.php;" >> /etc/nginx/conf.d/default.conf
 echo "    #    fastcgi_param SCRIPT_FILENAME \$request_filename;" >> /etc/nginx/conf.d/default.conf
@@ -382,7 +382,7 @@ echo "        index index.php;" >> /etc/nginx/conf.d/default.conf
 echo "        alias /usr/share/nginx/roundcubemail/;" >> /etc/nginx/conf.d/default.conf
 echo "        location ~ \.php\$ {" >> /etc/nginx/conf.d/default.conf
 echo "        include fastcgi_params;" >> /etc/nginx/conf.d/default.conf
-echo "        fastcgi_pass unix:/run/php/php8.0-fpm.sock;" >> /etc/nginx/conf.d/default.conf
+echo "        fastcgi_pass unix:/run/php/php8.1-fpm.sock;" >> /etc/nginx/conf.d/default.conf
 echo "        fastcgi_index index.php;" >> /etc/nginx/conf.d/default.conf
 echo "        fastcgi_param HTTPS on;" >> /etc/nginx/conf.d/default.conf
 echo "        fastcgi_param SCRIPT_FILENAME \$request_filename;" >> /etc/nginx/conf.d/default.conf
@@ -401,7 +401,7 @@ echo "        fastcgi_split_path_info ^(.+\.php)(/.+)\$;" >> /etc/nginx/conf.d/d
 echo "        fastcgi_param HTTPS on;" >> /etc/nginx/conf.d/default.conf
 echo "        fastcgi_param SCRIPT_FILENAME \$request_filename;" >> /etc/nginx/conf.d/default.conf
 echo "        include fastcgi_params;" >> /etc/nginx/conf.d/default.conf
-echo "        fastcgi_pass   unix:/run/php/php8.0-fpm.sock;" >> /etc/nginx/conf.d/default.conf
+echo "        fastcgi_pass   unix:/run/php/php8.1-fpm.sock;" >> /etc/nginx/conf.d/default.conf
 echo "        }" >> /etc/nginx/conf.d/default.conf
 echo "        }" >> /etc/nginx/conf.d/default.conf
 fi
@@ -503,7 +503,7 @@ echo "    allow 127.0.0.1;" >> /etc/nginx/conf.d/default.conf
 echo "    fastcgi_param SCRIPT_FILENAME \$request_filename;" >> /etc/nginx/conf.d/default.conf
 echo "    fastcgi_index index.php;" >> /etc/nginx/conf.d/default.conf
 echo "    include fastcgi_params;" >> /etc/nginx/conf.d/default.conf
-echo "    fastcgi_pass   unix:/run/php/php8.0-fpm.sock;" >> /etc/nginx/conf.d/default.conf
+echo "    fastcgi_pass   unix:/run/php/php8.1-fpm.sock;" >> /etc/nginx/conf.d/default.conf
 echo "    }" >> /etc/nginx/conf.d/default.conf
 echo "}" >> /etc/nginx/conf.d/default.conf
 echo "upstream netdata {" >> /etc/nginx/conf.d/default.conf

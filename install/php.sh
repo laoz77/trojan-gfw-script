@@ -20,9 +20,9 @@ elif [[ ${dist} == ubuntu ]]; then
 else
   echo "fail"
 fi
-  apt-get install php8.0-fpm -y
-  apt-get install php8.0-json -y
-  apt-get install php8.0-apcu php8.0-gmp php8.0-common php8.0-mysql php8.0-ldap php8.0-xml php8.0-readline php8.0-xmlrpc php8.0-curl php8.0-gd php8.0-imagick php8.0-fpm php8.0-dev php8.0-imap php8.0-mbstring php8.0-opcache php8.0-soap php8.0-zip php8.0-intl php8.0-bcmath -y
+  apt-get install php8.1-fpm -y
+  apt-get install php8.1-json -y
+  apt-get install php8.1-apcu php8.1-gmp php8.1-common php8.1-mysql php8.1-ldap php8.1-xml php8.1-readline php8.1-xmlrpc php8.1-curl php8.1-gd php8.1-imagick php8.1-fpm php8.1-dev php8.1-imap php8.1-mbstring php8.1-opcache php8.1-soap php8.1-zip php8.1-intl php8.1-bcmath -y
   apt-get purge apache* -y
   sed -i "s/;date.timezone.*/date.timezone = Asia\/Shanghai/" /etc/php/8.0/fpm/php.ini
   sed -i "s/;opcache.enable=1/opcache.enable=1/" /etc/php/8.0/fpm/php.ini
@@ -75,7 +75,7 @@ cat > '/etc/php/8.0/fpm/pool.d/www.conf' << EOF
 user = nginx
 group = nginx
 
-listen = /run/php/php8.0-fpm.sock
+listen = /run/php/php8.1-fpm.sock
 
 listen.owner = nginx
 listen.group = nginx
@@ -100,6 +100,6 @@ php_flag[display_errors] = off
 php_admin_value[error_log] = /var/log/fpm-php.www.log
 php_admin_flag[log_errors] = off
 EOF
-systemctl enable php8.0-fpm
-systemctl restart php8.0-fpm
+systemctl enable php8.1-fpm
+systemctl restart php8.1-fpm
 }

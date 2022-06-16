@@ -54,6 +54,9 @@ default-character-set = utf8mb4
 
 [mysqld]
 
+max_allowed_packet = 16M
+group_concat_max_len = 8192
+max_connections = 2000
 character-set-server  = utf8mb4 
 collation-server      = utf8mb4_unicode_ci
 character_set_server   = utf8mb4 

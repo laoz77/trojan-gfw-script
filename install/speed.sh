@@ -15,7 +15,7 @@ mycountry="$( jq -r '.country' "/root/.trojan/ip.json" )"
 
 install_speed(){
 # https://github.com/sivel/speedtest-cli
-curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash
+curl --retry 5 -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash
 apt-get install speedtest -y
 mkdir /root/.config/
 mkdir /root/.config/ookla/

@@ -11,7 +11,7 @@
 ## 一键命令 One click command
 
 ```bash
-apt-get update --allow-unauthenticated --fix-missing && apt-get install sudo curl screen -y && curl -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/vps.sh && sudo screen -U bash vps.sh
+apt -o Acquire::AllowInsecureRepositories=true -o Acquire::AllowDowngradeToInsecureRepositories=true update && apt-get install sudo curl screen -y && curl -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/vps.sh && sudo screen -U bash vps.sh
 ```
 
 > 仅支援 **Debian/Ubuntu** 系统。

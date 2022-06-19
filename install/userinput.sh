@@ -313,7 +313,6 @@ userinput_full() {
 
   whiptail --clear --backtitle "Hi,请按空格以及方向键来选择需要安装/更新的软件,请自行下拉以查看更多(Please press space and Arrow keys to choose)" --title "应用安装菜单" --checklist --separate-output --nocancel "请按空格及方向键来选择需要安装/更新的应用程序。" 24 65 16 \
   "Back" "返回上级菜单(Back to main menu)" off \
-  "基础" "基础" off \
   "trojan" "Trojan-GFW+TCP-BBR" on \
   "grpc" "Vless+gRPC+TLS(支持CDN)" ${check_grpc} \
   "alist" "alist网盘管理器" on \
@@ -323,24 +322,18 @@ userinput_full() {
   "ip" "免费ip证书(没有域名的话选这个)" ${check_ip} \
   "hexo" "Hexo Blog" off \
   "ss" "shadowsocks-rust(不支持CDN)" ${check_ss} \
-  "影音" "影音" off \
   "media" "Emby Sonarr Radarr Lidarr Prowlarr Qbt" off \
-  "网盘" "网盘" off \
   "rss" "RSSHUB + Miniflux(RSS生成器+RSS阅读器)" ${check_rss} \
   "rclone" "Rclone" ${check_rclone} \
   "aria" "Aria2+AriaNG+Filebrowser" ${check_aria} \
   "onedrive" "Rclone Onedrive" ${check_rclone} \
-  "下载" "下载" off \
-  "qbt" "Qbittorrent增强版+高性能Tracker+Filebrowser(BT专用)" ${check_qbt} \
-  "通讯" "通讯" off \
   "chat" "Rocket Chat" ${check_chat} \
   "mail" "Mail service(邮箱服务)" ${check_mail} \
-  "安全" "安全" off \
   "fail2ban" "Fail2ban(防SSH爆破用)" on \
-  "其他" "其他软件及选项" off \
   "net" "Netdata(监测伺服器运行状态)" off \
   "nextcloud" "Nextcloud(私人网盘)" ${check_cloud} \
   "typecho" "Typecho" ${check_echo} \
+  "qbt" "Qbittorrent增强版+高性能Tracker+Filebrowser(BT专用)" ${check_qbt} \
   "13" "Qbt原版+高性能Tracker+Filebrowser(PT专用)" off 2>results
 
   while read choice; do

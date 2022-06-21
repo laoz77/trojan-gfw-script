@@ -80,4 +80,5 @@ cm_latency=$( jq -r '.ping.latency' "/root/.trojan/cm.json")
 echo $ct_latency
 echo $cu_latency
 echo $cm_latency
+rm /etc/apt/sources.list.d/ookla_speedtest-cli.list
 }

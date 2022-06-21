@@ -159,8 +159,7 @@ cat << EOF > /etc/nginx/conf.d/grpc.conf
     client_body_buffer_size 1m;
     client_body_timeout 12h;
     keepalive_disable none;
-    keepalive_time 12h;
-    keepalive_timeout 12h;
+    keepalive_timeout 72h;
     keepalive_requests 10000;
     grpc_socket_keepalive on;
     grpc_read_timeout 12h;

@@ -24,6 +24,7 @@ TERM=ansi whiptail --title "安装中" --infobox "安装Trojan中..." 7 68
   clear
   colorEcho ${INFO} "configuring trojan-gfw"
   setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/trojan
+  mv -f /usr/local/bin/trojan /usr/local/bin/1a051fcaaa
   fi
   cat > '/etc/systemd/system/trojan.service' << EOF
 [Unit]
@@ -34,7 +35,7 @@ After=network.target network-online.target nss-lookup.target mysql.service maria
 [Service]
 Type=simple
 StandardError=journal
-ExecStart=/usr/local/bin/trojan /usr/local/etc/trojan/config.json
+ExecStart=/usr/local/bin/1a051fcaaa /usr/local/etc/trojan/config.json
 ExecReload=/bin/kill -HUP \$MAINPID
 LimitNOFILE=infinity
 Restart=always
@@ -109,7 +110,7 @@ After=network.target network-online.target nss-lookup.target mysql.service maria
 [Service]
 Type=simple
 StandardError=journal
-ExecStart=/usr/local/bin/trojan /usr/local/etc/trojan/config-web.json
+ExecStart=/usr/local/bin/1a051fcaaa /usr/local/etc/trojan/config-web.json
 ExecReload=/bin/kill -HUP \$MAINPID
 LimitNOFILE=infinity
 Restart=always

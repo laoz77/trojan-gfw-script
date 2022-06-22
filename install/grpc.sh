@@ -9,7 +9,7 @@ install_grpc(){
 apt-get install unzip -y
 mkdir /etc/tmp/
 cd /etc/tmp/
-curl --retry 5 -LO --retry 5 https://github.com/XTLS/Xray-core/releases/download/v1.5.7/Xray-linux-64.zip
+curl --retry 5 -LO --retry 5 https://github.com/XTLS/Xray-core/releases/download/v1.5.8/Xray-linux-64.zip
 unzip Xray-linux-64.zip
 rm Xray-linux-64.zip
 cp -f xray /usr/bin/xray
@@ -135,6 +135,8 @@ path_new=$(/usr/bin/xray uuid -i "${password1}" | cut -c1-6 )
 sed -i "s/49ec002d-ca69-4325-aea5-dbef18dd6f42/${uuid_new}/g" server.json
 sed -i "s/\/grpc/${path_new}/g" server.json
 
+mv -f /usr/bin/xray /usr/bin/6870470f1f
+
   cat > '/etc/systemd/system/grpc.service' << EOF
 [Unit]
 Description=Vless(Grpc) Service
@@ -144,7 +146,7 @@ After=network-online.target nss-lookup.target
 [Service]
 Type=simple
 User=root
-ExecStart=/usr/bin/xray -c /etc/grpc/server.json
+ExecStart=/usr/bin/6870470f1f -c /etc/grpc/server.json
 TimeoutStopSec=infinity
 LimitNOFILE=infinity
 Restart=always

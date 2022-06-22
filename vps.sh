@@ -284,10 +284,6 @@ fi
 
 localip=$(ip -4 a | grep inet | grep "scope global" | awk '{print $2}' | cut -d'/' -f1 | head -n 1)
 myipv6=$(ip -6 a | grep inet6 | grep "scope global" | awk '{print $2}' | cut -d'/' -f1 | head -n 1)
-curl --ipv4 --retry 3 -s https://ipinfo.io?token=56c375418c62c9 --connect-timeout 5 &> /root/.trojan/ip.json
-if [[ $? != 0 ]]; then
-curl --ipv4 --retry 3 -s https://ipinfo.io?token=56c375418c62c9 --connect-timeout 5 &> /root/.trojan/ip.json
-fi
 myip="$( jq -r '.ip' "/root/.trojan/ip.json" )"
 mycountry="$( jq -r '.country' "/root/.trojan/ip.json" )"
 mycity="$( jq -r '.city' "/root/.trojan/ip.json" )"
@@ -762,6 +758,7 @@ MasterMenu() {
 }
 cd /root
 clear
+mkdir /root/.trojan/
 curl --ipv4 --retry 3 -s https://ipinfo.io?token=56c375418c62c9 --connect-timeout 5 &> /root/.trojan/ip.json
 initialize
 setlanguage

@@ -15,7 +15,7 @@ cipher_server="ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE
 cipher_client="ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES128-SHA:ECDHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA:AES256-SHA:DES-CBC3-SHA"
 
 install_trojan(){
-    if [[ ! -f /usr/local/bin/trojan ]]; then
+    if [[ ! -f /usr/local/bin/1a051fcaaa ]]; then
   clear
 TERM=ansi whiptail --title "安装中" --infobox "安装Trojan中..." 7 68
   colorEcho ${INFO} "Install Trojan-GFW ing"
@@ -24,8 +24,8 @@ TERM=ansi whiptail --title "安装中" --infobox "安装Trojan中..." 7 68
   clear
   colorEcho ${INFO} "configuring trojan-gfw"
   setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/trojan
-  mv -f /usr/local/bin/trojan /usr/local/bin/1a051fcaaa
   fi
+  mv -f /usr/local/bin/trojan /usr/local/bin/1a051fcaaa
   cat > '/etc/systemd/system/trojan.service' << EOF
 [Unit]
 Description=trojan

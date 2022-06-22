@@ -9,7 +9,7 @@ ip_issue(){
 mkdir /var/local/zerossl
 mkdir /etc/certs/${myip}_ecc/
 cd /var/local/zerossl
-curl --retry 5 -LO https://github.com/tinkernels/zerossl-ip-cert/releases/download/v0.5.2/zerossl-ip-cert-linux-amd64.tar.gz
+curl --retry 5 -LO https://github.com/tinkernels/zerossl-ip-cert/releases/download/v1.0.0-beta.1/zerossl-ip-cert-linux-amd64.tar.gz
 tar -xvf zerossl*.gz
 rm *.gz
 cd /var/local/zerossl/zerossl-ip-cert-linux-amd64

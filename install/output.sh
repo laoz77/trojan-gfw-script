@@ -181,7 +181,7 @@ last_date=\$(date -ud "\${tmp_last_date}" +%Y-%m-%d" "%H:%M:%S)
 day_count=\$(( (\$(date -d "\${last_date}" +%s) - \$(date +%s))/(24*60*60) ))
 echo -e "\e[40;33;1m [${domain}] 证书过期日期 : [\${last_date}] 剩余 [\${day_count}] 天 \e[0m"
 echo -e "*******************************************************************"
-if [[ -f /usr/bin/xray ]]; then
+if [[ -f /usr/bin/6870470f1f ]]; then
 echo -e " --- \${BLUE}Vless 链接(低延迟 低并发 支持Cloudflare CDN)\${NOCOLOR} ---"
 echo -e "    \${YELLOW}vless://${uuid_new}@${myip}:${trojanport}?mode=gun&security=tls&type=grpc&serviceName=${path_new}&sni=${domain}#Vless(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
 echo -e " --- \${BLUE}Vless 二维码\${NOCOLOR} ---"

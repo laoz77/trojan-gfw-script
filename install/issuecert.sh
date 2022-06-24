@@ -45,6 +45,18 @@ EOF
   if [[ -f /etc/certs/${domain}_ecc/fullchain.cer ]] && [[ -f /etc/certs/${domain}_ecc/${domain}.key ]]; then
     :
     else
+
+    apt-get install dnsutils -y
+    domain_resolve_ip=$(dig +short A ${domain})
+
+    if [[ -z $domain_resolve_ip ]]; then
+      echo -e "-------------------${YELLOW}无IP [${myip}] 解析至 [${domain}]${NOCOLOR}---------------"
+    fi
+
+    if [[ $domain_resolve_ip != $myip ]]; then
+      echo -e "${RED}解析ip [$domain_resolve_ip] 与目标ip [$myip] 不符,请正确解析域名！${NOCOLOR} !!!"
+    fi
+
     colorEcho ${ERROR} "证书申请失败，请**检查VPS控制面板防火墙是否完全关闭**,DNS是否解析完成!!!"
     colorEcho ${ERROR} "请访问https://letsencrypt.status.io/检测Let's encrypt服务是否正常!!!"
     exit 1

@@ -13,7 +13,7 @@ memory_size=$(grep MemTotal /proc/meminfo | awk '{print $2}')
 
 echo $memory_size
 
-if [[ $memory_size < 200000 ]]; then 
+if [[ $memory_size < 500000 ]]; then 
 
 echo "内存不足"
 check_grpc="off"
@@ -23,6 +23,14 @@ else
 echo "内存足够"
 check_grpc="on"
 
+fi
+
+ping www.baidu.com -c 2 -W 1 -n -q -4
+if [[ $? == 0 ]]; then
+echo -e "被墙测试通过"
+else
+echo -e "可能被墙"
+check_grpc="on"
 fi
 
 

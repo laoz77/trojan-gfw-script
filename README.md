@@ -20,6 +20,20 @@ apt -o Acquire::AllowInsecureRepositories=true -o Acquire::AllowDowngradeToInsec
 
 ![流程图](https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/images/flow.svg)
 
+## 如果觉得好用，欢迎打钱帮助开发或者尝试以下服务，😃❤️🤣
+
+[阿里云盘](https://pages.aliyundrive.com/mobile-page/web/beinvited.html?code=743d6ca)
+
+[搬瓦工](https://bandwagonhost.com/aff.php?aff=68197)
+
+[Namesilo](https://www.namesilo.com/?rid=685fb47qi)
+
+[阿里云](https://www.aliyun.com/daily-act/ecs/activity_selection?userCode=fgdncdz2)
+
+[Hostyun](https://my.hostyun.com/page.aspx?c=referral&u=27710)
+
+ETH：0x9DB5737AB34E1F5d1303E9eD726776eebba3BF16
+
 ## 路由测试
 
 路由测试用于自动生成Trojan/Vless链接，现已支持 `AS4134 AS4837 AS9808 AS4538 AS4809 AS9929 AS2914 AS2497 AS2516 AS4725 AS3491 AS9269 AS4635 AS4760 AS58453 AS4637 AS64050 AS6939 AS174 AS3356 AS3257 AS6461 AS701 AS7018 AS1239 AS1299 AS6453 AS6830 AS5511 AS6762 AS3320` 对应 `163 169 CMNET CERNET CN2 CU-VIP NTT IIJ KDDI SoftBank PCCW HKBN HKIX HKT CMI Telstra BGPNET HE Cogent LEVEL3 GTT Zayo Verizon ATT T-Mobile Arelion TATA Liberty Orange SPARKLE Deutsche`。
@@ -131,18 +145,6 @@ route_test
 2. [Shadowrocket ios](https://apps.apple.com/us/app/shadowrocket/id932747118)
 3. [Netch Windows](https://github.com/netchx/Netch)
 4. [Qv2ray Windows/Linux/Macos](https://github.com/Qv2ray/Qv2ray)
-
-## 如果觉得好用，欢迎打钱帮助开发或者尝试以下服务，😃❤️🤣
-
-ETH：0x9DB5737AB34E1F5d1303E9eD726776eebba3BF16
-
-[Namesilo](https://www.namesilo.com/?rid=685fb47qi)
-
-[阿里云](https://www.aliyun.com/daily-act/ecs/activity_selection?userCode=fgdncdz2)
-
-[Hostyun](https://my.hostyun.com/page.aspx?c=referral&u=27710)
-
-[Neko Neko Relay](https://relay.nekoneko.cloud?aff=2257)
 
 ## 尚未添加/整合/测试的软件 To be done
 

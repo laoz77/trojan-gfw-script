@@ -288,7 +288,6 @@ echo -e "    ${YELLOW}搬瓦工: https://bandwagonhost.com/aff.php?aff=68197${NO
 echo -e "    ${YELLOW}Namesilo: https://www.namesilo.com/?rid=685fb47qi${NOCOLOR}"
 echo -e "    ${YELLOW}阿里云: https://www.aliyun.com/daily-act/ecs/activity_selection?userCode=fgdncdz2${NOCOLOR}"
 echo -e "    ${YELLOW}Hostyun: https://my.hostyun.com/page.aspx?c=referral&u=27710${NOCOLOR}"
-echo -e "    ${YELLOW}Neko Neko Relay: https://relay.nekoneko.cloud?aff=2257${NOCOLOR}"
 echo -e "    ${YELLOW}ETH: 0x9DB5737AB34E1F5d1303E9eD726776eebba3BF16${NOCOLOR}"
 echo -e "*********************"
 EOF

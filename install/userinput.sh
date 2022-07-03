@@ -195,14 +195,16 @@ fi
   #echo "" >> /etc/hosts
   #echo "$(jq -r '.ip' "/root/.trojan/ip.json") ${domain}" >> /etc/hosts
     while [[ -z ${password1} ]] || [[ ${n} > 30 ]]; do
-        password1=$(whiptail --passwordbox --nocancel "Trojan密码 (**最长30字符，请勿添加特殊符号**)" 8 68 --title "设置主系统密码" 3>&1 1>&2 2>&3)
+        password1=$(whiptail --inputbox --nocancel "Trojan密码 (**最长30字符，请勿添加特殊符号**)" 8 68 --title "设置主系统密码" 3>&1 1>&2 2>&3)
         n=${#password1}
       if [[ ${n} > 30 ]] || [[ ${n} < 3 ]] || [[ ${n} == 0 ]]; then
         password1=$(
           head /dev/urandom | tr -dc a-z0-9 | head -c 6
           echo ''
         )
+        echo -e "Trojan密码设置为 ${password1}"
       fi
+    done
     while [[ -z ${password2} ]]; do
         password2=$(
           head /dev/urandom | tr -dc a-z0-9 | head -c 6
@@ -481,7 +483,7 @@ userinput_full() {
   #echo "$(jq -r '.ip' "/root/.trojan/ip.json") ${domain}" >> /etc/hosts
   if [[ ${install_trojan} = 1 ]]; then
     while [[ -z ${password1} ]] || [[ ${n} > 30 ]]; do
-        password1=$(whiptail --passwordbox --nocancel "VPSToolBox系统主密码 (**最长30字符，请勿添加特殊符号**)" 8 68 --title "设置主系统密码" 3>&1 1>&2 2>&3)
+        password1=$(whiptail --inputbox --nocancel "VPSToolBox系统主密码 (**最长30字符，请勿添加特殊符号**)" 8 68 --title "设置主系统密码" 3>&1 1>&2 2>&3)
         n=${#password1}
       if [[ ${n} > 30 ]] || [[ ${n} < 3 ]] || [[ ${n} == 0 ]]; then
         password1=$(

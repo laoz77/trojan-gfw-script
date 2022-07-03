@@ -194,9 +194,14 @@ fi
   rm -rf /etc/dhcp/dhclient-exit-hooks.d/google_set_hostname
   #echo "" >> /etc/hosts
   #echo "$(jq -r '.ip' "/root/.trojan/ip.json") ${domain}" >> /etc/hosts
-  if [[ ${install_trojan} = 1 ]]; then
     while [[ -z ${password1} ]]; do
       password1=$(whiptail --inputbox --nocancel "Trojan-GFW密码 (***请勿添加特殊符号***)" 8 68 --title "password1 input" 3>&1 1>&2 2>&3)
+
+      n=${#password1}
+      if [[ ${n} > 30 ]] || [[ ${n} < 3 ]]; then
+        password1=""
+      fi
+
       if [[ -z ${password1} ]]; then
         password1=$(
           head /dev/urandom | tr -dc a-z0-9 | head -c 6
@@ -210,25 +215,7 @@ fi
           echo ''
         )
     done
-  fi
-  if [[ ${password1} == ${password2} ]]; then
-    password2=$(
-      head /dev/urandom | tr -dc a-z0-9 | head -c 6
-      echo ''
-    )
-  fi
-  if [[ -z ${password1} ]]; then
-    password1=$(
-      head /dev/urandom | tr -dc a-z0-9 | head -c 6
-      echo ''
-    )
-  fi
-  if [[ -z ${password2} ]]; then
-    password2=$(
-      head /dev/urandom | tr -dc a-z0-9 | head -c 6
-      echo ''
-    )
-  fi
+
   if [[ ${install_aria} == 1 ]]; then
     ariaport=$(shuf -i 13000-19000 -n 1)
     while [[ -z ${ariapath} ]]; do
@@ -508,7 +495,7 @@ userinput_full() {
           echo ''
         )
       fi
-      if [[ ${n} > 30 ]]; then
+      if [[ ${n} > 30 ]] || [[ ${n} < 3 ]]; then
         password1=""
       fi
     done

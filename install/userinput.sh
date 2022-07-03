@@ -13,7 +13,7 @@ memory_size=$(grep MemTotal /proc/meminfo | awk '{print $2}')
 
 echo $memory_size
 
-if [[ $memory_size < 500000 ]]; then 
+if [[ $memory_size < 512000 ]]; then 
 
 echo "内存不足"
 check_grpc="off"

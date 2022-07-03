@@ -502,12 +502,12 @@ install_moudles(){
   install_netdata
   fi
   if [[ ${install_hexo} == 1 ]]; then
-  curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/hexo.sh
-  source hexo.sh
-  install_hexo
   curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/nodejs.sh
   source nodejs.sh
   install_nodejs
+  curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/hexo.sh
+  source hexo.sh
+  install_hexo
   fi
   if [[ ${install_alist} == 1 ]]; then
   curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/alist.sh

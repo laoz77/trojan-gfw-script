@@ -196,7 +196,7 @@ fi
   #echo "$(jq -r '.ip' "/root/.trojan/ip.json") ${domain}" >> /etc/hosts
   if [[ ${install_trojan} = 1 ]]; then
     while [[ -z ${password1} ]]; do
-      password1=$(whiptail --inputbox --nocancel "VPSToolBox系统主密码 (***请勿添加特殊符号***)" 8 68 --title "password1 input" 3>&1 1>&2 2>&3)
+      password1=$(whiptail --inputbox --nocancel "Trojan-GFW密码 (***请勿添加特殊符号***)" 8 68 --title "password1 input" 3>&1 1>&2 2>&3)
       if [[ -z ${password1} ]]; then
         password1=$(
           head /dev/urandom | tr -dc a-z0-9 | head -c 6

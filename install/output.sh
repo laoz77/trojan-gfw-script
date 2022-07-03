@@ -72,6 +72,12 @@ done
 apt install linux-cpupower -y
 /usr/bin/cpupower frequency-set -g performance && /usr/bin/cpupower set -b 0
 
+# NAT 检测
+
+nat_type=$(echo '\n' | pystun3 | grep -i "NAT Type")
+
+echo $nat_type
+
 ## 输出结果
 clear
 	cat > '/etc/profile.d/mymotd.sh' << EOF
@@ -163,7 +169,7 @@ echo -e "Postfix:\t\t 正常运行中"
 echo -e "Fail2ban:\t\t 正常运行中"
   fi
 echo -e " --- \${BLUE}防火墙状态(NAT Type)\${NOCOLOR} ---"
-echo '\n' | pystun3 | grep -i "NAT Type"
+echo $nat_type
 echo -e " --- \${BLUE}端口速率(Port speed)\${NOCOLOR} ---"
 echo -e "下载(⬇️): ${target_speed_down} Mbps"
 echo -e "上传(⬆️): ${target_speed_up} Mbps"

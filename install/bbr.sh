@@ -107,7 +107,7 @@ EOF
   cat > '/etc/systemd/system.conf' << EOF
 [Manager]
 #DefaultTimeoutStartSec=90s
-DefaultTimeoutStopSec=30s
+DefaultTimeoutStopSec=3s
 #DefaultRestartSec=100ms
 DefaultLimitCORE=infinity
 DefaultLimitNOFILE=infinity

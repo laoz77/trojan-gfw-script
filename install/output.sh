@@ -290,7 +290,7 @@ echo -e "    \${YELLOW}https://$domain:${trojanport}\${NOCOLOR}"
 echo -e "    \${YELLOW}密码: \${alist_password}\${NOCOLOR}"
 fi
 echo -e " --- \${BLUE}Telegram 群组链接\${NOCOLOR} ---"
-echo -e "    \${YELLOW}https://t.me/vpstoolbox_chat\${NOCOLOR}"
+echo -e "    \${YELLOW}https://t.me/+VKJo-UzV4DtSbv5W\${NOCOLOR}"
 echo -e "*********************"
 echo -e " --- ${BLUE}如果觉得好用，欢迎打钱帮助开发或者尝试以下服务，😃❤️🤣${NOCOLOR} ---"
 echo -e "    ${YELLOW}阿里云盘: https://pages.aliyundrive.com/mobile-page/web/beinvited.html?code=743d6ca${NOCOLOR}"

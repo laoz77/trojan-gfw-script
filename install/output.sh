@@ -72,11 +72,15 @@ done
 apt install linux-cpupower -y
 /usr/bin/cpupower frequency-set -g performance && /usr/bin/cpupower set -b 0
 
-# NAT 检测
+## NAT 检测
 
 nat_type=$(echo '\n' | pystun3 | grep -i "NAT Type")
 
 echo $nat_type
+
+## 更改时区
+
+timedatectl set-timezone Asia/Shanghai
 
 ## 输出结果
 clear

@@ -303,20 +303,6 @@ echo "        proxy_set_header Upgrade \$http_upgrade;" >> /etc/nginx/conf.d/def
 echo "        proxy_set_header Connection \$http_connection;" >> /etc/nginx/conf.d/default.conf
 echo "        #proxy_buffering off;" >> /etc/nginx/conf.d/default.conf
 echo "        }" >> /etc/nginx/conf.d/default.conf
-## jackett 9117
-echo "    location /jackett {" >> /etc/nginx/conf.d/default.conf
-echo "        return 302 https://${domain}:443/jackett/;" >> /etc/nginx/conf.d/default.conf
-echo "    }" >> /etc/nginx/conf.d/default.conf
-echo "    location /jackett/ {" >> /etc/nginx/conf.d/default.conf
-echo "        #access_log off;" >> /etc/nginx/conf.d/default.conf
-echo "        proxy_pass http://127.0.0.1:9117/jackett/;" >> /etc/nginx/conf.d/default.conf
-echo "        proxy_pass_request_headers on;" >> /etc/nginx/conf.d/default.conf
-echo "        proxy_set_header X-Forward-Proto https;" >> /etc/nginx/conf.d/default.conf
-echo "        proxy_set_header X-Forwarded-Host \$http_host;" >> /etc/nginx/conf.d/default.conf
-echo "        proxy_set_header Upgrade \$http_upgrade;" >> /etc/nginx/conf.d/default.conf
-echo "        proxy_set_header Connection \$http_connection;" >> /etc/nginx/conf.d/default.conf
-echo "        #proxy_buffering off;" >> /etc/nginx/conf.d/default.conf
-echo "        }" >> /etc/nginx/conf.d/default.conf
 ## ombi 3579
 echo "    location /ombi {" >> /etc/nginx/conf.d/default.conf
 echo "        return 302 https://${domain}:443/ombi/;" >> /etc/nginx/conf.d/default.conf
@@ -440,6 +426,16 @@ echo "        client_max_body_size 0;" >> /etc/nginx/conf.d/default.conf
 echo "        proxy_pass              http://127.0.0.1:8080/;" >> /etc/nginx/conf.d/default.conf
 echo "        proxy_set_header        X-Forwarded-Host        \$http_host;" >> /etc/nginx/conf.d/default.conf
 echo "        }" >> /etc/nginx/conf.d/default.conf
+echo "    location ~ ^/announce$ {" >> /etc/nginx/conf.d/default.conf
+echo "        #access_log off;" >> /etc/nginx/conf.d/default.conf
+echo "        proxy_pass http://127.0.0.1:6969;" >> /etc/nginx/conf.d/default.conf
+echo "        gzip_comp_level 6;" >> /etc/nginx/conf.d/default.conf
+echo "        }" >> /etc/nginx/conf.d/default.conf
+echo "    location ~ ^/scrape$ {" >> /etc/nginx/conf.d/default.conf
+echo "        #access_log off;" >> /etc/nginx/conf.d/default.conf
+echo "        proxy_pass http://127.0.0.1:6969;" >> /etc/nginx/conf.d/default.conf
+echo "        gzip_comp_level 6;" >> /etc/nginx/conf.d/default.conf
+echo "        }" >> /etc/nginx/conf.d/default.conf
 fi
 if [[ $install_filebrowser == 1 ]]; then
 echo "    location /file/ {" >> /etc/nginx/conf.d/default.conf
@@ -463,16 +459,6 @@ echo "        proxy_store off;" >> /etc/nginx/conf.d/default.conf
 echo "        proxy_pass http://netdata/\$ndpath\$is_args\$args;" >> /etc/nginx/conf.d/default.conf
 echo "        }" >> /etc/nginx/conf.d/default.conf
 fi
-echo "    location ~ ^/announce$ {" >> /etc/nginx/conf.d/default.conf
-echo "        #access_log off;" >> /etc/nginx/conf.d/default.conf
-echo "        proxy_pass http://127.0.0.1:6969;" >> /etc/nginx/conf.d/default.conf
-echo "        gzip_comp_level 6;" >> /etc/nginx/conf.d/default.conf
-echo "        }" >> /etc/nginx/conf.d/default.conf
-echo "    location ~ ^/scrape$ {" >> /etc/nginx/conf.d/default.conf
-echo "        #access_log off;" >> /etc/nginx/conf.d/default.conf
-echo "        proxy_pass http://127.0.0.1:6969;" >> /etc/nginx/conf.d/default.conf
-echo "        gzip_comp_level 6;" >> /etc/nginx/conf.d/default.conf
-echo "        }" >> /etc/nginx/conf.d/default.conf
 echo "}" >> /etc/nginx/conf.d/default.conf
 echo "" >> /etc/nginx/conf.d/default.conf
 if [[ ${ipissue} == 1 ]]; then

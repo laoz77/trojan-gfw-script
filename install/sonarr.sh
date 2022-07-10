@@ -74,8 +74,6 @@ mkdir /usr/share/nginx/readarr
 mkdir /usr/share/nginx/readarr/config
 mkdir /usr/share/nginx/prowlarr
 mkdir /usr/share/nginx/prowlarr/config
-mkdir /usr/share/nginx/jackett
-mkdir /usr/share/nginx/jackett/config
 mkdir /usr/share/nginx/bazarr
 mkdir /usr/share/nginx/bazarr/config
 mkdir /usr/share/nginx/chinesesubfinder
@@ -451,17 +449,6 @@ services:
     volumes:
       - /usr/share/nginx/prowlarr/config:/config
     restart: unless-stopped
-  # jackett: #9117
-  #   network_mode: host
-  #   image: lscr.io/linuxserver/jackett
-  #   container_name: jackett
-  #   environment:
-  #     - PUID=0
-  #     - PGID=0
-  #     - TZ=Asia/Shanghai
-  #   volumes:
-  #     - /usr/share/nginx/jackett/config:/config
-  #   restart: unless-stopped
   # rsshub: # 1200
   #   image: diygod/rsshub
   #   container_name: rsshub
@@ -788,17 +775,6 @@ sqlite3 /usr/share/nginx/prowlarr/config/prowlarr.db  "insert into IndexerProxie
 ]');"
 sqlite3 /usr/share/nginx/prowlarr/config/prowlarr.db  "insert into Config values ('6','uilanguage','10');"
 add_download_client_prowlarr
-
-## Jackett 9696
-# cat '/usr/share/nginx/jackett/config/Jackett/ServerConfig.json' | jq '.BasePathOverride |= "/jackett/"' >> /usr/share/nginx/jackett/config/Jackett/tmp.json
-# cp -f /usr/share/nginx/jackett/config/Jackett/tmp.json /usr/share/nginx/jackett/config/Jackett/ServerConfig.json
-# rm /usr/share/nginx/jackett/config/Jackett/tmp.json
-# cat '/usr/share/nginx/jackett/config/Jackett/ServerConfig.json' | jq '.AllowExternal |= false' >> /usr/share/nginx/jackett/config/Jackett/tmp.json
-# cp -f /usr/share/nginx/jackett/config/Jackett/tmp.json /usr/share/nginx/jackett/config/Jackett/ServerConfig.json
-# rm /usr/share/nginx/jackett/config/Jackett/tmp.json
-# cat '/usr/share/nginx/jackett/config/Jackett/ServerConfig.json' | jq '.FlareSolverrUrl |= "http://127.0.0.1:8191"' >> /usr/share/nginx/jackett/config/Jackett/tmp.json
-# cp -f /usr/share/nginx/jackett/config/Jackett/tmp.json /usr/share/nginx/jackett/config/Jackett/ServerConfig.json
-# rm /usr/share/nginx/jackett/config/Jackett/tmp.json
 
 ## bazarr
 sed -i "0,/base_url \=/s//base_url \= \/bazarr/g" /usr/share/nginx/bazarr/config/config/config.ini

@@ -55,6 +55,8 @@ server {
     location /.well-known/acme-challenge/ { ## Acme.sh 证书签发及续签专用
       root /usr/share/nginx/;
     }
+
+    error_page 497  https://$host$uri?$args; 
 EOF
 
 if [[ $install_hexo == 1 ]]; then

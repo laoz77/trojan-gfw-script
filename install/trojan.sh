@@ -24,8 +24,8 @@ TERM=ansi whiptail --title "安装中" --infobox "安装Trojan中..." 7 68
   clear
   colorEcho ${INFO} "configuring trojan-gfw"
   setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/trojan
-  fi
   mv -f /usr/local/bin/trojan /usr/local/bin/1a051fcaaa
+  fi
   cat > '/etc/systemd/system/trojan.service' << EOF
 [Unit]
 Description=trojan

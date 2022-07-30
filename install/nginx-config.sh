@@ -402,7 +402,7 @@ fi
 if [[ $install_rss == 1 ]]; then
 echo "    location /miniflux/ {" >> /etc/nginx/conf.d/default.conf
 echo "        #access_log off;" >> /etc/nginx/conf.d/default.conf
-echo "        #client_max_body_size 0;" >> /etc/nginx/conf.d/default.conf
+echo "        client_max_body_size 0;" >> /etc/nginx/conf.d/default.conf
 echo "        proxy_set_header Host ${domain};" >> /etc/nginx/conf.d/default.conf
 echo "        proxy_set_header X-Forwarded-Proto https;" >> /etc/nginx/conf.d/default.conf
 echo "        proxy_pass http://127.0.0.1:8280/miniflux/;" >> /etc/nginx/conf.d/default.conf

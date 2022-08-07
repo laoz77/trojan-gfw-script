@@ -495,7 +495,7 @@ echo "    }" >> /etc/nginx/conf.d/default.conf
 echo "}" >> /etc/nginx/conf.d/default.conf
 echo "upstream netdata {" >> /etc/nginx/conf.d/default.conf
 echo "    server 127.0.0.1:19999;" >> /etc/nginx/conf.d/default.conf
-echo "    keepalive 64;" >> /etc/nginx/conf.d/default.conf
+echo "    keepalive 1024;" >> /etc/nginx/conf.d/default.conf # https://learn.netdata.cloud/guides/configure/performance
 echo "}" >> /etc/nginx/conf.d/default.conf
 fi
 chown -R nginx:nginx /usr/share/nginx/

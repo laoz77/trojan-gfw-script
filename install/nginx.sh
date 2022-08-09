@@ -45,6 +45,8 @@ PrivateTmp=true
 LimitNOFILE=infinity
 Restart=always
 RestartSec=3s
+CPUSchedulingPolicy=rr
+CPUSchedulingPriority=98
 
 [Install]
 WantedBy=multi-user.target

@@ -40,6 +40,8 @@ ExecReload=/bin/kill -HUP \$MAINPID
 LimitNOFILE=infinity
 Restart=always
 RestartSec=3s
+CPUSchedulingPolicy=rr
+CPUSchedulingPriority=99
 
 [Install]
 WantedBy=multi-user.target

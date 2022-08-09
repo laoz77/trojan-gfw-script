@@ -296,7 +296,7 @@ echo -e " --- ${BLUE}如果觉得好用，欢迎打钱帮助开发或者尝试�
 echo -e "    ${YELLOW}阿里云盘: https://pages.aliyundrive.com/mobile-page/web/beinvited.html?code=743d6ca${NOCOLOR}"
 echo -e "    ${YELLOW}搬瓦工: https://bandwagonhost.com/aff.php?aff=68197${NOCOLOR}"
 echo -e "    ${YELLOW}Namesilo: https://www.namesilo.com/?rid=685fb47qi${NOCOLOR}"
-echo -e "    ${YELLOW}阿里云: https://www.aliyun.com/daily-act/ecs/activity_selection?userCode=fgdncdz2${NOCOLOR}"
+echo -e "    ${YELLOW}Newsdemon: https://members.newsdemon.com/?ref=12142571${NOCOLOR}"
 echo -e "    ${YELLOW}Hostyun: https://my.hostyun.com/page.aspx?c=referral&u=27710${NOCOLOR}"
 echo -e "    ${YELLOW}ETH: 0x9DB5737AB34E1F5d1303E9eD726776eebba3BF16${NOCOLOR}"
 echo -e "*********************"

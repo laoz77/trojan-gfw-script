@@ -24,13 +24,13 @@ apt -o Acquire::AllowInsecureRepositories=true -o Acquire::AllowDowngradeToInsec
 
 ## 如果觉得好用，欢迎打钱帮助开发或者尝试以下服务，😃❤️🤣
 
+[Usenet 提供商(newsdemon)](https://members.newsdemon.com/?ref=12142571)
+
 [阿里云盘](https://pages.aliyundrive.com/mobile-page/web/beinvited.html?code=743d6ca)
 
 [搬瓦工](https://bandwagonhost.com/aff.php?aff=68197)
 
 [Namesilo](https://www.namesilo.com/?rid=685fb47qi)
-
-[阿里云](https://www.aliyun.com/daily-act/ecs/activity_selection?userCode=fgdncdz2)
 
 [Hostyun](https://my.hostyun.com/page.aspx?c=referral&u=27710)
 

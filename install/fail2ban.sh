@@ -9,7 +9,7 @@ install_fail2ban() {
     if grep -q "DebianBanner" /etc/ssh/sshd_config; then
         :
     else
-        ssh-keygen -A
+        #ssh-keygen -A
         sed -i 's/#MaxAuthTries 6/MaxAuthTries 3/' /etc/ssh/sshd_config
         #sed -i 's/^HostKey \/etc\/ssh\/ssh_host_\(dsa\|ecdsa\)_key$/\#HostKey \/etc\/ssh\/ssh_host_\1_key/g' /etc/ssh/sshd_config
         #sed -i 's/#HostKey \/etc\/ssh\/ssh_host_ed25519_key/HostKey \/etc\/ssh\/ssh_host_ed25519_key/g' /etc/ssh/sshd_config

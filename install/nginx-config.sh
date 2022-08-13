@@ -4,8 +4,6 @@
 
 ## Standalone用法
 
-# install_jellyfin=1
-
 # nginx_config
 
 set +e

@@ -2,8 +2,6 @@
 
 ## Nginx config模组 Nginx moudle
 
-## Standalone用法
-
 # nginx_config
 
 set +e

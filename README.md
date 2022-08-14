@@ -114,17 +114,12 @@ route_test
   - [ ] [Librespeed 无最低配置要求](https://github.com/librespeed/speedtest)
 - 安全
   - [x] [Fail2ban 无最低配置要求](https://github.com/fail2ban/fail2ban)
-- 暗网
-  - [ ] [Tor](https://www.torproject.org/)
-  ~~- [i2pd](https://github.com/PurpleI2P/i2pd)~~
 - 其他
   - [ ] [Docker](https://www.docker.com/)
   - [ ] [Opentracker 高网络需求](https://erdgeist.org/arts/software/opentracker/)
   - [ ] [Dnscrypt-proxy2](https://github.com/DNSCrypt/dnscrypt-proxy)
   - [ ] [Qbittorrent_origin_version 高硬盘需求](https://github.com/qbittorrent/qBittorrent)
   ~~- [ ] [stun-server](https://github.com/jselbie/stunserver)~~
-- 区块链
-  - [ ] [Monero/XMR 高硬盘需求](https://github.com/monero-project/monero-gui)
 
 > 欢迎 PR 更多应用。
 
@@ -147,19 +142,6 @@ route_test
 2. [Shadowrocket ios](https://apps.apple.com/us/app/shadowrocket/id932747118)
 3. [Netch Windows](https://github.com/netchx/Netch)
 4. [Qv2ray Windows/Linux/Macos](https://github.com/Qv2ray/Qv2ray)
-
-## 尚未添加/整合/测试的软件 To be done
-
-咕咕咕。
-
-- 影音
-
-- [ ] [音乐解锁](https://github.com/unlock-music/unlock-music)
-- [ ] [youtube-dl](https://github.com/ytdl-org/youtube-dl)
-
-- 前端
-
-- [mikutap](https://github.com/akirarika/mikutap)
 
 ## 可能的错误及原因
 
@@ -223,19 +205,6 @@ cat /root/.trojan/letcron.log
 
 **[Aria2+Rclone+Onedrive 实现全自动化下载](https://johnrosen1.com/2021/02/14/onedrive/)**
 
-## 邮箱服务(Mail Service)使用条件
-
-1. 一台有**独立公网 IPv4**的非中国大陆 VPS/伺服器且**25/143/443/465/587/993 等 TCP 端口必须能正常使用**。
-   > _阿里云，Google cloud platform,vultr 等厂商皆不满足此项要求（当然你乐意去跟他们交涉的话就不关我事了。）。_
-2. 伺服器/VPS 必须拥有大于等于 **2+GB RAM 以及 30+GB Storage**.
-3. 一个付费域名(推荐[Namesilo](https://www.namesilo.com/?rid=685fb47qi)),.com/.xyz/.moe 等后缀无所谓。
-4. 你的伺服器(VPS) 必须支援**rDNS(PTR) record**(除非你希望你的邮件被列为 spam)。
-5. 你的伺服器(VPS) 的 ip 必须不在各种邮件黑名单里面(否则你发的所有邮件都会被列为 spam)。
-6. 本项目暂不支援 Postfixadmin,LDAP 等相关功能。
-7. 全自动垃圾删除功能默认垃圾邮件 30d 清理，已删除 14d 。
-
-> 由于邮箱服务的特殊性,仅推荐有需求(且乐意折腾)的人使用。
-
 ## Debug 相关
 
 1. 本项目主要采用 systemd+docker-compose 启动服务。
@@ -270,22 +239,3 @@ SOFTWARE.
 ## Stargazers over time
 
 [![Stargazers over time](https://starchart.cc/johnrosen1/vpstoolbox.svg)](https://starchart.cc/johnrosen1/vpstoolbox)
-
-## 题外话，看看就好
-
-1. 这个项目的初衷是什么？
-   A: 我主要是因为懒，所以才创立的这个项目。
-2. 这个项目花费了多少时间完成？
-   A: 林林总总的也有上千小时了吧，不算维护花费的时间吧。
-3. 这个项目花费了多少资金？
-   A: 金钱方面的花费倒是不多。
-4. 这个项目目前是什么情况？
-   A: 已经没什么值得添加的新功能了，我只能维护维护罢了，这个项目也没有什么热度。
-5. 开发这个项目最耗时间的是什么事情？
-   A: 查询各种各样的文档以及各种调试工作。
-6. 是否有想放弃的时候？
-   A: 有些功能确实特别难搞，中途确实有不管不顾的时候，但是最后还是坚持下来了。
-7. 开发这个项目最大的收获是什么？
-   A: 最大的收获我个人觉得不是学到了什么牛逼的技术，而是学到了项目开发所需的各种基础技能。
-8. 最可惜的是什么？
-   A: 我觉得最可惜的可能是基本只有我一个人开发，没多少人帮我。

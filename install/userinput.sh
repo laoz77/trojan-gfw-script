@@ -197,14 +197,14 @@ fi
     while [[ -z ${password1} ]]; do
         password1=$(whiptail --inputbox --nocancel "Trojan密码 (**最长30字符，请勿输入 @ **)" 8 68 --title "设置主系统密码" 3>&1 1>&2 2>&3 | sed 's/ //g')
         n=${#password1}
-      if [[ ${n} > 30 ]] || [[ ${n} < 3 ]] || [[ ${n} == 0 ]]; then
+      if [[ ${n} > 30 ]] || [[ ${n} == 0 ]] || [[ ${n} -le 3  ]]  ; then
         password1=$(
           head /dev/urandom | tr -dc a-z0-9 | head -c 6
           echo ''
         )
-        echo -e "Trojan密码设置为 ${password1}"
       fi
     done
+    echo -e "Trojan密码设置为 ${password1}"
     while [[ -z ${password2} ]]; do
         password2=$(
           head /dev/urandom | tr -dc a-z0-9 | head -c 6
@@ -484,13 +484,14 @@ userinput_full() {
     while [[ -z ${password1} ]]; do
         password1=$(whiptail --inputbox --nocancel "Trojan密码 (**最长30字符，请勿输入 @ **)" 8 68 --title "设置主系统密码" 3>&1 1>&2 2>&3 | sed 's/ //g')
         n=${#password1}
-      if [[ ${n} > 30 ]] || [[ ${n} < 3 ]] || [[ ${n} == 0 ]]; then
+      if [[ ${n} > 30 ]] || [[ ${n} == 0 ]] || [[ ${n} -le 3  ]]  ; then
         password1=$(
           head /dev/urandom | tr -dc a-z0-9 | head -c 6
           echo ''
         )
       fi
     done
+    echo -e "Trojan密码设置为 ${password1}"
     while [[ -z ${password2} ]]; do
         password2=$(
           head /dev/urandom | tr -dc a-z0-9 | head -c 6

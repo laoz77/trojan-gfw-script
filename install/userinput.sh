@@ -313,7 +313,6 @@ userinput_full() {
   "ip" "免费ip证书(没有域名的话选这个)" ${check_ip} \
   "hexo" "Hexo Blog" off \
   "ss" "shadowsocks-rust(不支持CDN)" ${check_ss} \
-  "media" "Emby Sonarr Radarr Lidarr Prowlarr Qbt" off \
   "rss" "RSSHUB + Miniflux(RSS生成器+RSS阅读器)" ${check_rss} \
   "rclone" "Rclone" ${check_rclone} \
   "aria" "Aria2+AriaNG+Filebrowser" ${check_aria} \

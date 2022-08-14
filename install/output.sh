@@ -193,31 +193,31 @@ echo -e "\e[40;33;1m [${domain}] 证书过期日期 : [\${last_date}] 剩余 [\$
 echo -e "*******************************************************************"
 if [[ -f /usr/bin/6870470f1f ]]; then
 echo -e " --- \${BLUE}Vless 链接(低延迟 低并发 支持Cloudflare CDN)\${NOCOLOR} ---"
-echo -e "    \${YELLOW}vless://${uuid_new}@${myip}:${trojanport}?mode=gun&security=tls&type=grpc&serviceName=${path_new}&sni=${domain}#Vless(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
+echo -e "    \${YELLOW}vless://${uuid_new}@${myip}:${trojanport}?mode=gun&security=tls&type=grpc&serviceName=${path_new}&sni=${domain}#Vless($(nproc --all)C$(grep MemTotal /proc/meminfo | awk '{print $2}' | xargs -I {} echo "scale=4; {}/1024^2" | bc)G ${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
 echo -e " --- \${BLUE}Vless 二维码\${NOCOLOR} ---"
-  qrencode -t UTF8 -m 2 "vless://${uuid_new}@${myip}:${trojanport}?mode=gun&security=tls&type=grpc&serviceName=${path_new}&sni=${domain}#Vless(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)"
+  qrencode -t UTF8 -m 2 "vless://${uuid_new}@${myip}:${trojanport}?mode=gun&security=tls&type=grpc&serviceName=${path_new}&sni=${domain}#Vless($(nproc --all)C$(grep MemTotal /proc/meminfo | awk '{print $2}' | xargs -I {} echo "scale=4; {}/1024^2" | bc)G ${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)"
 echo -e " --- \${BLUE}Trojan-GFW 链接(高延迟 高并发 不支持Cloudflare CDN)"
-echo -e "    \${YELLOW}trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
+echo -e "    \${YELLOW}trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan($(nproc --all)C$(grep MemTotal /proc/meminfo | awk '{print $2}' | xargs -I {} echo "scale=4; {}/1024^2" | bc)G ${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
 echo -e " --- \${BLUE}Trojan-GFW 二维码\${NOCOLOR} ---"
-  qrencode -t UTF8 -m 2 "trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)"
+  qrencode -t UTF8 -m 2 "trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan($(nproc --all)C$(grep MemTotal /proc/meminfo | awk '{print $2}' | xargs -I {} echo "scale=4; {}/1024^2" | bc)G ${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)"
 else
 echo -e " --- \${BLUE}Trojan-GFW 链接(不支持Cloudflare CDN)\${NOCOLOR} ---"
-echo -e "    \${YELLOW}trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
+echo -e "    \${YELLOW}trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan($(nproc --all)C$(grep MemTotal /proc/meminfo | awk '{print $2}' | xargs -I {} echo "scale=4; {}/1024^2" | bc)G ${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
 echo -e " --- \${BLUE}Trojan-GFW 二维码\${NOCOLOR} ---"
-  qrencode -t UTF8 -m 2 "trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)"
+  qrencode -t UTF8 -m 2 "trojan://${password1}@${myip}:${trojanport}?security=tls&headerType=none&type=tcp&sni=${domain}#Trojan($(nproc --all)C$(grep MemTotal /proc/meminfo | awk '{print $2}' | xargs -I {} echo "scale=4; {}/1024^2" | bc)G $(nproc --all)C$(grep MemTotal /proc/meminfo | awk '{print $2}' | xargs -I {} echo "scale=4; {}/1024^2" | bc)G ${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)"
 fi
 if [[ -f /usr/sbin/ssserver ]]; then
 echo -e " --- \${BLUE}SS-rust 链接\${NOCOLOR} ---"
-echo -e "    \${YELLOW}ss://aes-128-gcm:${password1}@${myip}:8388#SS(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
-echo -e "    \${YELLOW}ss://$(echo "aes-128-gcm:${password1}@${myip}:8388" | base64)#SS(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
+echo -e "    \${YELLOW}ss://aes-128-gcm:${password1}@${myip}:8388#SS($(nproc --all)C$(grep MemTotal /proc/meminfo | awk '{print $2}' | xargs -I {} echo "scale=4; {}/1024^2" | bc)G ${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
+echo -e "    \${YELLOW}ss://$(echo "aes-128-gcm:${password1}@${myip}:8388" | base64)#SS($(nproc --all)C$(grep MemTotal /proc/meminfo | awk '{print $2}' | xargs -I {} echo "scale=4; {}/1024^2" | bc)G ${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
 echo -e " --- \${BLUE}SS-rust 二维码\${NOCOLOR} ---"
-  qrencode -t UTF8 -m 2 "ss://aes-128-gcm:${password1}@${myip}:8388#SS(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)"
+  qrencode -t UTF8 -m 2 "ss://aes-128-gcm:${password1}@${myip}:8388#SS($(nproc --all)C$(grep MemTotal /proc/meminfo | awk '{print $2}' | xargs -I {} echo "scale=4; {}/1024^2" | bc)G ${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)"
 fi
 if [[ -f /usr/bin/hysteria ]]; then
 echo -e " --- \${BLUE}Hysteria 链接\${NOCOLOR} ---"
-echo -e "    \${YELLOW}hysteria://${myip}:${hyport}?protocol=udp&peer=${domain}&upmbps=${target_speed_down}&downmbps=${target_speed_up}&alpn=h3&obfsParam=${password1}#HY(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
+echo -e "    \${YELLOW}hysteria://${myip}:${hyport}?protocol=udp&peer=${domain}&upmbps=${target_speed_down}&downmbps=${target_speed_up}&alpn=h3&obfsParam=${password1}#HY($(nproc --all)C$(grep MemTotal /proc/meminfo | awk '{print $2}' | xargs -I {} echo "scale=4; {}/1024^2" | bc)G ${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)\${NOCOLOR}"
 echo -e " --- \${BLUE}Hysteria 二维码\${NOCOLOR} ---"
-  qrencode -t UTF8 -m 2 "hysteria://${myip}:${hyport}?protocol=udp&peer=${domain}&upmbps=${target_speed_down}&downmbps=${target_speed_up}&alpn=h3&obfsParam=${password1}#HY(${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)"
+  qrencode -t UTF8 -m 2 "hysteria://${myip}:${hyport}?protocol=udp&peer=${domain}&upmbps=${target_speed_down}&downmbps=${target_speed_up}&alpn=h3&obfsParam=${password1}#HY($(nproc --all)C$(grep MemTotal /proc/meminfo | awk '{print $2}' | xargs -I {} echo "scale=4; {}/1024^2" | bc)G ${route_final}${mycountry} ${myip_org} ${myip} ${myipv6} ${target_speed_up} Mbps)"
 fi
 echo -e " --- \${BLUE}Trojan-GFW 可用性检测链接(被墙检测链接)\${NOCOLOR} ---"
 echo -e "    \${YELLOW}https://tcp.ping.pe/${myip}:${trojanport}\${NOCOLOR}"
@@ -247,19 +247,6 @@ fi
 if [[ -d /usr/share/nginx/speedtest/ ]]; then
 echo -e " --- \${BLUE}Speedtest 链接\${NOCOLOR} ---"
 echo -e "    \${YELLOW}https://$domain:${trojanport}/${password1}_speedtest/\${NOCOLOR}"
-fi
-if [[ -d /usr/share/nginx/nzbget ]]; then
-echo -e " --- \${BLUE}影音链接\${NOCOLOR} ---"
-echo -e "    \${YELLOW}https://$domain:${trojanport}/emby/\${NOCOLOR}"
-echo -e "    \${YELLOW}https://$domain:${trojanport}/ombi/\${NOCOLOR}"
-echo -e "    \${YELLOW}https://$domain:${trojanport}/sonarr/\${NOCOLOR}"
-echo -e "    \${YELLOW}https://$domain:${trojanport}/radarr/\${NOCOLOR}"
-echo -e "    \${YELLOW}https://$domain:${trojanport}/lidarr/\${NOCOLOR}"
-echo -e "    \${YELLOW}https://$domain:${trojanport}/readarr/\${NOCOLOR}"
-echo -e "    \${YELLOW}https://$domain:${trojanport}/bazarr/\${NOCOLOR}"
-echo -e "    \${YELLOW}https://$domain:${trojanport}/chinesesubfinder/\${NOCOLOR}"
-echo -e "    \${YELLOW}https://$domain:${trojanport}/prowlarr/\${NOCOLOR}"
-echo -e "    \${YELLOW}https://$domain:${trojanport}/nzbget/\${NOCOLOR}"
 fi
 if [[ -d /etc/aria2/ ]]; then
 echo -e " --- \${BLUE}AriaNG+Aria2 链接\${NOCOLOR} ---"

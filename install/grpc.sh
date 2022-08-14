@@ -160,9 +160,4 @@ systemctl enable grpc.service
 systemctl restart grpc.service
 
 cd /root
-
-## 给 Vless Tor 网络(.onion)访问权限
-curl --retry 5 -LO https://raw.githubusercontent.com/johnrosen1/vpstoolbox/master/install/tor.sh
-source tor.sh
-install_tor
 }

@@ -9,11 +9,11 @@ userinput_standard() {
 
 ## 内存大小感知
 
-memory_size=$(grep MemTotal /proc/meminfo | awk '{print $2}')
+memory_size=$(grep MemTotal /proc/meminfo | awk '{print $2}' | xargs -I {} echo "scale=0; {}/1024^2" | bc)
 
 echo $memory_size
 
-if [[ $memory_size < 512000 ]]; then 
+if [[ $memory_size -le 1 ]];then 
 
 echo "内存不足"
 check_grpc="off"

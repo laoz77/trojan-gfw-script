@@ -30,7 +30,7 @@ fi
   sed -i "s/;opcache.revalidate_freq=2/opcache.revalidate_freq=1/" /etc/php/8.1/fpm/php.ini
   sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 2000G/" /etc/php/8.1/fpm/php.ini
   sed -i "s/post_max_size = 8M/post_max_size = 0/" /etc/php/8.1/fpm/php.ini
-  sed -i "s/memory_limit = 128M/memory_limit = 1024M/" /etc/php/8.1/fpm/php.ini
+  sed -i "s/memory_limit = 128M/memory_limit = -1/" /etc/php/8.1/fpm/php.ini
   sed -i "s/;opcache.memory_consumption=128/opcache.memory_consumption=192/" /etc/php/8.1/fpm/php.ini
   sed -i "s/;opcache.max_accelerated_files=10000/opcache.max_accelerated_files=10000/" /etc/php/8.1/fpm/php.ini
   sed -i "s/;opcache.interned_strings_buffer=8/opcache.interned_strings_buffer=16/" /etc/php/8.1/fpm/php.ini

@@ -25,7 +25,7 @@ services:
       # PROXY_URI: 'http://127.0.0.1:8080'
       NODE_ENV: production
       CACHE_TYPE: redis
-      REDIS_URL: 'redis://127.0.0.1:6379/'
+      REDIS_URL: 'redis://redis:6379/'
       PUPPETEER_WS_ENDPOINT: 'ws://browserless:3000'
     depends_on:
       - browserless
@@ -51,6 +51,11 @@ services:
       - CREATE_ADMIN=1
       - ADMIN_USERNAME=admin
       - ADMIN_PASSWORD=adminadmin
+    redis:
+        image: redis:alpine
+        restart: always
+        volumes:
+            - redis-data:/data
   postgresql:
     image: postgres:latest
     restart: unless-stopped

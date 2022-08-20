@@ -16,10 +16,11 @@ cat > "/usr/share/nginx/miniflux/docker-compose.yml" << EOF
 version: '3.8'
 services:
   rsshub: # 1200
+    network_mode: host
     image: diygod/rsshub
     container_name: rsshub
-    ports:
-      - '1200:1200'
+    # ports:
+    #   - '1200:1200'
     environment:
       # PROXY_URI: 'http://127.0.0.1:8080'
       NODE_ENV: production

@@ -71,6 +71,7 @@ innodb_read_only_compressed=OFF
 
 userstat = 1
 tls_version = TLSv1.2,TLSv1.3
+log_error=/var/log/mysql/mariadb.err
 # ssl_cert = /etc/certs/${domain}_ecc/fullchain.cer
 # ssl_key = /etc/certs/${domain}_ecc/${domain}.key
 EOF

@@ -117,9 +117,7 @@ route_test
 - 其他
   - [ ] [Docker](https://www.docker.com/)
   - [ ] [Opentracker 高网络需求](https://erdgeist.org/arts/software/opentracker/)
-  - [ ] [Dnscrypt-proxy2](https://github.com/DNSCrypt/dnscrypt-proxy)
   - [ ] [Qbittorrent_origin_version 高硬盘需求](https://github.com/qbittorrent/qBittorrent)
-  ~~- [ ] [stun-server](https://github.com/jselbie/stunserver)~~
 
 > 欢迎 PR 更多应用。
 

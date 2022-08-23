@@ -70,27 +70,6 @@ events {
 
 http {
 
-  #proxy_cache_path /usr/share/nginx/cache levels=1:2 keys_zone=my_cache:10m max_size=100m inactive=60m use_temp_path=off;
-  #proxy_cache_valid 200 302 10m;
-  #proxy_cache_valid 404      1m;
-  #proxy_cache_bypass \$http_pragma    \$http_authorization    \$http_cache_control;
-  #proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
-  #proxy_cache_revalidate on;
-  #proxy_cache_background_update on;
-  #proxy_cache_lock on;
-  #proxy_cache my_cache;
-
-  #fastcgi_cache_path /usr/share/nginx/php_cache levels=1:2 keys_zone=phpcache:10m max_size=100m inactive=60m use_temp_path=off;
-  #fastcgi_cache_valid 200 302 10m;
-  #fastcgi_cache_valid 404      1m;
-  #fastcgi_cache_bypass \$http_pragma    \$http_authorization    \$http_cache_control;
-  #fastcgi_cache_use_stale error timeout updating invalid_header http_500 http_503;
-  #fastcgi_cache_revalidate on;
-  #fastcgi_cache_background_update on;
-  #fastcgi_cache_lock on;
-  #fastcgi_cache phpcache;
-  #fastcgi_cache_key "\$scheme\$proxy_host\$request_uri";
-
   autoindex_exact_size off;
   http2_push_preload on;
   aio threads;
@@ -106,35 +85,12 @@ http {
   proxy_set_header Host \$http_host;
   proxy_set_header X-Real-IP \$remote_addr;
   proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+  proxy_set_header Upgrade $http_upgrade;
+  proxy_set_header Connection $http_connection;
   proxy_socket_keepalive on;
   proxy_max_temp_file_size 0;
 
-  set_real_ip_from 103.21.244.0/22;
-  set_real_ip_from 103.22.200.0/22;
-  set_real_ip_from 103.31.4.0/22;
-  set_real_ip_from 104.16.0.0/13;
-  set_real_ip_from 104.24.0.0/14;
-  set_real_ip_from 108.162.192.0/18;
-  set_real_ip_from 131.0.72.0/22;
-  set_real_ip_from 141.101.64.0/18;
-  set_real_ip_from 162.158.0.0/15;
-  set_real_ip_from 172.64.0.0/13;
-  set_real_ip_from 173.245.48.0/20;
-  set_real_ip_from 188.114.96.0/20;
-  set_real_ip_from 190.93.240.0/20;
-  set_real_ip_from 197.234.240.0/22;
-  set_real_ip_from 198.41.128.0/17;
-  set_real_ip_from 2400:cb00::/32;
-  set_real_ip_from 2606:4700::/32;
-  set_real_ip_from 2803:f800::/32;
-  set_real_ip_from 2405:b500::/32;
-  set_real_ip_from 2405:8100::/32;
-  set_real_ip_from 2c0f:f248::/32;
-  set_real_ip_from 2a06:98c0::/29;
-  set_real_ip_from 127.0.0.1;
-
-  real_ip_header CF-Connecting-IP;
-  #real_ip_header X-Forwarded-For; 
+  real_ip_header X-Forwarded-For; 
   real_ip_recursive on;
 
   include /etc/nginx/mime.types;

@@ -759,6 +759,7 @@ MasterMenu() {
 }
 cd /root
 clear
+sed -i "s/#precedence ::ffff:0:0\/96  100/precedence ::ffff:0:0\/96  100/g" /etc/gai.conf
 mkdir /root/.trojan/
 curl --ipv4 --retry 3 -s https://ipinfo.io?token=56c375418c62c9 --connect-timeout 5 &> /root/.trojan/ip.json
 initialize

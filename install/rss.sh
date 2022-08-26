@@ -47,10 +47,11 @@ services:
     volumes:
       - redis-data:/data
 EOF
+docker-compose down
+sleep 1s
 docker-compose up -d
 
 cd /usr/share/nginx/miniflux
-sed -i "s/adminadmin/${password1}/g" docker-compose.yml
 
 cat > "/usr/share/nginx/miniflux/docker-compose.yml" << EOF
 version: '3.8'
@@ -84,6 +85,10 @@ services:
 volumes:
   miniflux-db:
 EOF
+sed -i "s/adminadmin/${password1}/g" docker-compose.yml
+docker-compose down
+sleep 1s
+docker-compose up -d
 
 }
 

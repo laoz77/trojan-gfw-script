@@ -66,6 +66,7 @@ collation_server       = utf8mb4_unicode_ci
 bind-address=127.0.0.1
 
 innodb_read_only_compressed=OFF
+innodb_flush_log_at_trx_commit = 2
 
 [mariadb]
 

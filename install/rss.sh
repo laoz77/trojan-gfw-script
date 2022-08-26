@@ -16,7 +16,7 @@ mkdir rsshub
 
 cd /usr/share/nginx/rsshub
 
-cat > "/usr/share/nginx/miniflux/docker-compose.yml" << EOF
+cat > "/usr/share/nginx/rsshub/docker-compose.yml" << EOF
 version: '3.8'
 services:
   rsshub: # 1200

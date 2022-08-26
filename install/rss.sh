@@ -10,8 +10,12 @@ cd /usr/share/nginx/
 ## Install Miniflux
 
 cd /usr/share/nginx/
+
 mkdir miniflux
-cd /usr/share/nginx/miniflux
+mkdir rsshub
+
+cd /usr/share/nginx/rsshub
+
 cat > "/usr/share/nginx/miniflux/docker-compose.yml" << EOF
 version: '3.8'
 services:
@@ -37,6 +41,20 @@ services:
     restart: unless-stopped
     ports:
       - 127.0.0.1:3000:3000
+  redis:
+    image: redis:alpine
+    restart: always
+    volumes:
+      - redis-data:/data
+EOF
+docker-compose up -d
+
+cd /usr/share/nginx/miniflux
+sed -i "s/adminadmin/${password1}/g" docker-compose.yml
+
+cat > "/usr/share/nginx/miniflux/docker-compose.yml" << EOF
+version: '3.8'
+services:
   miniflux: # 8280
     image: miniflux/miniflux:latest
     restart: unless-stopped
@@ -51,11 +69,6 @@ services:
       - CREATE_ADMIN=1
       - ADMIN_USERNAME=admin
       - ADMIN_PASSWORD=adminadmin
-    redis:
-        image: redis:alpine
-        restart: always
-        volumes:
-            - redis-data:/data
   postgresql:
     image: postgres:latest
     restart: unless-stopped
@@ -71,8 +84,6 @@ services:
 volumes:
   miniflux-db:
 EOF
-sed -i "s/adminadmin/${password1}/g" docker-compose.yml
-docker-compose up -d
-cd
+
 }
 

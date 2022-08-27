@@ -235,7 +235,7 @@ if [[ -d /usr/share/nginx/miniflux/ ]]; then
 echo -e " --- \${BLUE}Miniflux+RSSHUB 链接\${NOCOLOR} ---"
 echo -e "    \${YELLOW}https://$domain:${trojanport}/miniflux/\${NOCOLOR}"
 echo -e "    \${YELLOW}用户名: admin\${NOCOLOR}"
-echo -e "    \${YELLOW}密码: ${password1}\${NOCOLOR}"
+echo -e "    \${YELLOW}密码: adminadmin\${NOCOLOR}"
 echo -e "    \${YELLOW}https://$domain:${trojanport}/rsshub/\${NOCOLOR}"
 fi
 if [[ -d /etc/filebrowser/ ]]; then

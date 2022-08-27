@@ -57,10 +57,11 @@ cat > "/usr/share/nginx/miniflux/docker-compose.yml" << EOF
 version: '3.8'
 services:
   miniflux: # 8280
+    network_mode: host
     image: miniflux/miniflux:latest
     restart: unless-stopped
-    ports:
-      - "8280:8080"
+    # ports:
+    #   - "8280:8080"
     depends_on:
       - postgresql
     environment:

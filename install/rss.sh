@@ -16,6 +16,8 @@ mkdir rsshub
 
 cd /usr/share/nginx/rsshub
 
+mkdir /usr/share/nginx/rsshub/redis
+
 cat > "/usr/share/nginx/rsshub/docker-compose.yml" << EOF
 version: '3.8'
 services:
@@ -45,7 +47,7 @@ services:
     image: redis:alpine
     restart: always
     volumes:
-      - redis-data:/data
+      - /usr/share/nginx/rsshub/redis:/data
 EOF
 docker-compose down
 sleep 1s

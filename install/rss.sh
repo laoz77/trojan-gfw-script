@@ -54,26 +54,23 @@ docker-compose up -d
 cd /usr/share/nginx/miniflux
 
 cat > "/usr/share/nginx/miniflux/docker-compose.yml" << EOF
-version: '3.8'
+version: '3.4'
 services:
-  miniflux: # 8280
-    network_mode: host
+  miniflux:
     image: miniflux/miniflux:latest
-    restart: unless-stopped
-    # ports:
-    #   - "8280:8080"
+    ports:
+      - "8080:8080"
     depends_on:
-      - postgresql
+      - db
     environment:
-      - DATABASE_URL=postgresql://miniflux:adminadmin@127.0.0.1/miniflux?sslmode=disable
+      - DATABASE_URL=postgres://miniflux:adminadmin@db/miniflux?sslmode=disable
       - BASE_URL=https://${domain}/miniflux/
       - RUN_MIGRATIONS=1
       - CREATE_ADMIN=1
       - ADMIN_USERNAME=admin
       - ADMIN_PASSWORD=adminadmin
-  postgresql:
+  db:
     image: postgres:latest
-    restart: unless-stopped
     environment:
       - POSTGRES_USER=miniflux
       - POSTGRES_PASSWORD=adminadmin
@@ -86,8 +83,6 @@ services:
 volumes:
   miniflux-db:
 EOF
-sed -i "s/adminadmin/${password1}/g" docker-compose.yml
+#sed -i "s/adminadmin/${password1}/g" docker-compose.yml
 docker-compose up -d
-
 }
-

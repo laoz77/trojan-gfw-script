@@ -49,7 +49,7 @@ services:
     volumes:
       - /usr/share/nginx/rsshub/redis:/data
 EOF
-docker-compose up -d
+docker-compose up -d --remove-orphans
 
 cd /usr/share/nginx/miniflux
 
@@ -84,5 +84,5 @@ volumes:
   miniflux-db:
 EOF
 #sed -i "s/adminadmin/${password1}/g" docker-compose.yml
-docker-compose up -d
+docker-compose up -d --remove-orphans
 }

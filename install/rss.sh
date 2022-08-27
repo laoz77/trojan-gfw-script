@@ -49,8 +49,6 @@ services:
     volumes:
       - /usr/share/nginx/rsshub/redis:/data
 EOF
-docker-compose down
-sleep 1s
 docker-compose up -d
 
 cd /usr/share/nginx/miniflux
@@ -88,8 +86,6 @@ volumes:
   miniflux-db:
 EOF
 sed -i "s/adminadmin/${password1}/g" docker-compose.yml
-docker-compose down
-sleep 1s
 docker-compose up -d
 
 }

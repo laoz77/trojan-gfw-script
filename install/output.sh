@@ -270,11 +270,10 @@ echo -e "    \${YELLOW}https://$domain:${trojanport}/chat/\${NOCOLOR}"
 fi
 if [[ -d /opt/alist ]]; then
 echo -e " --- \${BLUE}Alist 链接\${NOCOLOR} ---"
-cd /opt/alist
-alist_password=\$(./alist -password | awk -F'your password: ' '{print \$2}' 2>&1)
-cd
 echo -e "    \${YELLOW}https://$domain:${trojanport}\${NOCOLOR}"
-echo -e "    \${YELLOW}密码: \${alist_password}\${NOCOLOR}"
+cd /opt/alist
+./alist admin
+cd
 fi
 echo -e " --- \${BLUE}Telegram 群组链接\${NOCOLOR} ---"
 echo -e "    \${YELLOW}https://t.me/+VKJo-UzV4DtSbv5W\${NOCOLOR}"

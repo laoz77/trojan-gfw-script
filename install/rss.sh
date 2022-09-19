@@ -36,11 +36,11 @@ services:
     depends_on:
       - browserless
       - redis
-    restart: unless-stopped
+    restart: always
   browserless: # 3000
     image: browserless/chrome
     container_name: browserless
-    restart: unless-stopped
+    restart: always
     ports:
       - 127.0.0.1:3000:3000
   redis:
@@ -58,6 +58,7 @@ version: '3.4'
 services:
   miniflux:
     image: miniflux/miniflux:latest
+    restart: always
     ports:
       - "8080:8080"
     depends_on:
@@ -71,6 +72,7 @@ services:
       - ADMIN_PASSWORD=adminadmin
   db:
     image: postgres:latest
+    restart: always
     environment:
       - POSTGRES_USER=miniflux
       - POSTGRES_PASSWORD=adminadmin

@@ -39,7 +39,7 @@ server {
   # ssl_stapling_verify on;
   # resolver               1.1.1.1 1.0.0.1 8.8.8.8 8.8.4.4 valid=60s;
   # ssl_session_tickets off;
-  # ssl_session_cache shared:SSL:10m;
+  ssl_session_cache shared:SSL:10m;
   resolver_timeout 10s;
   client_header_timeout 60m;
   #if (\$http_user_agent ~* (360|Tencent|MicroMessenger|Maxthon|TheWorld|UC|OPPO|baidu|Sogou|2345|) ) { return 403; }

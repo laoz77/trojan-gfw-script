@@ -90,9 +90,6 @@ http {
   proxy_socket_keepalive on;
   proxy_max_temp_file_size 0;
 
-  real_ip_header X-Forwarded-For; 
-  real_ip_recursive on;
-
   include /etc/nginx/mime.types;
   default_type application/octet-stream;
 

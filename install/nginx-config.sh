@@ -42,9 +42,7 @@ server {
   ssl_session_cache shared:SSL:10m;
   resolver_timeout 10s;
   client_header_timeout 60m;
-  #if ($http_user_agent ~* "360|360SE|360EE|2345Explorer|maxthon|sogou|theworld|qiyu|green|qq|qqbrowser|tt|liebao|lbbrowser|tao|taobao|coolnovo|saayaa|uc|mi|xiaomi|baidu|yandex|micromessenger|wechat|weibo|douban|suning|iqiyi|alipay|ali-ap|ali-ap-pd|ali-am|ali-tb|ali-tb-pd|ali-tm|ali-tm-pd") {
-  #  return 444;
-  #}
+  #if ($http_user_agent ~* "360|360SE|360EE|2345Explorer|maxthon|sogou|theworld|qiyu|green|qq|qqbrowser|tt|liebao|lbbrowser|tao|taobao|coolnovo|saayaa|uc|mi|xiaomi|baidu|yandex|micromessenger|wechat|weibo|douban|suning|iqiyi|alipay|ali-ap|ali-ap-pd|ali-am|ali-tb|ali-tb-pd|ali-tm|ali-tm-pd") { return 444;}
   #if (\$http_user_agent ~* (wget|curl) ) { return 403; }
   #if (\$http_user_agent = "") { return 403; }
   #if (\$host != "$domain") { return 404; }

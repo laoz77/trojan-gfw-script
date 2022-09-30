@@ -275,6 +275,10 @@ cd /opt/alist
 ./alist admin
 cd
 fi
+echo "nameserver 1.1.1.1" > /etc/resolv.conf
+echo "nameserver 9.9.9.10" >> /etc/resolv.conf
+echo "nameserver 2606:4700:4700::1111" >> /etc/resolv.conf
+echo "nameserver 2001:4860:4860::8844" >> /etc/resolv.conf
 echo -e " --- \${BLUE}Telegram 群组链接\${NOCOLOR} ---"
 echo -e "    \${YELLOW}https://t.me/+VKJo-UzV4DtSbv5W\${NOCOLOR}"
 echo -e "*********************"

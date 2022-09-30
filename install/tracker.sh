@@ -127,10 +127,10 @@ chihaya:
     real_ip_header: "x-real-ip"
 
     # The maximum number of peers returned for an individual request.
-    max_numwant: 25
+    max_numwant: 100
 
     # The default number of peers returned for an individual request.
-    default_numwant: 10
+    default_numwant: 50
 
     # The maximum number of infohashes that can be scraped in one request.
     max_scrape_infohashes: 1

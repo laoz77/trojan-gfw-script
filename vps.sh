@@ -734,6 +734,10 @@ MasterMenu() {
     source output.sh
     clean_env
     prase_output
+    echo "nameserver 1.1.1.1" > /etc/resolv.conf
+    echo "nameserver 9.9.9.10" >> /etc/resolv.conf
+    echo "nameserver 2606:4700:4700::1111" >> /etc/resolv.conf
+    echo "nameserver 2001:4860:4860::8844" >> /etc/resolv.conf
     exit 0
     ;;
     Benchmark)

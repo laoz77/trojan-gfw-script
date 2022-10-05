@@ -6,9 +6,9 @@ set +e
 
 install_alist(){
     if [[ -d /opt/alist ]]; then
-        curl -fsSL "https://nn.ci/alist.sh" | bash -s update
+        curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s update
     else
-        curl -fsSL "https://nn.ci/alist.sh" | bash -s install
+        curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install
     fi
 
 cat '/opt/alist/data/config.json' | jq '.address |= "127.0.0.1"' >> /opt/alist/data/config.json.tmp

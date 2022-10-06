@@ -130,7 +130,7 @@ chihaya:
     max_numwant: 100
 
     # The default number of peers returned for an individual request.
-    default_numwant: 50
+    default_numwant: 100
 
     # The maximum number of infohashes that can be scraped in one request.
     max_scrape_infohashes: 1
@@ -234,6 +234,7 @@ chihaya:
   #       - "OP1011"
        blacklist:
          - "XL0012"
+         - "XL0018"
 
    - name: "interval variation"
      options:
@@ -251,5 +252,5 @@ cd
 rm -rf opentracker
 curl -X POST "https://newtrackon.com/api/add" \
  -H "Content-Type: application/x-www-form-urlencoded" \
- -d new_trackers=udp%3A%2F%2F${domain}%3A6969%2Fannounce
+ -d new_trackers=http%3A%2F%2F${domain}%3A6969%2Fannounce
 }

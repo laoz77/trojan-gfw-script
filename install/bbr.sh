@@ -97,7 +97,7 @@ net.nf_conntrack_max = 1000000
 net.netfilter.nf_conntrack_tcp_timeout_fin_wait = 60
 net.netfilter.nf_conntrack_tcp_timeout_time_wait = 60
 net.netfilter.nf_conntrack_tcp_timeout_close_wait = 30
-net.netfilter.nf_conntrack_tcp_timeout_established = 86400
+net.netfilter.nf_conntrack_tcp_timeout_established = 600
 ## Enable bbr
 net.core.default_qdisc = cake
 net.ipv4.tcp_congestion_control = bbr

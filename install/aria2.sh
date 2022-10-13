@@ -17,25 +17,31 @@ cd /root/
 trackers_list=$(wget --no-check-certificate -qO- https://trackerslist.com/best_aria2.txt)
 ariaport=$(shuf -i 13000-19000 -n 1)
 mkdir /etc/aria2/
-ariaver1=$(curl -s "https://api.github.com/repos/aria2/aria2/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-ariaver2=$(curl -s "https://api.github.com/repos/aria2/aria2/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c9-20)
-apt-get install build-essential nettle-dev libgmp-dev libssh2-1-dev libc-ares-dev libxml2-dev zlib1g-dev libsqlite3-dev libssl-dev libuv1-dev -q -y
-curl --retry 5 -LO --progress-bar https://github.com/aria2/aria2/releases/download/${ariaver1}/aria2-${ariaver2}.tar.xz
-tar -xvf aria2*.xz
-rm *.xz
-cd /root/aria2*
-sed -i 's/"1", 1, 16/"128", 1, -1/g' /root/aria2*/src/OptionHandlerFactory.cc
-sed -i 's/"20M", 1_m, 1_g/"4K", 1_k, 1_g/g' /root/aria2*/src/OptionHandlerFactory.cc
-sed -i 's/PREF_CONNECT_TIMEOUT, TEXT_CONNECT_TIMEOUT, "60", 1, 600/PREF_CONNECT_TIMEOUT, TEXT_CONNECT_TIMEOUT, "30", 1, 600/g' /root/aria2*/src/OptionHandlerFactory.cc
-sed -i 's/PREF_PIECE_LENGTH, TEXT_PIECE_LENGTH, "1M", 1_m, 1_g/PREF_PIECE_LENGTH, TEXT_PIECE_LENGTH, "4k", 1_k, 1_g/g' /root/aria2*/src/OptionHandlerFactory.cc
-sed -i 's/new NumberOptionHandler(PREF_RETRY_WAIT, TEXT_RETRY_WAIT, "0", 0, 600/new NumberOptionHandler(PREF_RETRY_WAIT, TEXT_RETRY_WAIT, "2", 0, 600/g' /root/aria2*/src/OptionHandlerFactory.cc
-sed -i 's/new NumberOptionHandler(PREF_SPLIT, TEXT_SPLIT, "5", 1, -1,/new NumberOptionHandler(PREF_SPLIT, TEXT_SPLIT, "8", 1, -1,/g' /root/aria2*/src/OptionHandlerFactory.cc
-/root/aria2*/configure
-make -j $(nproc --all)
-make install
-chmod +x /usr/local/bin/aria2c
-rm -rf /root/aria2*
-apt-get autoremove -y
+#ariaver1=$(curl -s "https://api.github.com/repos/aria2/aria2/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+#ariaver2=$(curl -s "https://api.github.com/repos/aria2/aria2/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c9-20)
+#apt-get install build-essential nettle-dev libgmp-dev libssh2-1-dev libc-ares-dev libxml2-dev zlib1g-dev libsqlite3-dev libssl-dev libuv1-dev -q -y
+#curl --retry 5 -LO --progress-bar https://github.com/aria2/aria2/releases/download/${ariaver1}/aria2-${ariaver2}.tar.xz
+#tar -xvf aria2*.xz
+#rm *.xz
+#cd /root/aria2*
+#sed -i 's/"1", 1, 16/"128", 1, -1/g' /root/aria2*/src/OptionHandlerFactory.cc
+#sed -i 's/"20M", 1_m, 1_g/"4K", 1_k, 1_g/g' /root/aria2*/src/OptionHandlerFactory.cc
+#sed -i 's/PREF_CONNECT_TIMEOUT, TEXT_CONNECT_TIMEOUT, "60", 1, 600/PREF_CONNECT_TIMEOUT, TEXT_CONNECT_TIMEOUT, "30", 1, 600/g' /root/aria2*/src/OptionHandlerFactory.cc
+#sed -i 's/PREF_PIECE_LENGTH, TEXT_PIECE_LENGTH, "1M", 1_m, 1_g/PREF_PIECE_LENGTH, TEXT_PIECE_LENGTH, "4k", 1_k, 1_g/g' /root/aria2*/src/OptionHandlerFactory.cc
+#sed -i 's/new NumberOptionHandler(PREF_RETRY_WAIT, TEXT_RETRY_WAIT, "0", 0, 600/new NumberOptionHandler(PREF_RETRY_WAIT, TEXT_RETRY_WAIT, "2", 0, 600/g' /root/aria2*/src/OptionHandlerFactory.cc
+#sed -i 's/new NumberOptionHandler(PREF_SPLIT, TEXT_SPLIT, "5", 1, -1,/new NumberOptionHandler(PREF_SPLIT, TEXT_SPLIT, "8", 1, -1,/g' /root/aria2*/src/OptionHandlerFactory.cc
+#/root/aria2*/configure
+#make -j $(nproc --all)
+#make install
+#chmod +x /usr/local/bin/aria2c
+#rm -rf /root/aria2*
+#apt-get autoremove -y
+
+curl -LO https://github.com/q3aql/aria2-static-builds/releases/download/v1.36.0/aria2-1.36.0-linux-gnu-64bit-build1.tar.bz2
+tar jxvf aria2-1.36.0-linux-gnu*.bz2
+rm ria2-1.36.0-linux-gnu*.bz2
+cd aria2-1.36.0-linux*
+sudo make install
 
   cat > '/etc/systemd/system/aria2.service' << EOF
 [Unit]
@@ -48,7 +54,7 @@ After=network.target
 Type=forking
 User=root
 RemainAfterExit=yes
-ExecStart=/usr/local/bin/aria2c --conf-path=/etc/aria2/aria2.conf
+ExecStart=/usr/bin/aria2c --conf-path=/etc/aria2/aria2.conf
 ExecReload=/usr/bin/kill -HUP \$MAINPID
 ExecStop=/usr/bin/kill -s STOP \$MAINPID
 LimitNOFILE=infinity

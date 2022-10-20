@@ -82,12 +82,12 @@ systemctl enable trojan
         "dhparam": ""
     },
     "tcp": {
-        "prefer_ipv4": false,
+        "prefer_ipv4": true,
         "no_delay": true,
         "keep_alive": true,
         "reuse_port": true,
-        "fast_open": true,
-        "fast_open_qlen": 512
+        "fast_open": false,
+        "fast_open_qlen": 0
     },
     "mysql": {
         "enabled": false,
@@ -157,12 +157,12 @@ systemctl enable trojan
         "dhparam": ""
     },
     "tcp": {
-        "prefer_ipv4": false,
+        "prefer_ipv4": true,
         "no_delay": true,
         "keep_alive": true,
         "reuse_port": true,
-        "fast_open": true,
-        "fast_open_qlen": 512
+        "fast_open": false,
+        "fast_open_qlen": 0
     },
     "mysql": {
         "enabled": false,

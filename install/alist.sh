@@ -20,7 +20,7 @@ After=network.target network.service
 [Service]
 Type=simple
 WorkingDirectory=/opt/alist
-ExecStart=/opt/alist/alist server 127.0.0.1
+ExecStart=/opt/alist/alist server
 KillMode=process
 LimitNOFILE=infinity
 RestartSec=3s
@@ -33,4 +33,13 @@ EOF
 systemctl daemon-reload
 systemctl enable alist
 systemctl restart alist
+
+cd /opt/alist/data
+cat config.json | jq '.address = "127.0.0.1"' &> tmp.json
+cp tmp.json config.json
+rm tmp.json
+cd
+
+systemctl restart alist
+
 }
